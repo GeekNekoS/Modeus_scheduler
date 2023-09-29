@@ -13,4 +13,6 @@
 
 ## Полезные ссылки
 https://modeus.custis.ru/
+
+https://modeus.net/
 <br /> <br />
