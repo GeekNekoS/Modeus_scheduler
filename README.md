@@ -21,8 +21,8 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
-• Hensonn ♡ <br />
-|-> Sahara
+• Hensonn <br />
+|-> Sahara ♡
 
 • Oliver Huntemann <br />
 |-> Tranquilizer <br />
