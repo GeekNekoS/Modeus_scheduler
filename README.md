@@ -23,7 +23,7 @@ https://modeus.net/
 ## Музычка для разработки 
 • Jeremy Soule (Skyrim) <br />
 |-> Wind Guide You ♡ <br />
-|-> Beneath the Ice ♡ 
+|-> Beneath the Ice 
 
 • Oliver Huntemann <br />
 |-> Tranquilizer <br />
