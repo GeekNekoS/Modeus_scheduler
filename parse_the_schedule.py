@@ -64,6 +64,15 @@ def parse():
     math_button.click()
     time.sleep(1)
 
+    basic_level_button = driver.find_element(By.XPATH, "//div[text()=' Математика. Базовый уровень. ']")
+    basic_level_button.click()
+    time.sleep(1)
+
+    module_schedule_button = driver.find_element(By.XPATH, "//a[text()=' Расписание модуля ']")
+    module_schedule_button.click()
+    time.sleep(1)
+
+    # Поздравляю, вы на странице, которую нужно спарсить
     time.sleep(60)
 
 
