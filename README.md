@@ -21,6 +21,7 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
-• Oliver Huntemann: Tranquilizer
+• Oliver Huntemann: <br />
+|-> Tranquilizer
 <br /> <br />
 
