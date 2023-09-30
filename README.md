@@ -24,6 +24,7 @@ https://modeus.net/
 • Jeremy Soule (Skyrim) <br />
 |-> Beneath the Ice ♡ <br />
 |-> Death in the Darkness <br />
+|-> Shattered Shields <br />
 |-> Silence Unbroken
 
 • Oliver Huntemann <br />
