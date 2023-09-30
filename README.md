@@ -22,7 +22,7 @@ https://modeus.net/
 
 ## Музычка для разработки 
 • Oliver Huntemann: <br />
-|-> Tranquilizer
+|-> Tranquilizer <br />
 |-> They Are (Not) After You 
 <br /> <br />
 
