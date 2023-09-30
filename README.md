@@ -23,7 +23,7 @@ https://modeus.net/
 ## Музычка для разработки 
 • Oliver Huntemann: <br />
 |-> Tranquilizer <br />
-|-> They Are (Not) After You 
+|-> They Are (Not) After You <br />
 |-> Dark Passenger
 <br /> <br />
 
