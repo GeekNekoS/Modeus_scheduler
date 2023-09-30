@@ -21,7 +21,10 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
-• Oliver Huntemann: <br />
+• Jeremy Soule (Skyrim) <br />
+|-> Silence Unbroken
+
+• Oliver Huntemann <br />
 |-> Tranquilizer <br />
 |-> They Are (Not) After You <br />
 |-> Dark Passenger
