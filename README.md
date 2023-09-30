@@ -21,7 +21,7 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
-• Hensonn <br />
+• Hensonn ♡ <br />
 |-> Sahara
 
 • Oliver Huntemann <br />
@@ -30,6 +30,8 @@ https://modeus.net/
 |-> Dark Passenger
 <br /> <br />
 
+<!--
 • Jeremy Soule (Skyrim) <br />
 |-> From Past to Present ♡ <br />
 |-> Wind Guide You <br />
+-->
