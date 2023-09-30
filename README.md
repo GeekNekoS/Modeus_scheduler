@@ -22,10 +22,8 @@ https://modeus.net/
 
 ## Музычка для разработки 
 • Jeremy Soule (Skyrim) <br />
-|-> Beneath the Ice ♡ <br />
-|-> Death in the Darkness <br />
-|-> Shattered Shields <br />
-|-> Silence Unbroken
+|-> Wind Guide You ♡ <br />
+|-> Beneath the Ice ♡ 
 
 • Oliver Huntemann <br />
 |-> Tranquilizer <br />
