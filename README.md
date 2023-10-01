@@ -22,7 +22,8 @@ https://modeus.net/
 
 ## Музычка для разработки 
 • Inon Zur <br />
-|-> Main Theme (Fallout 4)
+|-> Main Theme (Fallout 4) <br />
+|-> Hope Remains
 
 • Jeremy Soule (Skyrim) <br />
 |-> From Past to Present ♡ <br />
