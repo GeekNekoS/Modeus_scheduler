@@ -21,19 +21,6 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
-• Hensonn <br />
-|-> Sahara ♡ <br />
-|-> Puncher <br />
-|-> Omega
-
-• Oliver Huntemann <br />
-|-> Tranquilizer <br />
-|-> They Are (Not) After You <br />
-|-> Dark Passenger
-<br /> <br />
-
-<!--
 • Jeremy Soule (Skyrim) <br />
 |-> From Past to Present ♡ <br />
 |-> Wind Guide You <br />
--->
