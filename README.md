@@ -10,13 +10,29 @@
 <code>pip install requirements.txt</code>
 
 • Создайте файл .env и заполните в нейм переменные LOGIN и PASSWORD (пока что от вашего Modeus аккаунта)
+
+• Установите PostgreSQL (отсюда: https://www.postgresql.org/download/) с дефолтными настройками (в настройках установки ничего не меняете)
+
+Задаёте пароль для суперпользователя: <code>1</code> (в наших локальных проектах будет "1", а при деплое на сервер мы зададим нормальный пароль)
+
+В итоге должно получиться:
+1. Директория PostgreSQL: <code>C:\Program Files\PostgreSQL\16</code>
+2. Директория данных: <code>C:\Program Files\PostgreSQL\16\data</code>
+3. Пароль: <code>1</code>
+4. Порт: <code>5432</code>
+
+• Создайте новую базу данных через pgAdmin (дополнение к PostgreSQL, помогающее в более удобном формате работать с данными)
 <br /> <br />
 
 
-## Полезные ссылки
-https://modeus.custis.ru/
+## Домашнее задание
+Оформить в свободной форме или в форме диаграммы Ганта (или других)
 
-https://modeus.net/
+• План работы команды (задачи, сроки, ответственные)
+
+• Планируемый личный вклад в проект
+
+• Планируемый личный профессиональный результат
 <br /> <br />
 
 
@@ -30,8 +46,4 @@ https://modeus.net/
 |-> Main Theme (Fallout 4) <br />
 |-> Hope Remains <br />
 |-> Rebuild, Renew
-
-• Jeremy Soule (Skyrim) <br />
-|-> From Past to Present ♡ <br />
-|-> Wind Guide You <br />
 -->
