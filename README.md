@@ -39,8 +39,7 @@
 ## Музычка для разработки 
 • Hensonn <br />
 |-> Puncher <br />
-|-> Omega <br />
-|-> Sahara
+|-> Omega
 
 <!--
 • Inon Zur <br />
