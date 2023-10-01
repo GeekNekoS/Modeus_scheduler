@@ -22,8 +22,8 @@ https://modeus.net/
 
 ## Музычка для разработки 
 • Hensonn <br />
-|-> Sahara ♡ <br />
-|-> Puncher <br />
+|-> Puncher ♡ <br />
+|-> Sahara <br />
 |-> Omega
 
 • Oliver Huntemann <br />
