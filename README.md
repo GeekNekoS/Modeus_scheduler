@@ -21,6 +21,10 @@ https://modeus.net/
 
 
 ## Музычка для разработки 
+• Hensonn <br />
+|-> Omega
+
+<!--
 • Inon Zur <br />
 |-> Main Theme (Fallout 4) <br />
 |-> Hope Remains <br />
@@ -29,3 +33,4 @@ https://modeus.net/
 • Jeremy Soule (Skyrim) <br />
 |-> From Past to Present ♡ <br />
 |-> Wind Guide You <br />
+-->
