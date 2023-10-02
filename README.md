@@ -3,6 +3,13 @@
 <br /> <br />
 
 
+## Информация о Telegram боте
+• Токен: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE
+
+• Ник бота: @exampdd_bot (Простенький бот, в нём пару вариантов экзамена по ПДД)
+<br /> <br />
+
+
 ## Загрузка и настройка готового проекта
 • Версия Python: 3.11.5
 
@@ -52,8 +59,6 @@
 |-> Hope Remains <br />
 |-> Rebuild, Renew
 
-## API токены созданных ботов
-Innokentiy: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE    @exampdd_bot Простенький бот, в нём пару вариантов экзамена по ПДД
 <!--
 • Hensonn <br />
 |-> Puncher <br />
