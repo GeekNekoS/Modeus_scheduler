@@ -52,6 +52,8 @@
 |-> Hope Remains <br />
 |-> Rebuild, Renew
 
+## API токены созданных ботов
+Innokentiy: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE    @exampdd_bot Простенький бот, в нём пару вариантов экзамена по ПДД
 <!--
 • Hensonn <br />
 |-> Puncher <br />
