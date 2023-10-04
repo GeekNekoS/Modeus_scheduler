@@ -1,3 +1,5 @@
+# Тут много говнокода! Я исправлю, честно, только позже - Neko
+
 import time
 import os
 from selenium import webdriver
@@ -56,7 +58,7 @@ def reg():
         return None
 
 
-def parse():
+def parse_math_basic_level():
     get_connect('https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0')
     time.sleep(5)
 
@@ -73,12 +75,24 @@ def parse():
     time.sleep(1)
 
     # Поздравляю, вы на странице, которую нужно спарсить
-    time.sleep(60)
+    # time.sleep(60*10)
+
+
+def parse_itis_4():
+    get_connect('https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0')
+    time.sleep(5)
+
+    itis_button = driver.find_element(By.XPATH, "//div[text()=' Информационные технологии и сервисы ']")
+    itis_button.click()
+    time.sleep(1)
+
+    time.sleep(60 * 10)
 
 
 def main():
     reg()
-    parse()
+    # parse_math_basic_level()
+    parse_itis_4()
 
 
 if __name__ == "__main__":

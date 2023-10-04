@@ -3,7 +3,7 @@
 <br /> <br />
 
 
-## Информация о Telegram боте
+## Информация о тестовом Telegram боте
 • Токен: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE
 
 • Ник бота: @exampdd_bot (Простенький бот, в нём пару вариантов экзамена по ПДД)
@@ -54,13 +54,8 @@
 
 
 ## Музычка для разработки
-• Inon Zur <br />
-|-> Main Theme (Fallout 4) <br />
-|-> Hope Remains <br />
-|-> Rebuild, Renew
-
-<!--
-• Hensonn <br />
-|-> Puncher <br />
-|-> Omega
--->
+• Glue Trip <br />
+|-> Time Lapses ♡ <br />
+|-> Closing Cycles ♡ <br />
+|-> Solomon <br />
+|-> Glue Trip feat. joy J Music - E.W.W.T <br />
