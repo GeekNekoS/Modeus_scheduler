@@ -75,7 +75,7 @@ def parse_math_basic_level():
     time.sleep(1)
 
     # Поздравляю, вы на странице, которую нужно спарсить
-    # time.sleep(60*10)
+    time.sleep(60*10)
 
 
 def parse_itis_4():
@@ -91,8 +91,8 @@ def parse_itis_4():
 
 def main():
     reg()
-    # parse_math_basic_level()
-    parse_itis_4()
+    parse_math_basic_level()
+    # parse_itis_4()
 
 
 if __name__ == "__main__":

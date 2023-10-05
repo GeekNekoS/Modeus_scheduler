@@ -10,7 +10,15 @@
 <br /> <br />
 
 
-## Загрузка и настройка готового проекта
+## Установка проекта на ПК
+1. Откройте консоль, вбив в поисковике ПК: <code>cd</code>
+2. Перейдите в директорию, куда хотите установить проект, пропишите следующей командой в консоль: <code>N:\Путь\до\папки\с\проектами</code>
+3. Введите следующую команду: <code>git clone https://github.com/GeekNekoS/Modeus_scheduler.git </code>
+4. Откройте скачанный проект и можете приступать к разработке
+<br /> <br />
+
+
+## Настройка готового проекта
 • Версия Python: 3.11.5
 
 • После скачивания проекта к себе на компьютер не забудьте установить необходимые зависимости, прописав к консоли команду: 
@@ -54,8 +62,8 @@
 
 
 ## Музычка для разработки
-• Glue Trip <br />
-|-> Time Lapses ♡ <br />
-|-> Closing Cycles ♡ <br />
-|-> Solomon <br />
-|-> Glue Trip feat. joy J Music - E.W.W.T <br />
+• Kelly Bailey (Half-Life) <br />
+|-> Apprehension and Evasion <br />
+|-> Diabolical Adrenaline Guitar <br />
+|-> Dark Energy <br />
+|-> LG Orbifold
