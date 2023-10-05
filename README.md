@@ -55,20 +55,8 @@
 <br /> <br />
 
 
-## Домашнее задание
-Оформить в свободной форме или в форме диаграммы Ганта (или других)
-
-• План работы команды (задачи, сроки, ответственные)
-
-• Планируемый личный вклад в проект
-
-• Планируемый личный профессиональный результат
-<br /> <br />
-
-
 ## Музычка для разработки
-• Kelly Bailey (Half-Life) <br />
-|-> Apprehension and Evasion <br />
-|-> Diabolical Adrenaline Guitar <br />
-|-> Dark Energy <br />
-|-> LG Orbifold
+• Gorillas <br />
+|-> Demon Days <br />
+|-> Re-Hash
+<br /> <br />

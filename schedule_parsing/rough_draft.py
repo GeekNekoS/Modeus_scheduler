@@ -1,5 +1,3 @@
-# Тут много говнокода! Я исправлю, честно, только позже - Neko
-
 import time
 import os
 from selenium import webdriver
