@@ -7,6 +7,7 @@ class BaseClass:
         self.driver = driver
         self.time = 10
         self.auth_url = "https://urfu.modeus.org/"
+        self.lessons_url = "https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0"
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
@@ -18,3 +19,6 @@ class BaseClass:
 
     def go_to_auth_page(self):
         return self.driver.get(self.auth_url)
+
+    def go_to_lessons_page(self):
+        return self.driver.get(self.lessons_url)

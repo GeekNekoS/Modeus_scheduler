@@ -68,7 +68,7 @@ def parse_math_basic_level():
     basic_level_button.click()
     time.sleep(1)
 
-    module_schedule_button = driver.find_element(By.XPATH, "//a[text()=' Расписание модуля ']")
+    module_schedule_button = driver.find_element(By.XPATH, "//a[text()=' Расписание модуля ']")  # <==
     module_schedule_button.click()
     time.sleep(1)
 
