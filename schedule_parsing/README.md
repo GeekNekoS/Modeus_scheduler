@@ -4,5 +4,15 @@
 
 
 ## Запуск тестов
-• Впишите в консоль: <code>pytest</code>
+• Всех тестов проекта: <code>pytest</code>
+
+<!--
+• Тестов модуля: <code>pytest test_mod.py</code>
+
+• Запуск тестов из директории: <code>pytest testing/</code>
+-->
 <br /> <br />
+
+
+## Многопоточный запуск тестов
+<code>pip install pytest-xdist</code>

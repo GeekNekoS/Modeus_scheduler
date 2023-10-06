@@ -25,5 +25,5 @@ class ModeusPage(BaseClass):
     def click_math_basic_level_button(self):
         return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
 
-    def click_math_module_schedule_button(self):
+    def click_on_module_math_basic_level_button(self):
         return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()
