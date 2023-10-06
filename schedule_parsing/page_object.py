@@ -18,5 +18,12 @@ class LoginPage(BaseClass):
     # Log out
 
 
-class ModeusPage:
-    pass
+class ModeusPage(BaseClass):
+    def click_math_button(self):
+        return self.find_element(ModeusLocators.MATH_BUTTON, time=self.time).click()
+
+    def click_math_basic_level_button(self):
+        return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
+
+    def click_math_module_schedule_button(self):
+        return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()

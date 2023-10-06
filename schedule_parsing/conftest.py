@@ -13,9 +13,6 @@ LOGGER = logging.getLogger(__name__)
 
 @pytest.fixture(scope="class")
 def driver():
-    # options = Options()
-    # options.page_load_strategy = 'eager'
-    # driver = webdriver.Chrome(options=options)
     driver = webdriver.Chrome()
 
     LOGGER.info('The browser opens on the main page')
@@ -44,5 +41,3 @@ def driver():
 
     # LOGGER.info('Closing the browser')
     # driver.quit()
-
-# выписать действие регистрации в функции driver в отдельную фикстуру
