@@ -56,7 +56,6 @@
 
 
 ## Музычка для разработки
-• Gorillas <br />
-|-> Demon Days <br />
-|-> Re-Hash
+• Jeremy Soule <br />
+|-> Skyrim Atmospheres <br />
 <br /> <br />
