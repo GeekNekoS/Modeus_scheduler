@@ -7,7 +7,7 @@ import time
 LOGGER = logging.getLogger(__name__)
 
 
-def test_copying_files(driver):
+def test_math_basic(driver):
     # Authorization
     LOGGER.info('Precondition - authorization')
     modeus_main_page = ModeusPage(driver)
@@ -27,3 +27,7 @@ def test_copying_files(driver):
 
     LOGGER.info('OK')
     time.sleep(10)
+
+
+def itis():
+    pass
