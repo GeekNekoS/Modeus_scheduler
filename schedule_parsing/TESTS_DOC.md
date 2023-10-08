@@ -1,4 +1,4 @@
-# Schedule_parsing
+# Tests documentation
 Разработка и тестирование бота-парсера
 <br /> <br />
 
@@ -15,4 +15,5 @@
 
 
 ## Многопоточный запуск тестов
-<code>pip install pytest-xdist</code>
+Добавить по необходимости: <code>pip install pytest-xdist</code>
+<br /> <br />
