@@ -1,8 +1,8 @@
 import psycopg2
 
 try:
-    conn = psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules')
-    cursor = conn.cursor()
+    connection = psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules')
+    cursor = connection.cursor()
 
     cursor.execute("""
         CREATE TABLE Customers (
@@ -14,9 +14,11 @@ try:
         );
     """)
 
-    all_users = cursor.fetchall()
+    connection.commit()
+
     cursor.close()
-    conn.close()
+    connection.close()
+    
 except Exception as ex:
     print('Can`t establish connection to database')
     print(ex)

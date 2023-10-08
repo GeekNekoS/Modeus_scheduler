@@ -56,8 +56,8 @@
 
 
 ## Музычка для разработки
-• Jeremy Soule <br />
-|-> Skyrim Atmospheres <br />
+• Black Sabbath <br />
+|-> Paranoid
 <br /> <br />
 
 
