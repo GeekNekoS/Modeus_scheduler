@@ -59,3 +59,10 @@
 • Jeremy Soule <br />
 |-> Skyrim Atmospheres <br />
 <br /> <br />
+
+
+## Удалить зависимости
+• pyttsx3
+
+• pandas
+<br /> <br />
