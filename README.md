@@ -55,6 +55,23 @@
 <br /> <br />
 
 
+## Структура базы данных
+<table>
+    <thead>
+        <tr><th>Уроки</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>ИТИС</td></tr>
+        <tr><td>История</td></tr>
+        <tr><td>Математика</td></tr>
+        <tr><td>ИРГ</td></tr>
+        <tr><td>Физика</td></tr>
+        <tr><td>Английский</td></tr>
+    </tbody>
+</table>
+<br /> <br />
+
+
 ## Музычка для разработки
 • Black Sabbath <br />
 |-> Paranoid
