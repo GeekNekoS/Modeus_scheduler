@@ -55,7 +55,7 @@
 <br /> <br />
 
 
-## Структура базы данных
+## Структура базы данных (черновик)
 <table>
     <thead>
         <tr><th>Уроки</th></tr>
@@ -69,16 +69,16 @@
         <tr><td>Английский</td></tr>
     </tbody>
 </table>
-<br /> <br />
+<br />
 
 
 ## Музычка для разработки
-• Black Sabbath <br />
-|-> Paranoid
+• Fischerspooner <br />
+|-> Get Confused
 <br /> <br />
 
 
-## Удалить зависимости
+## Почистить зависимости
 • pyttsx3
 
 • pandas
