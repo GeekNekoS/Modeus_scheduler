@@ -73,8 +73,8 @@
 
 
 ## Музычка для разработки
-• Fischerspooner <br />
-|-> Wednesday
+• Pink Floyd <br />
+|-> Time (Edited)
 <br /> <br />
 
 
