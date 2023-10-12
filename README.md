@@ -74,12 +74,14 @@
 
 ## Музычка для разработки
 • Pink Floyd <br />
-|-> Time (Edited)
+|-> Money <br />
+|-> Time (Edited) <br />
+|-> Comfortably Numb <br />
+|-> Learning to Fly
 <br /> <br />
 
 
 ## Почистить зависимости
-• pyttsx3
-
+• pyttsx3 <br />
 • pandas
 <br /> <br />
