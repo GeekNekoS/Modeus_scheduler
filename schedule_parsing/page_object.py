@@ -42,3 +42,12 @@ class ModeusPage(BaseClass):
 
     def click_on_english_schedule_button(self):
         self.find_element(ModeusLocators.ENGLISH_SCHEDULE_BUTTON, time=self.time).click()
+
+    def click_on_itis_lesson(self):
+        self.find_element(ModeusLocators.ITIS_LESSON_BUTTON, time=self.time).click()
+
+    def click_on_itis_1(self):
+        self.find_element(ModeusLocators.ITIS_1_MODULE, time=self.time).click()
+
+    def click_on_itis_1_schedule(self):
+        self.find_element(ModeusLocators.ITIS_1_SCHEDULE, time=self.time).click()
