@@ -27,3 +27,8 @@ class ModeusPage(BaseClass):
 
     def click_on_module_math_basic_level_button(self):
         return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()
+
+    def parse_all(self):
+        # lessons = self.find_elements(ModeusLocators.MODULES_BUTTONS, time=self.time)
+        # return lessons[0].click()
+        return self.find_element(ModeusLocators.ENGLISH_MODULE, time=self.time).click()

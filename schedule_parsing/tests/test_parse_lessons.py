@@ -7,27 +7,39 @@ import time
 LOGGER = logging.getLogger(__name__)
 
 
-def test_math_basic(driver):
+# def test_math_basic(driver):
+#     # Authorization
+#     LOGGER.info('Precondition - authorization')
+#     modeus_main_page = ModeusPage(driver)
+#
+#     # Work on page
+#     LOGGER.info('The Modeus page opens')
+#     modeus_main_page.go_to_lessons_page()
+#
+#     LOGGER.info('Click on math lesson')
+#     modeus_main_page.click_math_button()
+#
+#     LOGGER.info('Click on the math basic level button')
+#     modeus_main_page.click_math_basic_level_button()
+#
+#     LOGGER.info('Click on the "copy" method')
+#     modeus_main_page.click_on_module_math_basic_level_button()
+#
+#     LOGGER.info('OK')
+#     time.sleep(10)
+
+
+def test_parse_all(driver):
     # Authorization
     LOGGER.info('Precondition - authorization')
     modeus_main_page = ModeusPage(driver)
 
     # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
     LOGGER.info('The Modeus page opens')
-    modeus_main_page.go_to_lessons_page()
-
-    LOGGER.info('Click on math lesson')
-    modeus_main_page.click_math_button()
-
-    LOGGER.info('Click on the math basic level button')
-    modeus_main_page.click_math_basic_level_button()
-
-    LOGGER.info('Click on the "copy" method')
-    modeus_main_page.click_on_module_math_basic_level_button()
+    modeus_main_page.parse_all()
 
     LOGGER.info('OK')
     time.sleep(10)
-
-
-def itis():
-    pass
