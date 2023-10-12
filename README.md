@@ -74,6 +74,9 @@
 
 ## Музычка для разработки
 • Pink Floyd <br />
+|-> Breathe (In The Air) [2011 Remastered Version] ♡ <br />
+|-> On The Run [2011 Remastered Version] <br />
+|-> Since On You Crazy Diamond, Pst. 1-5 (Edited) ♡ <br />
 |-> Money <br />
 |-> Time (Edited) <br />
 |-> Comfortably Numb <br />

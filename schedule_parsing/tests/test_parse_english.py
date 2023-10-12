@@ -50,14 +50,5 @@ def test_parse_english(driver):
     LOGGER.info('Click on English schedule button')
     modeus_main_page.click_on_english_schedule_button()
 
-    LOGGER.info('OK')
+    LOGGER.info('Save data to DB')
     time.sleep(10)
-
-    # LOGGER.info('The Modeus modules page opens')
-    # modeus_main_page.go_to_modules_page()
-    #
-    # LOGGER.info('The Modeus all lessons page opens')
-    # modeus_main_page.click_on_all_module()
-    #
-    # LOGGER.info('OK')
-    # time.sleep(10)
