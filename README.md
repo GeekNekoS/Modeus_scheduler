@@ -3,6 +3,12 @@
 <br /> <br />
 
 
+# Навигация
+[Информация о тестовом Telegram боте](#telegram_bot_info)
+<br /> <br />
+
+
+<a name="telegram_bot_info"></a> 
 ## Информация о тестовом Telegram боте
 • Токен: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE
 
@@ -74,15 +80,18 @@
 
 ## Музычка для разработки
 • Pink Floyd <br />
-|-> Don't Leave Me Now <br />
-|-> Young Lust ♡ <br />
-|-> Breathe (In The Air) [2011 Remastered Version] ♡ <br />
-|-> On The Run [2011 Remastered Version] <br />
-|-> Since On You Crazy Diamond, Pst. 1-5 (Edited) ♡ <br />
-|-> Money <br />
-|-> Time (Edited) <br />
-|-> Comfortably Numb <br />
-|-> Learning to Fly
+|__ Waiting for the Worms ♡ <br />
+|__ Run Like Hell <br />
+|__ Hay You <br />
+|__ Don't Leave Me Now <br />
+|__ Young Lust ♡ <br />
+|__ Breathe (In The Air) [2011 Remastered Version] ♡ <br />
+|__ On The Run [2011 Remastered Version] <br />
+|__ Since On You Crazy Diamond, Pst. 1-5 (Edited) ♡ <br />
+|__ Money <br />
+|__ Time (Edited) <br />
+|__ Comfortably Numb <br />
+|__ Learning to Fly
 <br /> <br />
 
 
