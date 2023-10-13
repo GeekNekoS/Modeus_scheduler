@@ -4,7 +4,13 @@
 
 
 # Навигация
-[Информация о тестовом Telegram боте](#telegram_bot_info)
+- [Информация о тестовом Telegram боте](#telegram_bot_info)
+- [Установка проекта на ПК](#download_project)
+- [Настройка готового проекта](#setting_up_project)
+- [Настройка PoastgreSQL](#setting_up_postgres)
+- [Структура базы данных (черновик)](#database_structure)
+- [Музычка для разработки](#music)
+- [Почистить зависимости](#clean_up_dependencies)
 <br /> <br />
 
 
@@ -16,6 +22,7 @@
 <br /> <br />
 
 
+<a name="download_project"></a> 
 ## Установка проекта на ПК
 1. Откройте консоль, вбив в поисковике ПК: <code>cmd</code>
 2. Перейдите в директорию, куда хотите установить проект, пропишите следующую команду в консоль: <code>cd N:\Путь\до\папки\с\проектами</code>
@@ -24,6 +31,7 @@
 <br /> <br />
 
 
+<a name="setting_up_project"></a>
 ## Настройка готового проекта
 • Версия Python: 3.11.5
 
@@ -36,6 +44,7 @@
 <br /> <br />
 
 
+<a name="setting_up_postgres"></a>
 ## Настройка PoastgreSQL
 В диалоговом окне установщика PoastgreSQL:
 
@@ -61,6 +70,7 @@
 <br /> <br />
 
 
+<a name="database_structure"></a>
 ## Структура базы данных (черновик)
 <table>
     <thead>
@@ -78,6 +88,7 @@
 <br />
 
 
+<a name="music"></a>
 ## Музычка для разработки
 • Pink Floyd <br />
 |__ Waiting for the Worms ♡ <br />
@@ -95,6 +106,7 @@
 <br /> <br />
 
 
+<a name="clean_up_dependencies"></a>
 ## Почистить зависимости
 • pyttsx3 <br />
 • pandas
