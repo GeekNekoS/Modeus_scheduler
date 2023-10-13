@@ -3,6 +3,13 @@
 <br /> <br />
 
 
+## Настройка и работа с ботом
+• Для написания бота используется библиотека: <code>pyTelegramBotAPI</code>
+
+• Дока на <code>pyTelegramBotAPI</code>: https://pypi.org/project/pyTelegramBotAPI/
+<br /> <br />
+
+
 ## Данные Telegram бота
 • Имя: <code>UrfuCompanion</code>
 
