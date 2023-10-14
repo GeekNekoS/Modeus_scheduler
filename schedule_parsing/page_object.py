@@ -48,3 +48,15 @@ class ModeusPage(BaseClass):
 
     def click_on_itis_2(self):
         return self.find_element(ModeusLocators.ITIS_2_MODULE, time=self.time).click()
+
+    def click_on_itis_3(self):
+        return self.find_element(ModeusLocators.ITIS_3_MODULE, time=self.time).click()
+
+    def click_on_itis_4(self):
+        return self.find_element(ModeusLocators.ITIS_4_MODULE, time=self.time).click()
+
+    def click_on_itis_5(self):
+        return self.find_element(ModeusLocators.ITIS_5_MODULE, time=self.time).click()
+
+    def click_on_itis_6(self):
+        return self.find_element(ModeusLocators.ITIS_6_MODULE, time=self.time).click()
