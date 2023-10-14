@@ -12,7 +12,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 @pytest.fixture(scope="class")
-def driver():
+def login():
     driver = webdriver.Chrome()
 
     LOGGER.info('The browser opens on the main page')

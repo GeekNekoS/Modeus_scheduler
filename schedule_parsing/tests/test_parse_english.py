@@ -30,10 +30,10 @@ seconds = 1
 #     time.sleep(10)
 
 
-def test_parse_english(driver):
+def test_parse_english(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')

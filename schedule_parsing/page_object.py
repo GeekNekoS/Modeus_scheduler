@@ -60,3 +60,6 @@ class ModeusPage(BaseClass):
 
     def click_on_itis_6(self):
         return self.find_element(ModeusLocators.ITIS_6_MODULE, time=self.time).click()
+
+    def click_on_itis_7(self):
+        return self.find_element(ModeusLocators.ITIS_7_MODULE, time=self.time).click()
