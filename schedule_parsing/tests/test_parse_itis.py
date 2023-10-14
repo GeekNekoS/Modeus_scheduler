@@ -8,10 +8,10 @@ LOGGER = logging.getLogger(__name__)
 seconds = 1
 
 
-def test_parse_itis_1(driver):
+def test_parse_itis_1(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -33,10 +33,10 @@ def test_parse_itis_1(driver):
     time.sleep(seconds)
 
 
-def test_parse_itis_2(driver):
+def test_parse_itis_2(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -58,10 +58,10 @@ def test_parse_itis_2(driver):
     time.sleep(seconds)
 
 
-def test_parse_itis_3(driver):
+def test_parse_itis_3(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -83,10 +83,10 @@ def test_parse_itis_3(driver):
     time.sleep(seconds)
 
 
-def test_parse_itis_4(driver):
+def test_parse_itis_4(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -108,10 +108,10 @@ def test_parse_itis_4(driver):
     time.sleep(seconds)
 
 
-def test_parse_itis_5(driver):
+def test_parse_itis_5(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -133,10 +133,10 @@ def test_parse_itis_5(driver):
     time.sleep(seconds)
 
 
-def test_parse_itis_6(driver):
+def test_parse_itis_6(login):
     # Authorization
     LOGGER.info('Precondition - authorization')
-    modeus_main_page = ModeusPage(driver)
+    modeus_main_page = ModeusPage(login)
 
     # Work on page
     LOGGER.info('The Modeus modules page opens')
@@ -152,6 +152,31 @@ def test_parse_itis_6(driver):
     modeus_main_page.click_on_itis_6()
 
     LOGGER.info('Click on itis schedule "Информационные технологии и сервисы (Смешанное, УрФУ, ОК). Мастерская Цифровые инструменты твердотельного 3D-моделирования"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
+
+
+def test_parse_itis_7(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты визуализации данных"')
+    modeus_main_page.click_on_itis_7()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты визуализации данных"')
     modeus_main_page.click_on_lesson_module_button()
 
     LOGGER.info('Save data to DB')
