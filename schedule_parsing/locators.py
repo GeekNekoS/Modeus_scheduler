@@ -15,11 +15,11 @@ class ModeusLocators:
     MODULES_BUTTONS = (By.XPATH, "//tbody[@class='p-element p-datatable-tbody']/tr/td/div/span")
     ENGLISH_LESSON = (By.XPATH, "//div[text()=' Иностранный язык ']")
     ENGLISH_LEVEL_BUTTON = (By.XPATH, "//div[text()=' Иностранный язык (Смешанное, УрФУ, СМУДС) Часть 1.B2-C1. ИРИТ-РТФ, ИнФО ']")
-    ENGLISH_SCHEDULE_BUTTON = (By.XPATH, "//a[text()=' Расписание модуля ']")
     #
     ITIS_LESSON_BUTTON = (By.XPATH, "//div[text()=' Информационные технологии и сервисы ']")
     ITIS_1_MODULE = (By.XPATH, "//td[@title='Информатика для инженеров и исследователей (Онлайн, МИСИС, ОК)']")
-    ITIS_1_SCHEDULE = (By.XPATH, "//a[text()=' Расписание модуля ']")
+
+    ITIS_2_MODULE = (By.XPATH, "//td[@title='Информационные технологии и сервисы (онлайн, ИТМО, ОК)']")
 
 
 class LogoutLocators:

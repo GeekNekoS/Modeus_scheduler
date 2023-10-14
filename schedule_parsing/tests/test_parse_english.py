@@ -48,7 +48,7 @@ def test_parse_english(driver):
     modeus_main_page.click_on_english_level_b2_c1()
 
     LOGGER.info('Click on English schedule button')
-    modeus_main_page.click_on_english_schedule_button()
+    modeus_main_page.click_on_lesson_module_button()
 
     LOGGER.info('Save data to DB')
-    time.sleep(10)
+    time.sleep(5)

@@ -25,14 +25,16 @@ def send_welcome(message):
     bot.reply_to(message, "Привет, чё как?")
 
 
-# @bot.message_handler(commands=['learn_the_safety_rules_in_the_gym'])
-# def send_welcome(message):
-#     bot.send_message(message, "Скоро здесь появится тест по технике безопасности в тренажерном зале")
+#
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    bot.reply_to(message, "Howdy, how are you doing?")
 
 
-# @bot.message_handler(commands=['leave_a_review_about_the_teacher'])
-# def send_welcome(message):
-#     bot.send_message(message, "Скоро здесь можно будет оставить свой отзыв о преподавателе")
+#
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
 
 
 if __name__ == '__main__':
