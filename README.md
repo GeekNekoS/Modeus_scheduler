@@ -90,19 +90,8 @@
 
 <a name="music"></a>
 ## Музычка для разработки
-• Pink Floyd <br />
-|__ Waiting for the Worms ♡ <br />
-|__ Run Like Hell <br />
-|__ Hay You <br />
-|__ Don't Leave Me Now <br />
-|__ Young Lust ♡ <br />
-|__ Breathe (In The Air) [2011 Remastered Version] ♡ <br />
-|__ On The Run [2011 Remastered Version] <br />
-|__ Since On You Crazy Diamond, Pst. 1-5 (Edited) ♡ <br />
-|__ Money <br />
-|__ Time (Edited) <br />
-|__ Comfortably Numb <br />
-|__ Learning to Fly
+• Magdalena Bay <br />
+|__ [Killshot](https://youtu.be/lhfs1CzzUPM?si=mDllOSXWrHkaizmk) ♡
 <br /> <br />
 
 
