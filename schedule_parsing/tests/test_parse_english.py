@@ -5,6 +5,7 @@ import time
 
 
 LOGGER = logging.getLogger(__name__)
+seconds = 1
 
 
 # def test_math_basic(driver):
@@ -51,4 +52,4 @@ def test_parse_english(driver):
     modeus_main_page.click_on_lesson_module_button()
 
     LOGGER.info('Save data to DB')
-    time.sleep(5)
+    time.sleep(seconds)
