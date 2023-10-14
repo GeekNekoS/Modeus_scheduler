@@ -25,7 +25,7 @@ class ModeusPage(BaseClass):
     def click_math_basic_level_button(self):
         return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
 
-    def click_on_module_math_basic_level_button(self):
+    def click_on_lesson_module_button(self):
         return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()
 
     def click_on_english_module(self):
@@ -35,19 +35,16 @@ class ModeusPage(BaseClass):
         return self.find_elements(ModeusLocators.MODULES_BUTTONS, time=self.time)[1].click()
 
     def click_on_english_lesson(self):
-        self.find_element(ModeusLocators.ENGLISH_LESSON, time=self.time).click()
+        return self.find_element(ModeusLocators.ENGLISH_LESSON, time=self.time).click()
 
     def click_on_english_level_b2_c1(self):
-        self.find_element(ModeusLocators.ENGLISH_LEVEL_BUTTON, time=self.time).click()
-
-    def click_on_english_schedule_button(self):
-        self.find_element(ModeusLocators.ENGLISH_SCHEDULE_BUTTON, time=self.time).click()
+        return self.find_element(ModeusLocators.ENGLISH_LEVEL_BUTTON, time=self.time).click()
 
     def click_on_itis_lesson(self):
-        self.find_element(ModeusLocators.ITIS_LESSON_BUTTON, time=self.time).click()
+        return self.find_element(ModeusLocators.ITIS_LESSON_BUTTON, time=self.time).click()
 
     def click_on_itis_1(self):
-        self.find_element(ModeusLocators.ITIS_1_MODULE, time=self.time).click()
+        return self.find_element(ModeusLocators.ITIS_1_MODULE, time=self.time).click()
 
-    def click_on_itis_1_schedule(self):
-        self.find_element(ModeusLocators.ITIS_1_SCHEDULE, time=self.time).click()
+    def click_on_itis_2(self):
+        return self.find_element(ModeusLocators.ITIS_2_MODULE, time=self.time).click()

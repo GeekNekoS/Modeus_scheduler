@@ -4,7 +4,11 @@
 
 
 ## Запуск тестов
-• Всех тестов проекта: <code>pytest</code>
+• Всех автотестов проекта: <code>pytest</code>
+
+• Запуск автотестов с отчётностью в Allure: <code>py.test --alluredir=allure-results</code>
+
+• Просмотр отчётности Allure: <code>allure serve allure-results</code>
 
 <!--
 • Тестов модуля: <code>pytest test_mod.py</code>
