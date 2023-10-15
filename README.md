@@ -91,8 +91,10 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Magdalena Bay <br />
-|__ [Killshot](https://youtu.be/lhfs1CzzUPM?si=mDllOSXWrHkaizmk) ♡ <br />
-|__ [Venice](https://www.youtube.com/watch?v=UX6Yr83sK_Q)
+|__ [Venice](https://www.youtube.com/watch?v=UX6Yr83sK_Q) <br />
+|__ [Secrets](https://www.youtube.com/watch?v=TlhIk7iPU9o&list=RDEMuQ6MrodtjnCUnWzrwczr4g&start_radio=1&rv=avWAGyd_54o) <br />
+|__ [Killshot](https://www.youtube.com/watch?v=lhfs1CzzUPM&list=RDEMuQ6MrodtjnCUnWzrwczr4g&index=3) <br />
+|__ [Top Dog](https://www.youtube.com/watch?v=ekxNdBZizNQ)
 <br /> <br />
 
 
