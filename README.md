@@ -94,7 +94,9 @@
 |__ [Venice](https://www.youtube.com/watch?v=UX6Yr83sK_Q) <br />
 |__ [Secrets](https://www.youtube.com/watch?v=TlhIk7iPU9o&list=RDEMuQ6MrodtjnCUnWzrwczr4g&start_radio=1&rv=avWAGyd_54o) <br />
 |__ [Killshot](https://www.youtube.com/watch?v=lhfs1CzzUPM&list=RDEMuQ6MrodtjnCUnWzrwczr4g&index=3) <br />
-|__ [Top Dog](https://www.youtube.com/watch?v=ekxNdBZizNQ)
+|__ [Top Dog](https://www.youtube.com/watch?v=ekxNdBZizNQ) <br />
+|__ [Chaeri](https://www.youtube.com/watch?v=ben9qDbrLYU&list=RDMM&index=13) <br />
+|__ [Drive Alone](https://www.youtube.com/watch?v=V_-GLFlcXXQ&list=RDMM&index=12)
 <br /> <br />
 
 
