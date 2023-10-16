@@ -6,6 +6,8 @@
 ## Запуск тестов
 • Всех автотестов проекта: <code>pytest</code>
 
+• Многопоточный запуск тестов на 10-и процессорах: <code>pytest -n 10</code>
+
 • Запуск автотестов с отчётностью в Allure: <code>py.test --alluredir=allure-results</code>
 
 • Просмотр отчётности Allure: <code>allure serve allure-results</code>

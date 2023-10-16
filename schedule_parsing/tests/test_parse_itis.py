@@ -206,3 +206,128 @@ def test_parse_itis_8(login):
 
     LOGGER.info('Save data to DB')
     time.sleep(seconds)
+
+
+def test_parse_itis_9(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты моделирования для 3D-печати"')
+    modeus_main_page.click_on_itis_9()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты моделирования для 3D-печати"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
+
+
+def test_parse_itis_10(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты обработки данных"')
+    modeus_main_page.click_on_itis_10()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты обработки данных"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
+
+
+def test_parse_itis_11(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты полигонального 3D-моделирования"')
+    modeus_main_page.click_on_itis_11()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты полигонального 3D-моделирования"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
+
+
+def test_parse_itis_12(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты проектирования игр"')
+    modeus_main_page.click_on_itis_12()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты проектирования игр"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
+
+
+def test_parse_itis_13(login):
+    # Authorization
+    LOGGER.info('Precondition - authorization')
+    modeus_main_page = ModeusPage(login)
+
+    # Work on page
+    LOGGER.info('The Modeus modules page opens')
+    modeus_main_page.go_to_modules_page()
+
+    LOGGER.info('The Modeus all lessons page opens')
+    modeus_main_page.click_on_all_module()
+
+    LOGGER.info('Click on itis lesson')
+    modeus_main_page.click_on_itis_lesson()
+
+    LOGGER.info('Click on itis module "Информационные технологии и сервисы. Цифровые инструменты проектирования умного дома"')
+    modeus_main_page.click_on_itis_13()
+
+    LOGGER.info('Click on itis schedule "Информационные технологии и сервисы. Цифровые инструменты проектирования умного дома"')
+    modeus_main_page.click_on_lesson_module_button()
+
+    LOGGER.info('Save data to DB')
+    time.sleep(seconds)
