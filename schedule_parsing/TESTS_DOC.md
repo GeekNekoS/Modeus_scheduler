@@ -4,6 +4,8 @@
 
 
 ## Запуск тестов
+• Запуск юнит-тестов: <code>python -m unittest unittests</code>
+
 • Всех автотестов проекта: <code>pytest</code>
 
 • Многопоточный запуск тестов на 9-и процессорах: <code>pytest -n 9</code>
