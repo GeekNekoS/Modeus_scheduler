@@ -4,11 +4,11 @@
 
 
 ## Запуск тестов
-• Запуск юнит-тестов: <code>python -m unittest unittests</code>
+• Запуск unit-тестов: <code>python -m unittest unittests</code>
 
 • Всех автотестов проекта: <code>pytest</code>
 
-• Многопоточный запуск тестов на 9-и процессорах: <code>pytest -n 9</code>
+• Многопоточный запуск тестов на 20-и процессорах: <code>pytest -n 20</code>
 
 • Запуск автотестов с отчётностью в Allure: <code>py.test --alluredir=allure-results</code>
 
