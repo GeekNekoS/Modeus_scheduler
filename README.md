@@ -90,8 +90,8 @@
 
 <a name="music"></a>
 ## Музычка для разработки
-• Benny Benassi <br />
-|__ [Satisfaction](https://www.youtube.com/watch?v=lpV5UZaiq3s&list=RDEMPC_OVg_xSxjDSCcENmvtyQ&index=2)
+• Enigma <br />
+|__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4)
 <br /> <br />
 
 
