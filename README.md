@@ -104,7 +104,7 @@
 • Jeremy Soule <br />
 |__ [Skyrim Atmospheres](https://www.youtube.com/watch?v=YyqGaMJvVXc)<br />
 
-• A silly playlist for silly cat people <br />
+• Death Note Music Compilation - The Best of Death Note OST's <br />
 |__ [На подумать](https://youtu.be/hKfKYpba0dE)<br />
 <br /> <br />
 
