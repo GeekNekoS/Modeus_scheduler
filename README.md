@@ -99,6 +99,9 @@
 |__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6) <br />
 |__ [Don't You](https://www.youtube.com/watch?v=Y4YAsRd1Swk&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=2) <br />
 |__ [Arrakis](https://www.youtube.com/watch?v=S_v172PgToE&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=1)
+
+• A silly playlist for silly cat people <br />
+|__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)
 <br /> <br />
 
 
