@@ -19,11 +19,11 @@ class LoginPage(BaseClass):
 
 
 class ModeusPage(BaseClass):
-    def click_math_button(self):
-        return self.find_element(ModeusLocators.MATH_BUTTON, time=self.time).click()
+    # def click_math_button(self):
+    #     return self.find_element(ModeusLocators.MATH_BUTTON, time=self.time).click()
 
-    def click_math_basic_level_button(self):
-        return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
+    # def click_math_basic_level_button(self):
+    #     return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
 
     def click_on_lesson_module_button(self):
         return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()
@@ -90,3 +90,12 @@ class ModeusPage(BaseClass):
 
     def click_on_history_of_russian_civilization(self):
         return self.find_element(ModeusLocators.HISTORY_OF_RUSSIAN_CIVILIZATION, time=self.time).click()
+
+    def click_on_math_lesson(self):
+        return self.find_element(ModeusLocators.MATH, time=self.time).click()
+
+    def click_on_math_basic_level(self):
+        return self.find_element(ModeusLocators.MATH_BASIC_LEVEL, time=self.time).click()
+
+    def click_on_math_pro_level(self):
+        return self.find_element(ModeusLocators.MATH_PRO_LEVEL, time=self.time).click()
