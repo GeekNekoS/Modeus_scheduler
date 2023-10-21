@@ -35,6 +35,10 @@ class ModeusLocators:
     HISTORY = (By.XPATH, f"//div[text()=' История России ']")
     RUSSIAN_HISTORY = (By.XPATH, f"//div[text()=' История России (Смешанное, УГИ, СМУДС) ']")
     HISTORY_OF_RUSSIAN_CIVILIZATION = (By.XPATH, f"//div[text()=' История российской цивилизации (Смешанное, ЦРУК, ОНЛАЙН НТК) ']")
+    #
+    MATH = (By.XPATH, f"//div[text()=' Математика ']")
+    MATH_BASIC_LEVEL = (By.XPATH, f"//div[text()=' Математика. Базовый уровень. ']")
+    MATH_PRO_LEVEL = (By.XPATH, f"//div[text()=' Математика. Повышенный уровень. ']")
 
 
 class LogoutLocators:
