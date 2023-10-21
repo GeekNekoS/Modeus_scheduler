@@ -92,13 +92,16 @@
 ## Музычка для разработки
 (слушать только в наушниках, передающих басы)
 
+• Relax & Chill <br />
+|__ [Study Music / relax & chill / rainy mood || Death Note OST ||](https://www.youtube.com/watch?v=uRzHHHz4Ypg) 
+
 • Hideki Taniuchi <br />
 |__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡
 
 • Jeremy Soule <br />
 |__ [Skyrim Atmospheres [10 Hrs.]](https://www.youtube.com/watch?v=iGUEHPkaE5o)<br />
 
-• Black Sun Empire <br />
+• Black Sun Empire [осторожно, берегите свои ушки]<br />
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
 |__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
 |__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
