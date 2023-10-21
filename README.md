@@ -4,21 +4,12 @@
 
 
 # Навигация
-- [Информация о тестовом Telegram боте](#telegram_bot_info)
 - [Установка проекта на ПК](#download_project)
 - [Настройка готового проекта](#setting_up_project)
 - [Настройка PoastgreSQL](#setting_up_postgres)
 - [Структура базы данных (черновик)](#database_structure)
 - [Музычка для разработки](#music)
 - [Почистить зависимости](#clean_up_dependencies)
-<br /> <br />
-
-
-<a name="telegram_bot_info"></a> 
-## Информация о тестовом Telegram боте
-• Токен: 1300397462:AAGyQDVN8WUEEKPazUnB8Lv9KeDz5RmzzsE
-
-• Ник бота: @exampdd_bot (Простенький бот, в нём пару вариантов экзамена по ПДД)
 <br /> <br />
 
 
