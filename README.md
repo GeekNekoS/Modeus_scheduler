@@ -92,12 +92,11 @@
 ## Музычка для разработки
 (слушать только в наушниках, передающих басы)
 
-• Death Note Music Compilation - The Best of Death Note OST's <br />
-|__ [На подумать](https://youtu.be/hKfKYpba0dE) ♡ <br />
+• Hideki Taniuchi <br />
+|__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡
 
 • Jeremy Soule <br />
 |__ [Skyrim Atmospheres [10 Hrs.]](https://www.youtube.com/watch?v=iGUEHPkaE5o)<br />
-
 
 • Black Sun Empire <br />
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
