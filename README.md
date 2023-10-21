@@ -99,10 +99,13 @@
 |__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
 
 • A silly playlist for silly cat people <br />
-|__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)
+|__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)<br />
 
 • Jeremy Soule <br />
-|__ [Skyrim Atmospheres](https://www.youtube.com/watch?v=YyqGaMJvVXc)
+|__ [Skyrim Atmospheres](https://www.youtube.com/watch?v=YyqGaMJvVXc)<br />
+
+• A silly playlist for silly cat people <br />
+|__ [На подумать](https://youtu.be/hKfKYpba0dE)<br />
 <br /> <br />
 
 
