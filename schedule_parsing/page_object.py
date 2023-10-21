@@ -81,3 +81,12 @@ class ModeusPage(BaseClass):
 
     def click_on_itis_13(self):
         return self.find_element(ModeusLocators.ITIS_13_MODULE, time=self.time).click()
+
+    def click_on_history_lesson(self):
+        return self.find_element(ModeusLocators.HISTORY, time=self.time).click()
+
+    def click_on_russian_history(self):
+        return self.find_element(ModeusLocators.RUSSIAN_HISTORY, time=self.time).click()
+
+    def click_on_history_of_russian_civilization(self):
+        return self.find_element(ModeusLocators.HISTORY_OF_RUSSIAN_CIVILIZATION, time=self.time).click()
