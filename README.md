@@ -92,6 +92,13 @@
 ## Музычка для разработки
 (слушать только в наушниках, передающих басы)
 
+• Death Note Music Compilation - The Best of Death Note OST's <br />
+|__ [На подумать](https://youtu.be/hKfKYpba0dE) ♡ <br />
+
+• Jeremy Soule <br />
+|__ [Skyrim Atmospheres [10 Hrs.]](https://www.youtube.com/watch?v=iGUEHPkaE5o)<br />
+
+
 • Black Sun Empire <br />
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
 |__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
@@ -100,12 +107,6 @@
 
 • A silly playlist for silly cat people <br />
 |__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)<br />
-
-• Jeremy Soule <br />
-|__ [Skyrim Atmospheres](https://www.youtube.com/watch?v=YyqGaMJvVXc)<br />
-
-• Death Note Music Compilation - The Best of Death Note OST's <br />
-|__ [На подумать](https://youtu.be/hKfKYpba0dE)<br />
 <br /> <br />
 
 
