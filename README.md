@@ -96,12 +96,13 @@
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
 |__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
 |__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
-|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6) <br />
-|__ [Don't You](https://www.youtube.com/watch?v=Y4YAsRd1Swk&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=2) <br />
-|__ [Arrakis](https://www.youtube.com/watch?v=S_v172PgToE&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=1)
+|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
 
 • A silly playlist for silly cat people <br />
 |__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)
+
+• Jeremy Soule <br />
+|__ [Skyrim Atmospheres](https://www.youtube.com/watch?v=YyqGaMJvVXc)
 <br /> <br />
 
 
