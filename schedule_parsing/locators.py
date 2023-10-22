@@ -39,6 +39,9 @@ class ModeusLocators:
     MATH = (By.XPATH, f"//div[text()=' Математика ']")
     MATH_BASIC_LEVEL = (By.XPATH, f"//div[text()=' Математика. Базовый уровень. ']")
     MATH_PRO_LEVEL = (By.XPATH, f"//div[text()=' Математика. Повышенный уровень. ']")
+    #
+    FRS = (By.XPATH, f"//div[text()=' Основы российской государственности ']")
+    FRS_LESSON = (By.XPATH, f"//tr[@class='item-row ng-star-inserted']/td/div/div[text()=' Основы российской государственности ']")
 
 
 class LogoutLocators:
