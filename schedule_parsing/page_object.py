@@ -99,3 +99,9 @@ class ModeusPage(BaseClass):
 
     def click_on_math_pro_level(self):
         return self.find_element(ModeusLocators.MATH_PRO_LEVEL, time=self.time).click()
+
+    def click_on_frs_lesson(self):
+        return self.find_element(ModeusLocators.FRS, time=self.time).click()
+
+    def click_on_frs(self):
+        return self.find_element(ModeusLocators.FRS_LESSON, time=self.time).click()
