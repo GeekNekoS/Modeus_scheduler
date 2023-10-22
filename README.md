@@ -85,6 +85,7 @@
 
 • Relax & Chill <br />
 |__ [Study Music / relax & chill / rainy mood || Death Note OST ||](https://www.youtube.com/watch?v=uRzHHHz4Ypg) <br />
+|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) <br />
 |__ [Nostalgic Minecraft Music](https://www.youtube.com/watch?v=TV1Nj555ShQ) <br />
 |__ [Minecraft ambience](https://www.youtube.com/watch?v=FlaDNyuPnfg)
 
