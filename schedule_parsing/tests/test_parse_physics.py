@@ -21,10 +21,10 @@ def test_parse_frs(login):
     modeus_main_page.click_on_all_module()
 
     LOGGER.info('Click on itis lesson')
-    modeus_main_page.click_on_phisics_lesson()
+    modeus_main_page.click_on_physics_lesson()
 
     LOGGER.info('Click on itis module "Математика. Базовый уровень."')
-    modeus_main_page.click_on_phisics()
+    modeus_main_page.click_on_physics()
 
     LOGGER.info('Click on itis schedule "Математика. Базовый уровень."')
     modeus_main_page.click_on_lesson_module_button()
