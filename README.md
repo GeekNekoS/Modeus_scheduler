@@ -84,22 +84,28 @@
 (слушать только в наушниках, передающих басы)
 
 • Relax & Chill <br />
-|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) <br />
+|__ [Petals in the Moonlight](https://www.youtube.com/watch?v=BKjUfSb5UU0) <br />
+|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) ♡ <br />
+|__ [Minecraft Lush Cave Ambience w/ C418 Music Box | 8 Hours](https://www.youtube.com/watch?v=HnLScCOFCv0) <br />
+|__ [Wake up, you're dreaming...](https://www.youtube.com/watch?v=oC4o0litO-4) <br />
+|__ [A Night of Chills | Minecraft Ambience](https://www.youtube.com/watch?v=PzC-QfWdYoE) <br />
 |__ [Nostalgic Minecraft Music](https://www.youtube.com/watch?v=TV1Nj555ShQ) <br />
 |__ [Minecraft ambience](https://www.youtube.com/watch?v=FlaDNyuPnfg) <br />
-|__ [Study Music / relax & chill / rainy mood || Death Note OST ||](https://www.youtube.com/watch?v=uRzHHHz4Ypg)
+|__ [Quiet & Restful Skyrim Music and Ambience](https://www.youtube.com/watch?v=lO9yYT1I7cU) <br />
+
+• Black Sun Empire [осторожно, берегите свои ушки]<br />
+|__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
+|__ [Sinthetix - Cryogenic (Black Sun Empire remix)](https://www.youtube.com/watch?v=2L6pu0BPeJc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=12) <br />
+|__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) <br />
+|__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
+|__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
+|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
 
 • Hideki Taniuchi <br />
 |__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡
 
 • Jeremy Soule <br />
 |__ [Skyrim Atmospheres [10 Hrs.]](https://www.youtube.com/watch?v=iGUEHPkaE5o)<br />
-
-• Black Sun Empire [осторожно, берегите свои ушки]<br />
-|__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
-|__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
-|__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
-|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
 
 • A silly playlist for silly cat people <br />
 |__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)<br />
