@@ -19,12 +19,6 @@ class LoginPage(BaseClass):
 
 
 class ModeusPage(BaseClass):
-    # def click_math_button(self):
-    #     return self.find_element(ModeusLocators.MATH_BUTTON, time=self.time).click()
-
-    # def click_math_basic_level_button(self):
-    #     return self.find_element(ModeusLocators.MATH_BASIC_LEVEL_BUTTON, time=self.time).click()
-
     def click_on_lesson_module_button(self):
         return self.find_element(ModeusLocators.MODULE_SCHEDULE_BUTTON, time=self.time).click()
 
@@ -106,8 +100,8 @@ class ModeusPage(BaseClass):
     def click_on_frs(self):
         return self.find_element(ModeusLocators.FRS_LESSON, time=self.time).click()
 
-    def click_on_phisics_lesson(self):
+    def click_on_physics_lesson(self):
         return self.find_element(ModeusLocators.PHYSICS, time=self.time).click()
 
-    def click_on_phisics(self):
+    def click_on_physics(self):
         return self.find_element(ModeusLocators.PHYSICS_BASIC_LEVEL, time=self.time).click()
