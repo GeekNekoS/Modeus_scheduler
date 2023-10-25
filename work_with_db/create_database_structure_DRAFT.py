@@ -3,13 +3,12 @@ import pyautogui
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.keys import Keys
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -58,6 +57,7 @@ def parse():
     modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
 
     lessons = []
+    modules_links = []
     for i in range(len(modules)):
         modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
 
@@ -66,6 +66,8 @@ def parse():
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
 
+        # time.sleep(0.5)
+
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.close()
@@ -73,17 +75,51 @@ def parse():
         window_after = driver.window_handles[0]
         driver.switch_to.window(window_after)
 
-        cur_url = driver.current_url
-        print(cur_url)
+        modules_links.append(driver.current_url)
 
         parsed_lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
         for lesson in parsed_lessons:
             lessons.append(lesson.text)
+            parsed_lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
 
-        get_connect(url)
-        time.sleep(3)
+            lesson_link = parsed_lessons[i]
+
+            ActionChains(driver).key_down(Keys.CONTROL).click(lesson_link).key_up(Keys.CONTROL).perform()
+            pyautogui.hotkey('ctrl', 't')
+
+            time.sleep(0.5)
+
+            window_after = driver.window_handles[1]
+            driver.switch_to.window(window_after)
+            driver.close()
+
+            window_after = driver.window_handles[0]
+            driver.switch_to.window(window_after)
+
+            get_connect(url)
+            time.sleep(3)
+
+            modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
+            #
+            link = modules[i + 1]
+            #
+            ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+            pyautogui.hotkey('ctrl', 't')
+            #
+            window_after = driver.window_handles[1]
+            driver.switch_to.window(window_after)
+            driver.close()
+            #
+            window_after = driver.window_handles[0]
+            driver.switch_to.window(window_after)
+
+            # educational direction
+
+        # get_connect(url)
+        # time.sleep(3)
 
     print(lessons)
+    print(modules_links)
 
     return driver
 
