@@ -65,6 +65,10 @@
 (слушать только в наушниках, передающих басы)
 
 • Relax & Chill <br />
+|__ [Engineering Colony VI 'Cadwell's Reach' Kepler-62F (4 Hour Ambient)](https://www.youtube.com/watch?v=nVpXV6QDtj0) <br />
+|__ [PURE Ambient Cyberpunk Music For Focus and DEEP Relaxation [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) <br />
+|__ [ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix])](https://www.youtube.com/watch?v=yhCuCqJbOVE) <br />
+|__ [Blade Runner Bliss](https://www.youtube.com/watch?v=4FhsjQ2xess) <br />
 |__ [3 hours of minecraft relaxing music with house in rain to sleep and relax](https://www.youtube.com/watch?v=MZqcaMe4FNE) <br />
 |__ [Petals in the Moonlight](https://www.youtube.com/watch?v=BKjUfSb5UU0) <br />
 |__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) ♡ <br />

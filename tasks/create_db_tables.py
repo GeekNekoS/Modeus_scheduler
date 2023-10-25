@@ -1,19 +1,12 @@
 import psycopg2
 
-
 try:
     with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
         cursor = connection.cursor()
         cursor.execute("""
-            CREATE TABLE Modules (
-                id INTEGER,
-                itis VARCHAR,
-                history VARCHAR,
-                math VARCHAR,
-                ORG VARCHAR,
-                physics VARCHAR,
-                english VARCHAR,
-                PRIMARY KEY (id)
+            CREATE TABLE lessons (
+                lesson VARCHAR,
+                module_url VARCHAR
             );
         """)
 except Exception as ex:
