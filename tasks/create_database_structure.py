@@ -1,25 +1,21 @@
 import os
-import random
-import string
+import pyautogui
 import time
-import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
 
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
 
-# from selenium.webdriver import Keys
 from selenium.webdriver.common.keys import Keys
-
-from selenium.webdriver.common.action_chains import ActionChains
 
 from dotenv import load_dotenv
 load_dotenv()
 
 
-def create_new_email():
+def parse():
     options = Options()
     options.page_load_strategy = 'eager'
     driver = webdriver.Chrome(options=options)
@@ -66,42 +62,45 @@ def create_new_email():
     # window_after = driver.window_handles[1]
     # driver.switch_to.window(window_after)
 
-    print(driver.current_url)
+    lessons = []
 
-    time.sleep(1)
+    for i in range(len(modules)):
+        link = modules[i]
 
-    # link = driver.find_element(By.LINK_TEXT, "Выбор модулей")
-    # link.click()
-    # print(link)
+        ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+        pyautogui.hotkey('ctrl', 't')
 
-    link = modules[0]
+        window_after = driver.window_handles[1]
+        driver.switch_to.window(window_after)
+        driver.close()
 
-    # Работает!!! но не открывает в новой вкладке
-    ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
-    # # ActionChains(driver).key_down(Keys.COMMAND).send_keys(Keys.COMMAND + 't').click(link).perform()  # Keys.CONTROL
-    #
-    # window_after = driver.window_handles[1]
-    # driver.switch_to.window(window_after)
+        window_after = driver.window_handles[0]
+        driver.switch_to.window(window_after)
 
-    # link.send_keys(Keys.COMMAND + 't')
-    import pyautogui
-    pyautogui.hotkey('ctrl', 't')
-    print('OK')
+        time.sleep(5)
 
-    cur_url = driver.current_url
-    print(driver.current_url)
+        cur_url = driver.current_url
+        print(cur_url)
 
-    # time.sleep(10)
+        parsed_lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
+        for lesson in parsed_lessons:
+            lessons.append(lesson.text)
 
-    lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
-    print([i.text for i in lessons])
+        get_connect(url)
+
+    print(lessons)
 
     return driver
 
 
 def main():
-    create_new_email()
+    parse()
 
 
 if __name__ == "__main__":
     main()
+
+
+# print(driver.window_handles)
+# print(driver.current_url)
+
