@@ -57,14 +57,10 @@ def parse():
     # Modules
     modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
 
-    # Работает!!! Осталось только найти способ автоматически получать эту ссылку
-    # driver.execute_script("window.open('https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0', 'new window')")
-    # window_after = driver.window_handles[1]
-    # driver.switch_to.window(window_after)
-
     lessons = []
-
     for i in range(len(modules)):
+        modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
+
         link = modules[i]
 
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
@@ -87,6 +83,7 @@ def parse():
             lessons.append(lesson.text)
 
         get_connect(url)
+        time.sleep(3)
 
     print(lessons)
 
@@ -104,3 +101,6 @@ if __name__ == "__main__":
 # print(driver.window_handles)
 # print(driver.current_url)
 
+# driver.execute_script("window.open('https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0', 'new window')")
+# window_after = driver.window_handles[1]
+# driver.switch_to.window(window_after)
