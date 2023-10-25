@@ -7,7 +7,6 @@
 - [Установка проекта на ПК](#download_project)
 - [Настройка готового проекта](#setting_up_project)
 - [Настройка PoastgreSQL](#setting_up_postgres)
-- [Структура базы данных (черновик)](#database_structure)
 - [Музычка для разработки](#music)
 - [Почистить зависимости](#clean_up_dependencies)
 <br /> <br />
@@ -60,25 +59,7 @@
 8. Нажмите "Save"
 <br /> <br />
 
-
-<a name="database_structure"></a>
-## Структура базы данных (черновик)
-<table>
-    <thead>
-        <tr><th>Модули</th></tr>
-    </thead>
-    <tbody>
-        <tr><td>ИТИС</td></tr>
-        <tr><td>История</td></tr>
-        <tr><td>Математика</td></tr>
-        <tr><td>ОРГ</td></tr>
-        <tr><td>Физика</td></tr>
-        <tr><td>Английский</td></tr>
-    </tbody>
-</table>
-<br />
-
-
+   
 <a name="music"></a>
 ## Музычка для разработки
 (слушать только в наушниках, передающих басы)
