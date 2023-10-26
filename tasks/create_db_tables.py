@@ -5,6 +5,7 @@ try:
         cursor = connection.cursor()
         cursor.execute("""
             CREATE TABLE lessons (
+                id SERIAL PRIMARY KEY,
                 lesson VARCHAR,
                 module_url VARCHAR
             );
@@ -16,12 +17,11 @@ try:
     with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
         cursor = connection.cursor()
         cursor.execute("""
-            CREATE TABLE itis (
-                id INTEGER,
-                itis_1 VARCHAR,
-                itis_2 VARCHAR,
-                itis_3 VARCHAR,
-                PRIMARY KEY (id)
+            CREATE TABLE directions (
+                id SERIAL PRIMARY KEY,
+                direction VARCHAR,
+                schedule_url VARCHAR,
+                FOREIGN KEY (id) REFERENCES lessons(id) ON DELETE CASCADE
             );
         """)
 except Exception as ex:
