@@ -65,6 +65,10 @@
 (слушать только в наушниках, передающих басы)
 
 • Relax & Chill <br />
+|__ [💜 Minecraft Amethyst Geode Koi Pond 💜](https://www.youtube.com/watch?v=5zl30-PZxqI) <br />
+|__ [The Forest of Dreams 🌿 Minecraft Ambience & Music Box](https://www.youtube.com/watch?v=8TvpUMKZoCU) <br />
+|__ [The Forest of Tranquility 🌿 Minecraft Ambience w/ C418 Music (Slowed)](https://www.youtube.com/watch?v=2Qh5YcV0p-I) <br />
+|__ [Nature's Lullaby | Minecraft Ambience w/ C418 Music](https://www.youtube.com/watch?v=bjyjDNzQemo) <br />
 |__ [Engineering Colony VI 'Cadwell's Reach' Kepler-62F (4 Hour Ambient)](https://www.youtube.com/watch?v=nVpXV6QDtj0) <br />
 |__ [PURE Ambient Cyberpunk Music For Focus and DEEP Relaxation [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) <br />
 |__ [ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix])](https://www.youtube.com/watch?v=yhCuCqJbOVE) <br />
