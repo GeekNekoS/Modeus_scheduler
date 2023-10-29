@@ -67,8 +67,16 @@ def parse():
         print(f"Can`t establish connection to database: {ex}\n")
 
     remove_this = []
+    saved_lesson = ""
     for lesson in lessons_info:
         remove_this.append(lesson[1])
+
+        # directions = driver.find_elements(By.XPATH, f"//div[@class='item-name']")[1:]
+        # for direction in directions:
+        #     direction = direction.text
+        #     print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
+        #     if lesson[1] == direction:
+        #         saved_lesson = lesson[1]
 
     for lesson in lessons_info:
         get_connect(lesson[2])
@@ -81,10 +89,9 @@ def parse():
 
         for direction in directions:
             direction = direction.text
-            if direction not in remove_this:
-                print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
-                print()
-
+            if (direction not in remove_this) or (lesson[1] == saved_lesson):
+                # print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
+                # print()
                 try:
                     with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
                         cursor = connection.cursor()
