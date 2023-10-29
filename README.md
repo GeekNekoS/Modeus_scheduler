@@ -62,9 +62,9 @@
    
 <a name="music"></a>
 ## Музычка для разработки
-(слушать только в наушниках, передающих басы)
-
 • Relax & Chill <br />
+|__ [Cruising Through the Galaxy with Synthwave](https://www.youtube.com/watch?v=DUQkBgTDCiE) <br />
+|__ [Synthwave/Electric Mixtape I | For Study/Relax](https://www.youtube.com/watch?v=k3WkJq478To) <br />
 |__ [💜 Minecraft Amethyst Geode Koi Pond 💜](https://www.youtube.com/watch?v=5zl30-PZxqI) <br />
 |__ [The Forest of Dreams 🌿 Minecraft Ambience & Music Box](https://www.youtube.com/watch?v=8TvpUMKZoCU) <br />
 |__ [The Forest of Tranquility 🌿 Minecraft Ambience w/ C418 Music (Slowed)](https://www.youtube.com/watch?v=2Qh5YcV0p-I) <br />
@@ -84,10 +84,10 @@
 |__ [Quiet & Restful Skyrim Music and Ambience](https://www.youtube.com/watch?v=lO9yYT1I7cU) <br />
 
 • Black Sun Empire [осторожно, берегите свои ушки]<br />
+|__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />
+|__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) ♡ <br />
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
 |__ [Sinthetix - Cryogenic (Black Sun Empire remix)](https://www.youtube.com/watch?v=2L6pu0BPeJc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=12) <br />
-|__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) <br />
-|__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) <br />
 |__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
 |__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
 
