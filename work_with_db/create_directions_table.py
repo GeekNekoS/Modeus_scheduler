@@ -66,6 +66,10 @@ def parse():
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
 
+    remove_this = []
+    for lesson in lessons_info:
+        remove_this.append(lesson[1])
+
     for lesson in lessons_info:
         get_connect(lesson[2])
         time.sleep(1)
@@ -74,23 +78,25 @@ def parse():
         driver.find_element(By.XPATH, f"//div[@class='item-name' and text()=' {lesson[1]} ']").click()
 
         directions = driver.find_elements(By.XPATH, f"//div[@class='item-name']")[1:]
+
         for direction in directions:
             direction = direction.text
-            print(direction)
+            if direction not in remove_this:
+                print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
+                print()
 
-            # Работает, но немного не так, как нужно
-            # try:
-            #     with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
-            #         cursor = connection.cursor()
-            #
-            #         cursor.execute("""
-            #             INSERT INTO directions (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
-            #             """, (direction, None, lesson_id)
-            #         )
-            # except Exception as ex:
-            #     print(f"Can`t establish connection to database: {ex}\n")
+                try:
+                    with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                        cursor = connection.cursor()
 
-        print("Урок: ", lesson[1], "Ссылка: ", lesson[2])
+                        cursor.execute("""
+                            INSERT INTO directions (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
+                            """, (direction, None, lesson_id)
+                        )
+                except Exception as ex:
+                    print(f"Can`t establish connection to database: {ex}\n")
+
+        # print("Урок: ", lesson[1], "Ссылка: ", lesson[2])
 
     return driver
 
