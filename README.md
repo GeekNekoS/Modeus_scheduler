@@ -63,6 +63,8 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Relax & Chill <br />
+|__ [all of a sudden, everything becomes alright...](https://www.youtube.com/watch?v=ANkxRGvl1VY) <br />
+|__ [Windy 🌬️ Lofi Keep You Safe 🍂 Lofi Hip Hop ~ Deep to Sleep / Relax / Study](https://www.youtube.com/watch?v=qW2lX0LnTQA) <br />
 |__ [Cruising Through the Galaxy with Synthwave](https://www.youtube.com/watch?v=DUQkBgTDCiE) <br />
 |__ [Synthwave/Electric Mixtape I | For Study/Relax](https://www.youtube.com/watch?v=k3WkJq478To) <br />
 |__ [💜 Minecraft Amethyst Geode Koi Pond 💜](https://www.youtube.com/watch?v=5zl30-PZxqI) <br />
@@ -84,7 +86,8 @@
 |__ [Quiet & Restful Skyrim Music and Ambience](https://www.youtube.com/watch?v=lO9yYT1I7cU) <br />
 
 • Drop Your Weapon [осторожно, берегите свои ушки] <br />
-|__ [Turn Off Your Radio](https://www.youtube.com/watch?v=giH4y6XRdzY) ♡
+|__ [Turn Off Your Radio](https://www.youtube.com/watch?v=giH4y6XRdzY) ♡ <br />
+|__ [Max Velocity](https://www.youtube.com/watch?v=QbgY5cUtuZk) 
 
 • Black Sun Empire [осторожно, берегите свои ушки] <br />
 |__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />
