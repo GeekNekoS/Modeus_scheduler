@@ -63,6 +63,7 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Relax & Chill <br />
+|__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) ♡ <br />
 |__ [all of a sudden, everything becomes alright...](https://www.youtube.com/watch?v=ANkxRGvl1VY) <br />
 |__ [Windy 🌬️ Lofi Keep You Safe 🍂 Lofi Hip Hop ~ Deep to Sleep / Relax / Study](https://www.youtube.com/watch?v=qW2lX0LnTQA) <br />
 |__ [Cruising Through the Galaxy with Synthwave](https://www.youtube.com/watch?v=DUQkBgTDCiE) <br />
@@ -72,7 +73,7 @@
 |__ [The Forest of Tranquility 🌿 Minecraft Ambience w/ C418 Music (Slowed)](https://www.youtube.com/watch?v=2Qh5YcV0p-I) <br />
 |__ [Nature's Lullaby | Minecraft Ambience w/ C418 Music](https://www.youtube.com/watch?v=bjyjDNzQemo) <br />
 |__ [Engineering Colony VI 'Cadwell's Reach' Kepler-62F (4 Hour Ambient)](https://www.youtube.com/watch?v=nVpXV6QDtj0) <br />
-|__ [PURE Ambient Cyberpunk Music For Focus and DEEP Relaxation [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) <br />
+|__ [PURE Ambient Cyberpunk Music For Focus and DEEP Relaxation [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) ♡ <br />
 |__ [ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix])](https://www.youtube.com/watch?v=yhCuCqJbOVE) <br />
 |__ [Blade Runner Bliss](https://www.youtube.com/watch?v=4FhsjQ2xess) <br />
 |__ [3 hours of minecraft relaxing music with house in rain to sleep and relax](https://www.youtube.com/watch?v=MZqcaMe4FNE) <br />
@@ -87,7 +88,7 @@
 
 • Drop Your Weapon [осторожно, берегите свои ушки] <br />
 |__ [Turn Off Your Radio](https://www.youtube.com/watch?v=giH4y6XRdzY) ♡ <br />
-|__ [Max Velocity](https://www.youtube.com/watch?v=QbgY5cUtuZk) 
+|__ [Drop Your Weapon](https://www.youtube.com/watch?v=2MNCQcLPGxI)
 
 • Black Sun Empire [осторожно, берегите свои ушки] <br />
 |__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />

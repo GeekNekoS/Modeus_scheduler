@@ -67,16 +67,16 @@ def parse():
         print(f"Can`t establish connection to database: {ex}\n")
 
     remove_this = []
-    saved_lesson = ""
+    saved_lesson = []
     for lesson in lessons_info:
         remove_this.append(lesson[1])
 
         # directions = driver.find_elements(By.XPATH, f"//div[@class='item-name']")[1:]
         # for direction in directions:
-        #     direction = direction.text
-        #     print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
-        #     if lesson[1] == direction:
-        #         saved_lesson = lesson[1]
+        #     direction_name = direction.text
+        #     print(f"Урок: |{lesson[1]}|\nНаправление: |{direction_name}|")
+        #     if lesson[1] == direction_name:
+        #         saved_lesson.append(lesson[1])
 
     for lesson in lessons_info:
         get_connect(lesson[2])
@@ -88,17 +88,53 @@ def parse():
         directions = driver.find_elements(By.XPATH, f"//div[@class='item-name']")[1:]
 
         for direction in directions:
-            direction = direction.text
-            if (direction not in remove_this) or (lesson[1] == saved_lesson):
-                # print(f"Урок: |{lesson[1]}|\nНаправление: |{direction}|")
+            direction_name = direction.text
+
+            ActionChains(driver).key_down(Keys.CONTROL).click(direction).key_up(Keys.CONTROL).perform()
+            time.sleep(1)
+            pyautogui.hotkey('ctrl', 't')
+
+            go_to = driver.current_url
+            # print(go_to)
+
+            driver.find_element(By.XPATH, f"//div[@class='item-name' and text()=' {lesson[1]} ']").click()
+            # time.sleep(1)
+
+            # get_connect(lesson[2])  # <==
+
+            window_after = driver.window_handles[1]
+            driver.switch_to.window(window_after)
+
+            get_connect(go_to)
+            time.sleep(1)
+
+            print(f"//div[text()=' {direction_name} ']")
+            lesson_name = driver.find_element(By.XPATH, f"//div[text()=' {direction_name} ']")
+            lesson_name.click()
+
+            direction_schedule_button = driver.find_element(By.XPATH, "//a[@class='no-wrap'][2]")
+            direction_url = direction_schedule_button.get_attribute("href")
+
+            driver.close()
+            time.sleep(1)  # X
+
+            window_after = driver.window_handles[0]
+            driver.switch_to.window(window_after)
+
+            # get_connect(direction_url)
+            # time.sleep(3)
+
+            if (direction_name not in remove_this) or (lesson[1] == saved_lesson):
+                # print(f"Урок: |{lesson[1]}|\nНаправление: |{direction_name}|")
                 # print()
+
                 try:
                     with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
                         cursor = connection.cursor()
 
                         cursor.execute("""
                             INSERT INTO directions (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
-                            """, (direction, None, lesson_id)
+                            """, (direction_name, direction_url, lesson_id)
                         )
                 except Exception as ex:
                     print(f"Can`t establish connection to database: {ex}\n")
