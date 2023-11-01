@@ -63,6 +63,7 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Relax & Chill <br />
+|__ [Chill Drive - Lofi hip hop mix ~ Stress Relief, Relaxing Your Mind](https://www.youtube.com/watch?v=25BkVBgFD9Y) ♡ <br />
 |__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) ♡ <br />
 |__ [all of a sudden, everything becomes alright...](https://www.youtube.com/watch?v=ANkxRGvl1VY) <br />
 |__ [Windy 🌬️ Lofi Keep You Safe 🍂 Lofi Hip Hop ~ Deep to Sleep / Relax / Study](https://www.youtube.com/watch?v=qW2lX0LnTQA) <br />
