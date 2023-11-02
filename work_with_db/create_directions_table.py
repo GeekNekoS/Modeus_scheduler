@@ -67,7 +67,7 @@ def parse():
         print(f"Can`t establish connection to database: {ex}\n")
 
     remove_this = []
-    saved_lesson = []
+    # saved_lesson = []
     for lesson in lessons_info:
         remove_this.append(lesson[1])
 
@@ -95,7 +95,6 @@ def parse():
 
         for direction_name in directions_of_module:
             direction_button = driver.find_element(By.XPATH, f"//div[@class='item-name' and text()=' {direction_name} ']")
-            # direction_button.click()
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             time.sleep(1)
@@ -109,7 +108,7 @@ def parse():
             get_connect(go_to)
             time.sleep(5)
 
-            direction_schedule_button = driver.find_element(By.XPATH, "//a[@class='no-wrap'][2]")  # <==
+            direction_schedule_button = driver.find_element(By.XPATH, "//a[@class='no-wrap'][2]")
             direction_url = direction_schedule_button.get_attribute("href")
 
             driver.close()
@@ -127,73 +126,6 @@ def parse():
                     )
             except Exception as ex:
                 print(f"Can`t establish connection to database: {ex}\n")
-
-
-            # direction_schedule_button = driver.find_element(By.XPATH, "//a[@class='no-wrap'][2]")
-            # direction_url = direction_schedule_button.get_attribute("href")
-            # print(direction_url)
-
-            # try:
-            #     direction_name = direction.text
-            #     all_directions.append(direction_name)
-            #
-            #     ActionChains(driver).key_down(Keys.CONTROL).click(direction).key_up(Keys.CONTROL).perform()
-            #     time.sleep(1)
-            #     pyautogui.hotkey('ctrl', 't')
-            #
-            #     go_to = driver.current_url
-            #     # print(go_to)
-            #
-            #     driver.find_element(By.XPATH, f"//div[@class='item-name' and text()=' {lesson[1]} ']").click()
-            #
-            #     # get_connect(lesson[2])  # <==
-            #     # print("OK")
-            #     # time.sleep(5)
-            #
-            #     window_after = driver.window_handles[1]
-            #     driver.switch_to.window(window_after)
-            #
-            #     get_connect(go_to)
-            #     time.sleep(1)
-            #
-            #     print(f"//div[text()=' {direction_name} ']")
-            #     lesson_name = driver.find_element(By.XPATH, f"//div[text()=' {direction_name} ']")
-            #     lesson_name.click()
-            #
-            #     direction_schedule_button = driver.find_element(By.XPATH, "//a[@class='no-wrap'][2]")
-            #     direction_url = direction_schedule_button.get_attribute("href")
-            #
-            #     driver.close()
-            #     time.sleep(1)  # X
-            #
-            #     window_after = driver.window_handles[0]
-            #     driver.switch_to.window(window_after)
-            #
-            #     get_connect(direction_url)
-            #     time.sleep(3)
-            #
-            #     if (direction_name not in remove_this) or (lesson[1] == saved_lesson):
-            #         # print(f"Урок: |{lesson[1]}|\nНаправление: |{direction_name}|")
-            #         # print()
-            #
-            #         try:
-            #             with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
-            #                 cursor = connection.cursor()
-            #
-            #                 cursor.execute("""
-            #                     INSERT INTO directions (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
-            #                     """, (direction_name, direction_url, lesson_id)
-            #                 )
-            #         except Exception as ex:
-            #             print(f"Can`t establish connection to database: {ex}\n")
-            #
-            # except:
-            #     pass
-
-        print(directions_of_module)
-        print(len(directions_of_module))
-
-        # print("Урок: ", lesson[1], "Ссылка: ", lesson[2])
 
     return driver
 
