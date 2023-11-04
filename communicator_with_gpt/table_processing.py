@@ -15,6 +15,5 @@ def when_study():
         res += f"{team} {days} \n"
 
     table.close()
-
     return res
 
