@@ -1,9 +1,13 @@
+from dotenv import load_dotenv
+import os
 import time
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from table_processing import when_study
 
-option =webdriver.FirefoxOptions()
+load_dotenv()
+
+option = webdriver.FirefoxOptions()
 option.set_preference("dom.webdrive.enabled", False)
 option.set_preference("dom.webnotifications.enabled", False)
 option.set_preference("media.volume_scale", "0.0")
@@ -20,11 +24,11 @@ time.sleep(5)
 
 login_xpath= '//*[@id="username"]'
 lognin_continue_xpath = "/html/body/div/main/section/div/div/div/div[1]/div/form/div[2]/button"
-browser.find_element(By.XPATH, login_xpath).send_keys("jatabroupramoi-4919@wishy.fr")
+browser.find_element(By.XPATH, login_xpath).send_keys(os.getenv('LOGIN'))
 browser.find_element(By.XPATH, lognin_continue_xpath).click()
 
 password_xpath = '//*[@id="password"]'
-browser.find_element(By.XPATH, password_xpath).send_keys("Msie636uebd")
+browser.find_element(By.XPATH, password_xpath).send_keys(os.getenv('PASSWORD'))
 time.sleep(2)
 password_continue_xpath = '/html/body/div[1]/main/section/div/div/div/form/div[3]/button'
 browser.find_element(By.XPATH, password_continue_xpath).click()

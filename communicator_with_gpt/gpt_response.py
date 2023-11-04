@@ -6,8 +6,11 @@ table = when_study()
 
 response = g4f.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": table + "Какие команды представлены?"}],
+    provider=g4f.Provider.GeekGpt,
+    messages=[{"role": "user",
+               "content": table + "Какую команду мне выбрать, если не хочу учиться в субботу?"}],
     stream=True,
+    temperature = 1.9
 )
 
 for message in response:
