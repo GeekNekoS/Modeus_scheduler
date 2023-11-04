@@ -17,7 +17,6 @@ class ModeusLocators:
     ENGLISH_LEVEL_BUTTON = (By.XPATH, "//div[text()=' Иностранный язык (Смешанное, УрФУ, СМУДС) Часть 1.B2-C1. ИРИТ-РТФ, ИнФО ']")
     #
     ITIS = "Информационные технологии и сервисы"
-    #
     ITIS_LESSON_BUTTON = (By.XPATH, "//div[text()=' Информационные технологии и сервисы ']")
     ITIS_1_MODULE = (By.XPATH, "//div[text()=' Информатика для инженеров и исследователей (Онлайн, МИСИС, ОК) ']")
     ITIS_2_MODULE = (By.XPATH, f"//div[text()=' {ITIS} (онлайн, ИТМО, ОК) ']")
@@ -32,6 +31,20 @@ class ModeusLocators:
     ITIS_11_MODULE = (By.XPATH, f"//div[text()=' {ITIS}. Цифровые инструменты полигонального 3D-моделирования ']")
     ITIS_12_MODULE = (By.XPATH, f"//div[text()=' {ITIS}. Цифровые инструменты проектирования игр ']")
     ITIS_13_MODULE = (By.XPATH, f"//div[text()=' {ITIS}. Цифровые инструменты проектирования умного дома ']")
+    #
+    HISTORY = (By.XPATH, f"//div[text()=' История России ']")
+    RUSSIAN_HISTORY = (By.XPATH, f"//div[text()=' История России (Смешанное, УГИ, СМУДС) ']")
+    HISTORY_OF_RUSSIAN_CIVILIZATION = (By.XPATH, f"//div[text()=' История российской цивилизации (Смешанное, ЦРУК, ОНЛАЙН НТК) ']")
+    #
+    MATH = (By.XPATH, f"//div[text()=' Математика ']")
+    MATH_BASIC_LEVEL = (By.XPATH, f"//div[text()=' Математика. Базовый уровень. ']")
+    MATH_PRO_LEVEL = (By.XPATH, f"//div[text()=' Математика. Повышенный уровень. ']")
+    #
+    FRS = (By.XPATH, f"//div[text()=' Основы российской государственности ']")
+    FRS_LESSON = (By.XPATH, f"//tr[@class='item-row ng-star-inserted']/td/div/div[text()=' Основы российской государственности ']")
+    #
+    PHYSICS = (By.XPATH, f"//div[text()=' Физика ']")
+    PHYSICS_BASIC_LEVEL = (By.XPATH, f"//div[text()=' Физика. Часть 1. Базовый уровень ']")
 
 
 class LogoutLocators:
