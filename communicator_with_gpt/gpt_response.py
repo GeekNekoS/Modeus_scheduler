@@ -10,8 +10,7 @@ response = g4f.ChatCompletion.create(
     messages=[{"role": "user",
                "content": table + "Какую команду мне выбрать, если не хочу учиться в субботу?"}],
     stream=True,
-    temperature = 1.9
-)
+    temperature = 0.5
 
 for message in response:
     print(message, flush=True, end='')
