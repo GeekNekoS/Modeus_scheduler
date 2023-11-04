@@ -16,8 +16,8 @@ table = "Учебная_команда|Тип_занятия|Учебный_де
         АТ-05|Практика_2|Пятница|12:00|13:30|Власова Алиса Михайловна\n "
 
 response = g4f.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": table + "Какие команды представлены"}],
+    model="gpt-3.5",
+    messages=[{"role": "user", "content": table + "Какие команды представлены?"}],
     stream=True,
 )
 
