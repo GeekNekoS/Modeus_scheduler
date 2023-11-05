@@ -13,7 +13,8 @@ option.set_preference("dom.webnotifications.enabled", False)
 option.set_preference("media.volume_scale", "0.0")
 option.set_preference("general.useragent.override", "yep")
 
-table = when_study()
+table = when_study("table.txt")
+other_table = when_study("other_table.txt")
 
 browser = webdriver.Firefox()
 browser.get("https://chat.openai.com/")
@@ -42,7 +43,11 @@ browser.find_element(By.LINK_TEXT, "Учебные команды").click()
 
 
 text_xpath = '//*[@id="prompt-textarea"]'
-browser.find_element(By.XPATH, text_xpath).send_keys(table + "Какую команду выбрать, если не хочу учиться в субботу?")
+browser.find_element(By.XPATH, text_xpath).send_keys("Математика\n"
+                          + table
+                          + "Физика\n"
+                          + other_table
+                          + "Я не хочу заниматься математикой в субботу и не хочу лекцию по физике во вторник, какие учебные команды мне выбрать? ")
 time.sleep(2)
 send_button_xpath = '/html/body/div[1]/div[1]/div[2]/main/div[1]/div[2]/form/div/div[2]/div/button'
 browser.find_element(By.XPATH, send_button_xpath).click()

@@ -1,6 +1,6 @@
-def when_study():
+def when_study(file):
     res=""
-    table = open("table.txt")
+    table = open(file)
     headers = table.readline().split()
     main_part=[]
     for row in table.readlines():
