@@ -62,7 +62,15 @@
    
 <a name="music"></a>
 ## Музычка для разработки
+• Enigma <br />
+|__ [Smell Of Desire](https://www.youtube.com/watch?v=oVKit3pjc1g) <br />
+|__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) <br />
+
 • Relax & Chill <br />
+|__ [The Ultimate Skyrim Playlist | Eleven Hours of Peaceful and Immersive Skyrim Music & Ambience |](https://www.youtube.com/watch?v=JcwceBDUd68) ♡ <br />
+|__ [The Elder Scrolls | Summer Landscapes with Peaceful Music from Skyrim, Morrowind, Oblivion, and ESO](https://www.youtube.com/watch?v=sOpmG_retJE) ♡ <br />
+|__ [Chill Drive - Lofi hip hop mix ~ Stress Relief, Chill Music](https://www.youtube.com/watch?v=7MJBeAyU1As) <br />
+|__ [The Elder Scrolls: Skyrim | Winter Storms Music & Ambience 🎧 12 Peaceful Scenes](https://www.youtube.com/watch?v=FNBf2yNOzhY) ♡ <br />
 |__ [Chill Drive - Lofi hip hop mix ~ Stress Relief, Relaxing Your Mind](https://www.youtube.com/watch?v=25BkVBgFD9Y) ♡ <br />
 |__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) ♡ <br />
 |__ [all of a sudden, everything becomes alright...](https://www.youtube.com/watch?v=ANkxRGvl1VY) <br />
@@ -88,8 +96,9 @@
 |__ [Quiet & Restful Skyrim Music and Ambience](https://www.youtube.com/watch?v=lO9yYT1I7cU) <br />
 
 • Drop Your Weapon [осторожно, берегите свои ушки] <br />
+|__ [Drop Your Weapon](https://www.youtube.com/watch?v=2MNCQcLPGxI) <br />
 |__ [Turn Off Your Radio](https://www.youtube.com/watch?v=giH4y6XRdzY) ♡ <br />
-|__ [Drop Your Weapon](https://www.youtube.com/watch?v=2MNCQcLPGxI)
+|__ [Chaos OD](https://www.youtube.com/watch?v=zE7xJ8QFZZQ) 
 
 • Black Sun Empire [осторожно, берегите свои ушки] <br />
 |__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />
@@ -97,7 +106,8 @@
 |__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) ♡ <br />
 |__ [Sinthetix - Cryogenic (Black Sun Empire remix)](https://www.youtube.com/watch?v=2L6pu0BPeJc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=12) <br />
 |__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
-|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6)
+|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6) <br />
+|__ [Typecell - Bad Illusions (Black Sun Empire Remix)](https://www.youtube.com/watch?v=RunkjktX6Eg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=15) ♡
 
 • Hideki Taniuchi <br />
 |__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡
