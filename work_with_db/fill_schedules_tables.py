@@ -69,8 +69,47 @@ def parse():
     for direction in directions_info:
         print(direction)
 
-        get_connect(direction[2])
-        time.sleep(5)
+        direction_url = direction[2]
+        get_connect(direction_url)
+        time.sleep(3)
+
+        lessons_of_this_direction = driver.find_elements(By.XPATH, "//div[@class='fc-content-skeleton']//a")
+
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""
+                    CREATE TABLE direction_1 (
+                        id SERIAL PRIMARY KEY,
+                        lesson_name VARCHAR,
+                        test VARCHAR
+                    );
+                """)
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
+        for lesson in lessons_of_this_direction:
+            lesson_name = lesson.find_element(By.XPATH, "//div[@class='fc-title']").text
+            print(lesson_name)
+
+            try:
+                with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                    cursor = connection.cursor()
+
+                    cursor.execute("""
+                        INSERT INTO direction_1 (lesson_name, test) VALUES (%s, %s)
+                        """, (lesson_name, None)
+                                   )
+            except Exception as ex:
+                print(f"Can`t establish connection to database: {ex}\n")
+
+        # XPATH на один элемент (урок)
+        # //div[@class='fc-content-skeleton']//a
+
+        # XPATH на день недели
+        # //div[@class='fc-event-container']
+
+        break
 
     return driver
 
