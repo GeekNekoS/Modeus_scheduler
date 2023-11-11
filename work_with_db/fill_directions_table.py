@@ -127,6 +127,7 @@ def parse():
             except Exception as ex:
                 print(f"Can`t establish connection to database: {ex}\n")
 
+    driver.close()
     return driver
 
 
