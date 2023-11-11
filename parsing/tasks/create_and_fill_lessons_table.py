@@ -1,17 +1,16 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from page_object_model.page_object import LoginPage
-from page_object_model.page_object import ModeusPage
+from parsing.page_object import LoginPage
+from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
-import time
 import os
 
 from dotenv import load_dotenv
 load_dotenv()
 
 
-def parse():
+def create_and_fill_lessons_table():
     driver = webdriver.Chrome()
     login_page = LoginPage(driver)
 
@@ -23,6 +22,8 @@ def parse():
 
     # Create and fill lessons table
     modeus_page = ModeusPage(driver)
+
+    modeus_page.create_lessons_table()
 
     modules = modeus_page.get_modules()
     lessons = []
@@ -56,4 +57,4 @@ def parse():
     return driver
 
 
-parse()
+create_and_fill_lessons_table()
