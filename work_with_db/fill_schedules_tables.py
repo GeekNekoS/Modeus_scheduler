@@ -67,47 +67,78 @@ def parse():
         print(f"Can`t establish connection to database: {ex}\n")
 
     for direction in directions_info:
-        print(direction)
+        print(f"О направлении: {direction}")  #
 
         direction_url = direction[2]
         get_connect(direction_url)
         time.sleep(3)
 
-        lessons_of_this_direction = driver.find_elements(By.XPATH, "//div[@class='fc-content-skeleton']//a")
-
         try:
             with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
                 cursor = connection.cursor()
-                cursor.execute(f"""
+                cursor.execute("""
                     CREATE TABLE direction_1 (
                         id SERIAL PRIMARY KEY,
                         lesson_name VARCHAR,
-                        test VARCHAR
+                        lesson_type VARCHAR,
+                        weekday VARCHAR, 
+                        lesson_time VARCHAR,
+                        teacher VARCHAR,
+                        place VARCHAR,
+                        team VARCHAR
                     );
                 """)
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-        for lesson in lessons_of_this_direction:
-            lesson_name = lesson.find_element(By.XPATH, "//div[@class='fc-title']").text
-            print(lesson_name)
+        lessons_of_this_direction_xpath = ".//tbody//td[@class='fc-axis']/..//td[2]//a"
+        lessons_of_this_direction = driver.find_elements(By.XPATH, lessons_of_this_direction_xpath)
+        # print(len(lessons_of_this_direction))
+        for i in range(len(lessons_of_this_direction)):
+            # driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]").click()
+            # time.sleep(1)
+
+            lesson_name, lesson_type = driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-title']").text.split(" / ")
+            weekday = ""  # <==
+            lesson_time = driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-time']/span").text
+            teacher = ""  # <==
+            place = "Аудитория не определена"
+            try:
+                place = driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-time']/small").text.split(" / ")[1]
+            except:
+                pass
+            team = ""  # <==
+
+            print(place)
+
+            # .//tbody//td[@class='fc-axis']/..//td[2]//a[1]//div[@class='fc-time']/small
 
             try:
                 with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
                     cursor = connection.cursor()
 
                     cursor.execute("""
-                        INSERT INTO direction_1 (lesson_name, test) VALUES (%s, %s)
-                        """, (lesson_name, None)
+                        INSERT INTO direction_1 (
+                            lesson_name, 
+                            lesson_type, 
+                            weekday, 
+                            lesson_time, 
+                            teacher,
+                            place,
+                            team
+                        ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+                        """, (
+                        lesson_name,
+                        lesson_type,
+                        weekday,
+                        lesson_time,
+                        teacher,
+                        place,
+                        team
+                    )
                                    )
             except Exception as ex:
                 print(f"Can`t establish connection to database: {ex}\n")
-
-        # XPATH на один элемент (урок)
-        # //div[@class='fc-content-skeleton']//a
-
-        # XPATH на день недели
-        # //div[@class='fc-event-container']
 
         break
 
