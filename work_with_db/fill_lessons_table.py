@@ -101,6 +101,7 @@ def parse():
     print(lessons)
     print(modules_links)
 
+    driver.close()
     return driver
 
 

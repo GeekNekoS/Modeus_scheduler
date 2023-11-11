@@ -142,6 +142,7 @@ def parse():
 
         break
 
+    driver.close()
     return driver
 
 
