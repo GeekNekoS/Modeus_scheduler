@@ -63,8 +63,9 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Enigma <br />
+|__ [Callas Went Away](https://www.youtube.com/watch?v=gWkWxFdpFHE) <br />
 |__ [Smell Of Desire](https://www.youtube.com/watch?v=oVKit3pjc1g) <br />
-|__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) <br />
+|__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) ♡ <br />
 
 • Relax & Chill <br />
 |__ [The Ultimate Skyrim Playlist | Eleven Hours of Peaceful and Immersive Skyrim Music & Ambience |](https://www.youtube.com/watch?v=JcwceBDUd68) ♡ <br />
@@ -101,6 +102,7 @@
 |__ [Chaos OD](https://www.youtube.com/watch?v=zE7xJ8QFZZQ) 
 
 • Black Sun Empire [осторожно, берегите свои ушки] <br />
+|__ [Don't You](https://www.youtube.com/watch?v=Y4YAsRd1Swk&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=2) <br />
 |__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />
 |__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
 |__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) ♡ <br />
