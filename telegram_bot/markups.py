@@ -18,8 +18,10 @@ def safety_markup():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
     btn1 = types.KeyboardButton('Смотреть правила')
-    btn2 = types.KeyboardButton('Назад в меню')
+    btn2 = types.KeyboardButton('Мой прогресс')
+    btn3 = types.KeyboardButton('Назад в меню')
 
-    markup.add(btn1)
-    markup.add(btn2)
+    markup.add(btn1, btn2)
+    markup.add(btn3)
+
     return markup
