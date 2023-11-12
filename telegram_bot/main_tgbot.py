@@ -48,6 +48,11 @@ def text_input(message):
         all_users(message)
     # else:
        # bot.send_message(message.from_user.id, 'Не понимаю о чём вы')
+        rules(message)
+    elif message.text.lower() == 'назад в меню':
+        start(message)
+    else:
+        bot.send_message(message.from_user.id, 'Не понимаю о чём вы')
 
 
 # def check_auth_with_message(message, cb):
@@ -107,9 +112,9 @@ def rules(message):
     bot.send_message(message.chat.id, msg)
 
 
-# @bot.message_handler(func=lambda message: True)
-# def echo_all(message):
-  #  bot.reply_to(message, message.text)
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
 
 
 if __name__ == '__main__':
