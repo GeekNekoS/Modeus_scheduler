@@ -93,7 +93,7 @@ def parse():
             if direction_name not in remove_this:
                 directions_of_module.append(direction_name)
 
-        for direction_name in directions_of_module:
+        for direction_name in directions_of_module:  # <==
             direction_button = driver.find_element(By.XPATH, f"//div[@class='item-name' and text()=' {direction_name} ']")
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()

@@ -62,7 +62,21 @@
    
 <a name="music"></a>
 ## Музычка для разработки
+• Oliver Huntemann <br />
+|__ [Tranquilizer](https://www.youtube.com/watch?v=wtRPzzWjlUk&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=10) <br />
+|__ [Magnet](https://www.youtube.com/watch?v=jNOFwlYShnw&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=9) ♡ <br />
+|__ [They Are (Not) After You](https://www.youtube.com/watch?v=ZpZ2hfxK93o&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=7) <br />
+|__ [WatergateWorldWide #8 Oliver Huntemann & Marco Resmann](https://www.youtube.com/watch?v=vcBUb7fXNl0) 
+
+• Magdalena Bay <br />
+|__ [Head Over Heels](https://www.youtube.com/watch?v=T8WDr5fkwCw&list=PLS28calGpTQ88M7zu6IkgLwm5Rbk0nNVD&index=50 <br />
+|__ [Tonguetwister](https://www.youtube.com/watch?v=GATMtsjKOL0&list=PLS28calGpTQ88M7zu6IkgLwm5Rbk0nNVD&index=3) ♡ ♡ ♡ <br />
+|__ [Top Dog](https://www.youtube.com/watch?v=ekxNdBZizNQ) ♡ <br />
+|__ [All You Do](https://www.youtube.com/watch?v=-_DuYs33JJk) <br />
+|__ [Killshot](https://www.youtube.com/watch?v=lhfs1CzzUPM)
+
 • Enigma <br />
+|__ [Silence Must Be Heard](https://www.youtube.com/watch?v=tCUran3CDFg) <br />
 |__ [Callas Went Away](https://www.youtube.com/watch?v=gWkWxFdpFHE) <br />
 |__ [Smell Of Desire](https://www.youtube.com/watch?v=oVKit3pjc1g) <br />
 |__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) ♡ <br />
