@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def create_and_fill_lessons_table():
+def create_and_fill_schedules_table():
     driver = webdriver.Chrome()
     login_page = LoginPage(driver)
 
