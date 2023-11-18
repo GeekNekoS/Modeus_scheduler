@@ -6,9 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
-
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
+import psycopg2
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -64,9 +62,8 @@ def parse():
         link = modules[i]
 
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+        time.sleep(1)
         pyautogui.hotkey('ctrl', 't')
-
-        # time.sleep(0.5)
 
         window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
@@ -75,52 +72,32 @@ def parse():
         window_after = driver.window_handles[0]
         driver.switch_to.window(window_after)
 
-        modules_links.append(driver.current_url)
+        module_url = driver.current_url
+        modules_links.append(module_url)
 
         parsed_lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
         for lesson in parsed_lessons:
-            lessons.append(lesson.text)
-            parsed_lessons = driver.find_elements(By.XPATH, "//div[@class='item-name']")
+            lesson_name = lesson.text
+            lessons.append(lesson_name)
 
-            lesson_link = parsed_lessons[i]
+            try:
+                with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                    cursor = connection.cursor()
 
-            ActionChains(driver).key_down(Keys.CONTROL).click(lesson_link).key_up(Keys.CONTROL).perform()
-            pyautogui.hotkey('ctrl', 't')
+                    cursor.execute("""
+                        INSERT INTO lessons (lesson, module_url) VALUES (%s, %s)
+                        """, (lesson_name, module_url)
+                    )
+            except Exception as ex:
+                print(f"Can`t establish connection to database: {ex}\n")
 
-            time.sleep(0.5)
-
-            window_after = driver.window_handles[1]
-            driver.switch_to.window(window_after)
-            driver.close()
-
-            window_after = driver.window_handles[0]
-            driver.switch_to.window(window_after)
-
-            get_connect(url)
-            time.sleep(3)
-
-            modules = driver.find_elements(By.XPATH, "//tbody/tr//span")
-            #
-            link = modules[i + 1]
-            #
-            ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
-            pyautogui.hotkey('ctrl', 't')
-            #
-            window_after = driver.window_handles[1]
-            driver.switch_to.window(window_after)
-            driver.close()
-            #
-            window_after = driver.window_handles[0]
-            driver.switch_to.window(window_after)
-
-            # educational direction
-
-        # get_connect(url)
-        # time.sleep(3)
+        get_connect(url)
+        time.sleep(3)
 
     print(lessons)
     print(modules_links)
 
+    driver.close()
     return driver
 
 
@@ -130,11 +107,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# print(driver.window_handles)
-# print(driver.current_url)
-
-# driver.execute_script("window.open('https://urfu.modeus.org/learning-path-selection/menus/45f2857b-6745-4d7a-8677-002f0b3e02e0', 'new window')")
-# window_after = driver.window_handles[1]
-# driver.switch_to.window(window_after)
