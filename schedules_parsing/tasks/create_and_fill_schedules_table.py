@@ -1,7 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from parsing.page_object import LoginPage
-from parsing.page_object import ModeusPage
+from schedules_parsing.page_object import LoginPage
+from schedules_parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
 import os

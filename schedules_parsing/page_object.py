@@ -1,5 +1,5 @@
-from parsing.locators import *
-from parsing.base_page import BaseClass
+from schedules_parsing.locators import *
+from schedules_parsing.base_page import BaseClass
 import psycopg2
 
 
