@@ -14,6 +14,11 @@ class ModeusLocators:
     DIRECTION_SCHEDULE_BUTTON = (By.XPATH, "//a[@class='no-wrap'][2]")
 
 
+class TeachersParsingLocators:
+    TEACHERS_CARDS = (By.XPATH, "//div[@class='text']")
+    TEACHER_NAME = (By.XPATH, "//p[@class='name']")
+
+
 class LogoutLocators:
     # LOG_OUT = (By.XPATH, "//img[@class='user-pic__image']")
     # LOG_OUT_BUTTON = (By.XPATH, "//*[text()='Выйти']")

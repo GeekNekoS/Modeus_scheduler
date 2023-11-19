@@ -103,3 +103,28 @@ class ModeusPage(BaseClass):
                                )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
+
+
+class TeachersParsing(BaseClass):
+    def create_teachers_table(self):
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/teachers') as connection:
+                cursor = connection.cursor()
+                cursor.execute("""
+                    CREATE TABLE teachers_data (
+                        id SERIAL PRIMARY KEY,
+                        teacher_name VARCHAR
+                    )
+                """)
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
+    def go_to_somewhere(self):
+        url = 'https://urfu.ru/ru/about/personal-pages'
+        return self.get_connect(url)
+
+    def get_teachers_cards(self):
+        return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
+
+    def get_name(self):
+        return self.find_element(TeachersParsingLocators.TEACHER_NAME, time=self.time)
