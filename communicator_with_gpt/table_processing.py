@@ -1,4 +1,7 @@
 def when_study(file):
+    """with open(file, "r", encoding="utf-8") as table:
+        return table.read()"""
+
     res=""
     table = open(file)
     headers = table.readline().split()
@@ -12,8 +15,10 @@ def when_study(file):
         teams[action[0]]+= action[2] + " "
 
     for team,days in teams.items():
-        res += f"{team} {days} \n"
+        res += f"Команда {team} {days} \n"
 
     table.close()
     return res
+
+
 
