@@ -119,12 +119,16 @@ class TeachersParsing(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
+    def get_pages(self):
+        pages = self.find_elements(TeachersParsingLocators.PAGES_HREFS, time=self.time)
+        urls = []
+        for page in pages:
+            urls.append(self.get_attribute(page))
+        return urls
+
     def go_to_somewhere(self):
         url = 'https://urfu.ru/ru/about/personal-pages'
         return self.get_connect(url)
 
     def get_teachers_cards(self):
         return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
-
-    def get_name(self):
-        return self.find_element(TeachersParsingLocators.TEACHER_NAME, time=self.time)

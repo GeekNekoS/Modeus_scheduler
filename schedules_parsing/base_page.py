@@ -16,6 +16,9 @@ class BaseClass:
         return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Can't find elements by locator {locator}")
 
+    def get_attribute(self, web_element):
+        return self.get_attribute(web_element)
+
     def go_to_modules_page(self):
         return self.driver.get(self.modules_url)
 
