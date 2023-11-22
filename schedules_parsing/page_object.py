@@ -123,7 +123,7 @@ class TeachersParsing(BaseClass):
         pages = self.find_elements(TeachersParsingLocators.PAGES_HREFS, time=self.time)
         urls = []
         for page in pages:
-            urls.append(self.get_attribute(page))
+            urls.append(page.get_attribute("href"))
         return urls
 
     def go_to_somewhere(self):
