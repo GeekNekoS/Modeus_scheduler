@@ -1,6 +1,7 @@
 from schedules_parsing.locators import *
 from schedules_parsing.base_page import BaseClass
 import psycopg2
+from selenium.common.exceptions import TimeoutException as TE
 
 
 class LoginPage(BaseClass):
@@ -113,7 +114,9 @@ class TeachersParsing(BaseClass):
                 cursor.execute("""
                     CREATE TABLE teachers_data (
                         id SERIAL PRIMARY KEY,
-                        teacher_name VARCHAR
+                        teacher_name VARCHAR,
+                        teacher_phone VARCHAR,
+                        teacher_email VARCHAR
                     )
                 """)
         except Exception as ex:
@@ -126,9 +129,25 @@ class TeachersParsing(BaseClass):
             urls.append(page.get_attribute("href"))
         return urls
 
-    def go_to_somewhere(self):
+    def go_to_teachers_page(self):
         url = 'https://urfu.ru/ru/about/personal-pages'
         return self.get_connect(url)
 
     def get_teachers_cards(self):
-        return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
+        try:
+            return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
+        except TE:
+            return []
+
+    def save_teacher_data(self, *data):
+        teacher_name, teacher_phone, teacher_email = data
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/teachers') as connection:
+                cursor = connection.cursor()
+
+                cursor.execute("""
+                    INSERT INTO teachers_data (teacher_name, teacher_phone, teacher_email) VALUES (%s, %s, %s)
+                    """, (teacher_name, teacher_phone, teacher_email)
+                               )
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
