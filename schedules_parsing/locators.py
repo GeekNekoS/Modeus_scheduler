@@ -16,7 +16,7 @@ class ModeusLocators:
 
 class TeachersParsingLocators:
     TEACHERS_CARDS = (By.XPATH, "//div[@class='text']")
-    TEACHER_NAME = (By.XPATH, "//p[@class='name']")
+    PAGES_HREFS = (By.XPATH, "//div[@class='alpha-navigation']/a")
 
 
 class LogoutLocators:

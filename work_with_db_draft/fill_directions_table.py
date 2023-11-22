@@ -101,6 +101,7 @@ def parse():
             pyautogui.hotkey('ctrl', 't')
 
             go_to = driver.current_url
+            time.sleep(1)
 
             window_after = driver.window_handles[1]
             driver.switch_to.window(window_after)
