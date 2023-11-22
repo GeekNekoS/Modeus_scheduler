@@ -1,10 +1,5 @@
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-from schedules_parsing.page_object import LoginPage
 from schedules_parsing.page_object import TeachersParsing
 from selenium import webdriver
-import pyautogui
-import os
 
 import time
 
@@ -19,11 +14,11 @@ def parse_teachers_data():
     modeus_page = TeachersParsing(driver)
 
     modeus_page.create_teachers_table()
-    modeus_page.go_to_somewhere()
+    modeus_page.go_to_teachers_page()
 
-    pages = modeus_page.get_pages()
-    for page in pages:
-        modeus_page.get_connect(page)
+    urls = modeus_page.get_pages()
+    for url in urls:
+        modeus_page.get_connect(url)
         teachers_cards = modeus_page.get_teachers_cards()
         for teacher_card in teachers_cards:
             teacher_data = teacher_card.text.split("\n")
@@ -35,6 +30,8 @@ def parse_teachers_data():
                     teacher_phone = item.replace("Телефон: ", "")
                 if "Электронная почта: " in item:
                     teacher_email = item.replace("Электронная почта: ", "")
+
+            modeus_page.save_teacher_data(teacher_name, teacher_phone, teacher_email)
 
             print(teacher_name, teacher_phone, teacher_email, "\n")
 
