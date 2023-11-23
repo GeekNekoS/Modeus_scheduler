@@ -4,9 +4,7 @@ from schedules_parsing.page_object import LoginPage
 from schedules_parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
-import os
-
-import time
+from schedules_parsing.tasks.login import login
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,10 +15,7 @@ def create_and_fill_directions_table():
     login_page = LoginPage(driver)
 
     # login
-    login_page.go_to_modules_page()
-    login_page.enter_login(os.getenv('LOGIN'))
-    login_page.enter_password(os.getenv('PASSWORD'))
-    login_page.click_on_the_login_button()
+    login(login_page)
 
     # Create and fill directions table
     modeus_page = ModeusPage(driver)
@@ -47,7 +42,7 @@ def create_and_fill_directions_table():
             if direction_name not in remove_this:
                 directions_of_module.append(direction_name)
 
-        for direction_name in directions_of_module:  # <==
+        for direction_name in directions_of_module:
             direction_button = modeus_page.get_direction_button(direction_name)
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()

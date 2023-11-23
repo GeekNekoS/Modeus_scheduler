@@ -63,17 +63,10 @@
 <a name="music"></a>
 ## Музычка для разработки
 • Oliver Huntemann <br />
-|__ [Tranquilizer](https://www.youtube.com/watch?v=wtRPzzWjlUk&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=10) <br />
 |__ [Magnet](https://www.youtube.com/watch?v=jNOFwlYShnw&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=9) ♡ <br />
+|__ [Tranquilizer](https://www.youtube.com/watch?v=wtRPzzWjlUk&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=10) <br />
 |__ [They Are (Not) After You](https://www.youtube.com/watch?v=ZpZ2hfxK93o&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=7) <br />
-|__ [WatergateWorldWide #8 Oliver Huntemann & Marco Resmann](https://www.youtube.com/watch?v=vcBUb7fXNl0) 
-
-• Magdalena Bay <br />
-|__ [Head Over Heels](https://www.youtube.com/watch?v=T8WDr5fkwCw&list=PLS28calGpTQ88M7zu6IkgLwm5Rbk0nNVD&index=50) <br />
-|__ [Tonguetwister](https://www.youtube.com/watch?v=GATMtsjKOL0&list=PLS28calGpTQ88M7zu6IkgLwm5Rbk0nNVD&index=3) ♡ ♡ ♡ <br />
-|__ [Top Dog](https://www.youtube.com/watch?v=ekxNdBZizNQ) ♡ <br />
-|__ [All You Do](https://www.youtube.com/watch?v=-_DuYs33JJk) <br />
-|__ [Killshot](https://www.youtube.com/watch?v=lhfs1CzzUPM)
+|__ [WatergateWorldWide #8 Oliver Huntemann](https://www.youtube.com/watch?v=vcBUb7fXNl0)
 
 • Enigma <br />
 |__ [Silence Must Be Heard](https://www.youtube.com/watch?v=tCUran3CDFg) <br />
@@ -82,48 +75,15 @@
 |__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) ♡ <br />
 
 • Relax & Chill <br />
-|__ [The Ultimate Skyrim Playlist | Eleven Hours of Peaceful and Immersive Skyrim Music & Ambience |](https://www.youtube.com/watch?v=JcwceBDUd68) ♡ <br />
-|__ [The Elder Scrolls | Summer Landscapes with Peaceful Music from Skyrim, Morrowind, Oblivion, and ESO](https://www.youtube.com/watch?v=sOpmG_retJE) ♡ <br />
-|__ [Chill Drive - Lofi hip hop mix ~ Stress Relief, Chill Music](https://www.youtube.com/watch?v=7MJBeAyU1As) <br />
-|__ [The Elder Scrolls: Skyrim | Winter Storms Music & Ambience 🎧 12 Peaceful Scenes](https://www.youtube.com/watch?v=FNBf2yNOzhY) ♡ <br />
-|__ [Chill Drive - Lofi hip hop mix ~ Stress Relief, Relaxing Your Mind](https://www.youtube.com/watch?v=25BkVBgFD9Y) ♡ <br />
-|__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) ♡ <br />
-|__ [all of a sudden, everything becomes alright...](https://www.youtube.com/watch?v=ANkxRGvl1VY) <br />
-|__ [Windy 🌬️ Lofi Keep You Safe 🍂 Lofi Hip Hop ~ Deep to Sleep / Relax / Study](https://www.youtube.com/watch?v=qW2lX0LnTQA) <br />
-|__ [Cruising Through the Galaxy with Synthwave](https://www.youtube.com/watch?v=DUQkBgTDCiE) <br />
-|__ [Synthwave/Electric Mixtape I | For Study/Relax](https://www.youtube.com/watch?v=k3WkJq478To) <br />
-|__ [💜 Minecraft Amethyst Geode Koi Pond 💜](https://www.youtube.com/watch?v=5zl30-PZxqI) <br />
-|__ [The Forest of Dreams 🌿 Minecraft Ambience & Music Box](https://www.youtube.com/watch?v=8TvpUMKZoCU) <br />
-|__ [The Forest of Tranquility 🌿 Minecraft Ambience w/ C418 Music (Slowed)](https://www.youtube.com/watch?v=2Qh5YcV0p-I) <br />
-|__ [Nature's Lullaby | Minecraft Ambience w/ C418 Music](https://www.youtube.com/watch?v=bjyjDNzQemo) <br />
-|__ [Engineering Colony VI 'Cadwell's Reach' Kepler-62F (4 Hour Ambient)](https://www.youtube.com/watch?v=nVpXV6QDtj0) <br />
-|__ [PURE Ambient Cyberpunk Music For Focus and DEEP Relaxation [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) ♡ <br />
+|__ [Cartridge 1987 - Last Escape (Full Album)](https://www.youtube.com/watch?v=RwhgIvqR7QI) ♡ <br />
+|__ [The Ultimate Skyrim Playlist](https://www.youtube.com/watch?v=JcwceBDUd68) <br />
+|__ [The Elder Scrolls | Summer Landscapes of Skyrim](https://www.youtube.com/watch?v=sOpmG_retJE) <br />
+|__ [Chill Drive ~ Stress Relief, Chill Music](https://www.youtube.com/watch?v=7MJBeAyU1As) <br />
+|__ [Chill Drive ~ Stress Relief, Relaxing Your Mind](https://www.youtube.com/watch?v=25BkVBgFD9Y) <br />
+|__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) <br />
+|__ [PURE Ambient Cyberpunk Music [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) <br />
 |__ [ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix])](https://www.youtube.com/watch?v=yhCuCqJbOVE) <br />
-|__ [Blade Runner Bliss](https://www.youtube.com/watch?v=4FhsjQ2xess) <br />
-|__ [3 hours of minecraft relaxing music with house in rain to sleep and relax](https://www.youtube.com/watch?v=MZqcaMe4FNE) <br />
-|__ [Petals in the Moonlight](https://www.youtube.com/watch?v=BKjUfSb5UU0) <br />
-|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) ♡ <br />
-|__ [Minecraft Lush Cave Ambience w/ C418 Music Box | 8 Hours](https://www.youtube.com/watch?v=HnLScCOFCv0) <br />
-|__ [Wake up, you're dreaming...](https://www.youtube.com/watch?v=oC4o0litO-4) <br />
-|__ [A Night of Chills | Minecraft Ambience](https://www.youtube.com/watch?v=PzC-QfWdYoE) <br />
-|__ [Nostalgic Minecraft Music](https://www.youtube.com/watch?v=TV1Nj555ShQ) <br />
-|__ [Minecraft ambience](https://www.youtube.com/watch?v=FlaDNyuPnfg) <br />
-|__ [Quiet & Restful Skyrim Music and Ambience](https://www.youtube.com/watch?v=lO9yYT1I7cU) <br />
-
-• Drop Your Weapon [осторожно, берегите свои ушки] <br />
-|__ [Drop Your Weapon](https://www.youtube.com/watch?v=2MNCQcLPGxI) <br />
-|__ [Turn Off Your Radio](https://www.youtube.com/watch?v=giH4y6XRdzY) ♡ <br />
-|__ [Chaos OD](https://www.youtube.com/watch?v=zE7xJ8QFZZQ) 
-
-• Black Sun Empire [осторожно, берегите свои ушки] <br />
-|__ [Don't You](https://www.youtube.com/watch?v=Y4YAsRd1Swk&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=2) <br />
-|__ [Black Sun Empire - B-Negative (Ill Skillz Remix)](https://www.youtube.com/watch?v=GQAF9VYBBzc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=11) ♡ <br />
-|__ [Eye-D Unicorn MF](https://www.youtube.com/watch?v=LT-pfqmq2kc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=22) ♡ <br />
-|__ [Boris The Blade](https://www.youtube.com/watch?v=5lAyhChKqNc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=9) ♡ <br />
-|__ [Sinthetix - Cryogenic (Black Sun Empire remix)](https://www.youtube.com/watch?v=2L6pu0BPeJc&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=12) <br />
-|__ [Swipe](https://www.youtube.com/watch?v=OoG_YE69aPg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=8) <br />
-|__ [The Rat](https://www.youtube.com/watch?v=jBhkRqAQo_E&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=6) <br />
-|__ [Typecell - Bad Illusions (Black Sun Empire Remix)](https://www.youtube.com/watch?v=RunkjktX6Eg&list=OLAK5uy_nQDBv6d8yGaRObX_mIKW05ksSHOh-txQU&index=15) ♡
+|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) <br />
 
 • Hideki Taniuchi <br />
 |__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡

@@ -1,8 +1,6 @@
 from schedules_parsing.page_object import TeachersParsing
 from selenium import webdriver
 
-import time
-
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -34,8 +32,6 @@ def parse_teachers_data():
             modeus_page.save_teacher_data(teacher_name, teacher_phone, teacher_email)
 
             print(teacher_name, teacher_phone, teacher_email, "\n")
-
-    time.sleep(1)
 
 
 parse_teachers_data()
