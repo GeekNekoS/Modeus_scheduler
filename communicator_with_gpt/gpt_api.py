@@ -1,36 +1,40 @@
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # from table_processing import when_study
 
 with open("table.txt", "r", encoding="utf-8") as table:
     math = table.read()
-with open("other_table.txt", "r") as o_table:
-    physics = o_table.read()
+# with open("other_table.txt", "r") as o_table:
+#     physics = o_table.read()
 
-
-#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
-#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
 client = OpenAI(
-    # defaults to os.environ.get("OPENAI_API_KEY")
-    api_key="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",
+    api_key=os.getenv("KEY1"),
 )
 
-# sys = open("sys.txt", "r")
-# sys_message = sys.read()
-# sys.close()
 completion = client.chat.completions.create(
     model="gpt-3.5-turbo-1106",
     messages=[
                 {
                     "role": "system",
-                    "content": "Твоя задача из таблицы ниже  выбрать команду, которая будет удовлетворять желаниям пользователя\n"
-                               + math
+                    "content": math
+                        +"""Each row contains information about the study team's classes for the week
+        In each row the elements are separated by a comma:
+        The first element of the row is Study Team.
+        The second element of the row is the Training subject.
+        The next elements in brackets are the classes that take place during the week for the team in the same row .
+        Each lesson is specified in the format - (Day_of_week,Time_beginning,Time_end,Teacher).
+        The line of information about the team's lessons ends with a dot.
+        Your task is to write which team is suitable for the user, if there is no suitable command, you should answer that there is no suitable command."""
                 },
                 {
                     "role": "user",
-                    "content": "Хочу, чтобы занятия имели минимальный временной промежуток между друг другом"
+                    "content": "Без занятий в субботу"
                 }
              ],
-    n=1
+    n=1,
+    temperature=0
 )
 
 chat_response = completion.choices[0].message.content
