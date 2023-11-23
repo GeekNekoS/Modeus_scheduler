@@ -62,8 +62,6 @@ def parse():
         print(f"Can`t establish connection to database: {ex}\n")
 
     for direction in directions_info:
-        print(f"О направлении: {direction}")  #
-
         direction_url = direction[2]
         get_connect(direction_url)
         time.sleep(3)
@@ -97,13 +95,10 @@ def parse():
                 time.sleep(1)
 
                 lessons_data = driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-title']").text.split(" / ")
-                print(lessons_data)
-                print()
                 try:
                     lesson_name, lesson_type = lessons_data[0], lessons_data[1]
                 except:
                     lesson_name, lesson_type = lessons_data[0], "Не указано"
-
                 weekday = date[2]
                 lesson_time = driver.find_element(By.XPATH, f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-time']/span").text
                 teacher = driver.find_element(By.XPATH, "//div[@class='ng-star-inserted']").text
