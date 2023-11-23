@@ -101,3 +101,8 @@
 • pyttsx3 <br />
 • pandas
 <br /> <br />
+
+
+## Деплой
+nekos
+<br /> <br />
