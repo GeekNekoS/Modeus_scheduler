@@ -2,12 +2,16 @@ from schedules_parsing.tasks.create_and_fill_lessons_table import create_and_fil
 from schedules_parsing.tasks.create_and_fill_directions_table import create_and_fill_directions_table
 from schedules_parsing.tasks.create_and_fill_schedules_table import create_and_fill_schedules_table
 
-from work_with_db_draft.fill_schedules_tables import main as fill_schedules_tables  #
+import time
 
 
 if __name__ == "__main__":
+    start = time.perf_counter()
+
     create_and_fill_lessons_table()
     create_and_fill_directions_table()
-    # create_and_fill_schedules_table()
+    create_and_fill_schedules_table()
 
-    fill_schedules_tables()
+    stop = time.perf_counter()
+
+    print(f"Выполнено за {stop - start}")
