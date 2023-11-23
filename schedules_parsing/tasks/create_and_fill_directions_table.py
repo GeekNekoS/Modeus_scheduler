@@ -68,4 +68,9 @@ def create_and_fill_directions_table():
     return driver
 
 
-create_and_fill_directions_table()
+def main():
+    create_and_fill_directions_table()
+
+
+if __name__ == "__main__":
+    main()

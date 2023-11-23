@@ -13,6 +13,7 @@ load_dotenv()
 
 def create_and_fill_schedules_table():
     driver = webdriver.Chrome()
+    driver.maximize_window()
     login_page = LoginPage(driver)
 
     # login
@@ -20,7 +21,6 @@ def create_and_fill_schedules_table():
 
     # Create and fill lessons table
     modeus_page = ModeusPage(driver)
-
     modeus_page.go_to_modules_page()
 
     directions_info = modeus_page.get_directions_from_db()
@@ -42,21 +42,27 @@ def create_and_fill_schedules_table():
 
         for date in dates:
             lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
+            lessons_of_this_direction = []
             try:
                 lessons_of_this_direction = modeus_page.get_elems_by_custom_xpath(lessons_of_this_direction_xpath)
             except:
-                continue
+                pass
+            print(lessons_of_this_direction)
 
             for i in range(len(lessons_of_this_direction)):
                 next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]"
                 info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
                 info.click()
 
-                popover = modeus_page.get_popover()
+                popover = None
+                try:
+                    popover = modeus_page.get_popover()
+                except:
+                    popover = modeus_page.get_popover()
+                # time.sleep(1)
 
                 lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-title']"
                 lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
-
                 try:
                     lesson_name, lesson_type = lessons_data[0], lessons_data[1]
                 except:
@@ -64,7 +70,7 @@ def create_and_fill_schedules_table():
                 weekday = date[2]
                 lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
                 lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
-                teacher = modeus_page.get_teachers_name().text
+                teacher = modeus_page.get_teachers_name()
                 try:
                     place_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/small"
                     place = modeus_page.get_elem_by_custom_xpath(place_xpath).text.split(" / ")[1]
@@ -82,4 +88,9 @@ def create_and_fill_schedules_table():
     return driver
 
 
-create_and_fill_schedules_table()
+def main():
+    create_and_fill_schedules_table()
+
+
+if __name__ == "__main__":
+    main()

@@ -54,4 +54,9 @@ def create_and_fill_lessons_table():
     return driver
 
 
-create_and_fill_lessons_table()
+def main():
+    create_and_fill_lessons_table()
+
+
+if __name__ == "__main__":
+    main()
