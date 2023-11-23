@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -15,6 +16,12 @@ class BaseClass:
     def find_elements(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_all_elements_located(locator),
                                                       message=f"Can't find elements by locator {locator}")
+
+    def get_elem_by_custom_xpath(self, xpath):
+        return self.find_element((By.XPATH, xpath), time=1)
+
+    def get_elems_by_custom_xpath(self, xpath):
+        return self.find_elements((By.XPATH, xpath), time=1)
 
     def go_to_modules_page(self):
         return self.driver.get(self.modules_url)

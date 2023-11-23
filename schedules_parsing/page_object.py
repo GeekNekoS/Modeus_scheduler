@@ -105,6 +105,60 @@ class ModeusPage(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
+    def get_directions_from_db(self):
+        directions_info = None
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                cursor = connection.cursor()
+                query = """SELECT * FROM directions"""
+                cursor.execute(query)
+                directions_info = cursor.fetchall()
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+        return directions_info
+
+    def create_schedules_table(self):
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                cursor = connection.cursor()
+                cursor.execute("""
+                    CREATE TABLE schedules (
+                        id SERIAL PRIMARY KEY,
+                        lesson_name VARCHAR,
+                        lesson_type VARCHAR,
+                        weekday VARCHAR, 
+                        lesson_time VARCHAR,
+                        teacher VARCHAR,
+                        place VARCHAR,
+                        team VARCHAR
+                    );
+                """)
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
+    def get_popover(self):
+        return self.find_element(ModeusLocators.POPOVER, time=self.time)
+
+    def get_teachers_name(self):
+        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text
+
+    def get_h3_point(self):
+        return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
+
+    def save_schedules_data_to_db(self, *data):
+        lesson_name, lesson_type, weekday, lesson_time, teacher, place, team = data
+        try:
+            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+                cursor = connection.cursor()
+
+                cursor.execute("""
+                    INSERT INTO schedules (lesson_name, lesson_type, weekday, lesson_time, teacher, place, team) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    """, (lesson_name, lesson_type, weekday, lesson_time, teacher,place,team)
+                    )
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
 
 class TeachersParsing(BaseClass):
     def create_teachers_table(self):
