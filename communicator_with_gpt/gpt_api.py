@@ -18,24 +18,26 @@ completion = client.chat.completions.create(
     messages=[
                 {
                     "role": "system",
-                    "content": math
-                        +"""Each row contains information about the study team's classes for the week
-        In each row the elements are separated by a comma:
-        The first element of the row is Study Team.
-        The second element of the row is the Training subject.
-        The next elements in brackets are the classes that take place during the week for the team in the same row .
-        Each lesson is specified in the format - (Day_of_week,Time_beginning,Time_end,Teacher).
-        The line of information about the team's lessons ends with a dot.
-        Your task is to write which team is suitable for the user, if there is no suitable command, you should answer that there is no suitable command."""
+                    "content":
+                        """В каждой строке содержится информация о занятиях учебной команды на неделе.
+                        В каждой строке элементы разделяются запятой:
+                        Первый элемент строки — Учебная команда.
+                        Второй элемент строки – Учебный предмет.
+                        Следующие элементы в скобках — это занятия, которые проводятся в течение недели для команды в той же строке.
+                        Каждый урок указывается в формате: (День недели,Время начала,Время окончания,Учитель).
+                        Строка информации о занятиях команды заканчивается точкой.
+                        Ваша задача написать какая команда подходит пользователю, если подходящей команды нет, следует ответить, что подходящей команды нет.\n"""
+                    + math
                 },
                 {
                     "role": "user",
-                    "content": "Без занятий в субботу"
+                    "content": ""
                 }
              ],
     n=1,
     temperature=0
 )
 
-chat_response = completion.choices[0].message.content
-print(chat_response)
+chat_response = completion.choices
+for i in chat_response:
+    print(i.message.content)
