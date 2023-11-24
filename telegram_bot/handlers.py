@@ -57,6 +57,18 @@ class MyHandlers:
             self.bot.send_message(teacher.chat.id, 'Неверное имя преподавателя\nУкажите другое')
             self.bot.register_next_step_handler(teacher, self.find_review_text)
 
+    def check_modeus_status(self, message):
+        if not db_func.is_user_login_modeus(message.from_user.id):
+            self.bot.send_message(message.chat.id, 'Необходимо войти в вашу учетную запись,'
+                                                   ' для получения информации о доступных вам дисциплинах',
+                                  reply_markup=markups.back_to_start_markup())
+            self.bot.send_message(message.chat.id, 'Введите ваш логин: ')
+            self.bot.register_next_step_handler(message, self.enter_modeus_login)
+        else:
+            self.bot.send_message(message.chat.id, 'Вы уже вошли в аккаунт',
+                                  reply_markup=markups.modeus_markup())
+            self.bot.register_next_step_handler(message, self.check_next_step)
+
     def enter_modeus_login(self, message):
         if not isinstance(message.text, str):
             self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
@@ -69,11 +81,39 @@ class MyHandlers:
 
     def add_login_and_password_to_db(self, user_password, user_login):
         if not isinstance(user_password.text, str):
-            self.bot.send_message(review.chat.id, 'Недоступный тип данных, введите текст')
+            self.bot.send_message(user_password.chat.id, 'Недоступный тип данных, введите текст')
             self.bot.register_next_step_handler(user_password, self.add_login_and_password_to_db, user_login)
         elif user_password.text.lower() == 'назад в меню':
             main_tgbot.start(user_password)
         else:
             db_func.reg_user_in_modeus(user_password.from_user.id, user_login, user_password.text)
             self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
+                                  reply_markup=markups.modeus_markup())
+            self.bot.register_next_step_handler(user_password, self.check_next_step)
+
+    def check_next_step(self, message):
+        if not isinstance(message.text, str):
+            self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
+            self.bot.register_next_step_handler(message, self.check_next_step)
+        elif message.text.lower() == 'назад в меню':
+            main_tgbot.start(message)
+        elif message.text.lower() == 'выйти из аккаунта':
+            db_func.leave_modeus_account(message.from_user.id)
+            self.bot.send_message(message.chat.id, 'Вы вышли из аккаунта',
                                   reply_markup=markups.start_markup())
+        elif message.text.lower() == 'приступить к созданию':
+            self.bot.send_message(message.chat.id, 'Введите свои пожелания к расписанию',
+                                  reply_markup=markups.back_to_start_markup())
+            self.bot.register_next_step_handler(message, self.add_user_preference)
+        else:
+            self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')
+            self.bot.register_next_step_handler(message, self.check_next_step)
+
+    def add_user_preference(self, message):
+        if not isinstance(message.text, str):
+            self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
+            self.bot.register_next_step_handler(message, self.add_user_preference)
+        else:
+            self.bot.send_message(message.chat.id, 'Начинаю создание вариантов вашего расписания...',
+                                  reply_markup=markups.start_markup())
+            db_func.update_user_modeus_preference(message.text, message.from_user.id)

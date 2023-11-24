@@ -22,14 +22,7 @@ def text_input(message):
     my_handlers = handlers.MyHandlers(bot)
     if message.text.lower() == 'составить расписание':
         db_func.create_modeus_db()
-        if not db_func.is_user_login_modeus(message.from_user.id):
-            bot.send_message(message.chat.id, 'Необходимо войти в вашу учетную запись,'
-                                              ' для получения информации о доступных вам дисциплинах',
-                             reply_markup=markups.back_to_start_markup())
-            bot.send_message(message.chat.id, 'Введите ваш логин: ')
-            bot.register_next_step_handler(message, my_handlers.enter_modeus_login)
-        else:
-            bot.send_message(message.chat.id, 'Вы уже вошли в аккаунт')
+        my_handlers.check_modeus_status(message)
     elif message.text.lower() == 'отзывы':
         bot.send_message(message.chat.id, 'Выберите, что именно вас интересует',
                          reply_markup=markups.reviews_markup())
