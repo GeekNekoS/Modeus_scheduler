@@ -107,16 +107,16 @@ def leave_modeus_account(user_id):
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def get_all():
-    try:
-        with psycopg2.connect(url) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""
-                SELECT * FROM users_modeus;
-            """)
-            return cursor.fetchall()
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def get_all():
+#     try:
+#         with psycopg2.connect(url) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""
+#                 SELECT * FROM users_modeus;
+#             """)
+#             return cursor.fetchall()
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
 def update_user_modeus_preference(preference, user_id):
