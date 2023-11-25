@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from schedules_parsing.page_object import LoginPage
@@ -30,11 +32,9 @@ def create_and_fill_lessons_table():
         link = modules[i]
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
+        time.sleep(1)
 
-        try:
-            window_after = driver.window_handles[1]
-        except:
-            window_after = driver.window_handles[1]
+        window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.close()
 
