@@ -2,18 +2,23 @@ import time
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from schedules_parsing.page_object import LoginPage
-from schedules_parsing.page_object import ModeusPage
+from parsing.page_object import LoginPage
+from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
-from schedules_parsing.tasks.login import login
+from parsing.schedules.login import login
+from selenium.webdriver.chrome.options import Options
 
 from dotenv import load_dotenv
 load_dotenv()
 
 
 def create_and_fill_lessons_table():
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+    driver = webdriver.Chrome()  # options=chrome_options
+    # driver.maximize_window()
+
     login_page = LoginPage(driver)
 
     # login
