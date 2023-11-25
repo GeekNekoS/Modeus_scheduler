@@ -31,7 +31,10 @@ def create_and_fill_lessons_table():
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
 
-        window_after = driver.window_handles[1]
+        try:
+            window_after = driver.window_handles[1]
+        except:
+            window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.close()
 
