@@ -1,4 +1,4 @@
-from schedules_parsing.page_object import TeachersParsing
+from parsing.page_object import TeachersParsing
 from selenium import webdriver
 
 from dotenv import load_dotenv

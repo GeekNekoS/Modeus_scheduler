@@ -1,10 +1,12 @@
+import time
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-from schedules_parsing.page_object import LoginPage
-from schedules_parsing.page_object import ModeusPage
+from parsing.page_object import LoginPage
+from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
-from schedules_parsing.tasks.login import login
+from parsing.schedules.login import login
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -47,6 +49,7 @@ def create_and_fill_directions_table():
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             pyautogui.hotkey('ctrl', 't')
+            time.sleep(1)
 
             go_to = driver.current_url
 

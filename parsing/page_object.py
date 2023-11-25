@@ -1,5 +1,5 @@
-from schedules_parsing.locators import *
-from schedules_parsing.base_page import BaseClass
+from parsing.locators import *
+from parsing.base_page import BaseClass
 import psycopg2
 from selenium.common.exceptions import TimeoutException as TE
 
