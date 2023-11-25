@@ -1,45 +1,43 @@
-import openai
-from table_processing import when_study
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+load_dotenv()
+# from table_processing import when_study
 
+with open("table.txt", "r", encoding="utf-8") as table:
+    math = table.read()
+# with open("other_table.txt", "r") as o_table:
+#     physics = o_table.read()
 
-table = when_study("table.txt")
-other_table = when_study("other_table.txt")
-
-openai.api_key = "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"
-messages=[]
-
-"""for i in range(2):
-    content = input("User: ")
-    messages.append({"role": "user", "content": content})
-
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-1106",
-        messages=messages
-    )
-
-    chat_response = completion.choices[0].message.content
-    print(f'ChatGPT: {chat_response}')
-    messages.append({"role": "assistant", "content": chat_response})"""
-
-
-cont1 = "Математика\n" + table + "\nНазови команду или команды, которые не учатся в субботу?"
-cont2 ="Физика\n" + other_table + "\nНазови команду или команды, котореы не учатся в понедельник?"
-
-completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo-1106",
-    messages=[{"role": "user",
-                "content": cont1},],
-    n = 1,
-    temperature = 0
+client = OpenAI(
+    api_key=os.getenv("KEY1"),
 )
-chat_response = completion.choices[0].message.content
-print(chat_response)
-completion = openai.ChatCompletion.create(
+
+completion = client.chat.completions.create(
     model="gpt-3.5-turbo-1106",
-    messages=[{"role": "user",
-                "content": cont2},],
-    n = 1,
-    temperature = 0
+    messages=[
+                {
+                    "role": "system",
+                    "content":
+                        """В каждой строке содержится информация о занятиях учебной команды на неделе.
+                        В каждой строке элементы разделяются запятой:
+                        Первый элемент строки — Учебная команда.
+                        Второй элемент строки – Учебный предмет.
+                        Следующие элементы в скобках — это занятия, которые проводятся в течение недели для команды в той же строке.
+                        Каждый урок указывается в формате: (День недели,Время начала,Время окончания,Учитель).
+                        Строка информации о занятиях команды заканчивается точкой.
+                        Ваша задача написать какая команда подходит пользователю, если подходящей команды нет, следует ответить, что подходящей команды нет.\n"""
+                    + math
+                },
+                {
+                    "role": "user",
+                    "content": ""
+                }
+             ],
+    n=1,
+    temperature=0
 )
-chat_response = completion.choices[0].message.content
-print(chat_response)
+
+chat_response = completion.choices
+for i in chat_response:
+    print(i.message.content)
