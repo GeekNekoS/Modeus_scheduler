@@ -21,22 +21,6 @@ def create_modeus_db():
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def reg_user_in_modeus(user_id, user_login, user_password):
-    try:
-        with psycopg2.connect(url) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""
-            INSERT INTO users_modeus (
-            id,
-            login,
-            password
-            )
-            VALUES (%s, %s, %s);
-            """, (user_id, user_login, user_password))
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
-
-
 def is_user_login_modeus(user_id):
     try:
         with psycopg2.connect(url) as connection:
@@ -49,6 +33,22 @@ def is_user_login_modeus(user_id):
                 return False
             else:
                 return True
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def reg_user_in_modeus(user_id, user_login, user_password):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+            INSERT INTO users_modeus (
+            id,
+            login,
+            password
+            )
+            VALUES (%s, %s, %s);
+            """, (user_id, user_login, user_password))
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
 

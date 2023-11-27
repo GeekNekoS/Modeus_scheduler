@@ -36,15 +36,6 @@ def first_step_reviews_markup():
     return markup
 
 
-def back_to_start_markup():
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-
-    btn1 = types.KeyboardButton('Назад')
-    markup.add(btn1)
-
-    return markup
-
-
 def modeus_markup():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
@@ -65,5 +56,14 @@ def delete_text_review_markup():
 
     markup.add(btn1)
     markup.add(btn2)
+
+    return markup
+
+
+def back_to_start_markup():
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+    btn1 = types.KeyboardButton('Назад')
+    markup.add(btn1)
 
     return markup

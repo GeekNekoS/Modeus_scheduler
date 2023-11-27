@@ -110,6 +110,7 @@ class Reviews:
             if command == 'текстовые отзывы':
                 self.bot.register_next_step_handler(message, self.get_text_review, command)
             else:
+                # Здесь будет реализация рейтинговых отзывов
                 pass
         elif message.text.lower() == 'оставить отзыв':
             self.bot.send_message(message.chat.id, 'Какой преподаватель вас интересует? ( ФИО )',
@@ -117,6 +118,7 @@ class Reviews:
             if command == 'текстовые отзывы':
                 self.bot.register_next_step_handler(message, self.enter_teacher_name_to_create_text_review, command)
             else:
+                # Здесь будет реализация рейтинговых отзывов
                 pass
         else:
             self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')

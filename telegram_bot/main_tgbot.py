@@ -14,8 +14,8 @@ def start(message):
     bot.send_message(message.chat.id,
                      f'Приветствую тебя в нашем боте!\nНиже тебе доступны команды',
                      reply_markup=markups.start_markup())
-    db_func.create_text_reviews_db()  # create table
-    db_func.create_rating_reviews_db()  # create table
+    db_func.create_text_reviews_db()   # create table
+    db_func.create_rating_reviews_db()   # create table
 
 
 @bot.message_handler(content_types=['text'])
