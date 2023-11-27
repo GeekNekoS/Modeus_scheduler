@@ -8,7 +8,6 @@
 - [Настройка готового проекта](#setting_up_project)
 - [Настройка PoastgreSQL](#setting_up_postgres)
 - [Музычка для разработки](#music)
-- [Почистить зависимости](#clean_up_dependencies)
 <br /> <br />
 
 
@@ -93,11 +92,4 @@
 
 • A silly playlist for silly cat people <br />
 |__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)<br />
-<br /> <br />
-
-
-<a name="clean_up_dependencies"></a>
-## Почистить зависимости
-• pyttsx3 <br />
-• pandas
 <br /> <br />
