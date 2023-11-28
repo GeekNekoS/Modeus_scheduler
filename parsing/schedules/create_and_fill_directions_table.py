@@ -49,7 +49,7 @@ def create_and_fill_directions_table():
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             pyautogui.hotkey('ctrl', 't')
-            time.sleep(1)
+            # time.sleep(1)
 
             go_to = driver.current_url
 

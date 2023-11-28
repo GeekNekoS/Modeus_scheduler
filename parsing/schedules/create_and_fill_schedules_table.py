@@ -15,7 +15,7 @@ load_dotenv()
 def create_and_fill_schedules_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()  # options=chrome_options
     driver.maximize_window()
     login_page = LoginPage(driver)
 
@@ -24,9 +24,9 @@ def create_and_fill_schedules_table():
 
     # Create and fill lessons table
     modeus_page = ModeusPage(driver)
-    # modeus_page.go_to_modules_page()
 
     directions_info = modeus_page.get_directions_from_db()
+    modeus_page.create_schedules_table()
 
     dates = [
         (2, "пн", "Понедельник"),
@@ -38,10 +38,9 @@ def create_and_fill_schedules_table():
     ]
 
     for direction in directions_info:
+        direction_name = direction[1]
         direction_url = direction[2]
         modeus_page.get_connect(direction_url)
-
-        modeus_page.create_schedules_table()
 
         for date in dates:
             lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
@@ -85,7 +84,7 @@ def create_and_fill_schedules_table():
                 hover = ActionChains(driver).move_to_element(element_to_hover)
                 hover.perform()
 
-                modeus_page.save_schedules_data_to_db(lesson_name, lesson_type, weekday, lesson_time, teacher, place, team)
+                modeus_page.save_schedules_data_to_db(lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
 
     driver.close()
     return driver

@@ -123,13 +123,12 @@ class ModeusPage(BaseClass):
                 cursor = connection.cursor()
                 cursor.execute("""
                     CREATE TABLE schedules (
-                        id SERIAL PRIMARY KEY,
                         lesson_name VARCHAR,
+                        direction_name VARCHAR,
                         lesson_type VARCHAR,
                         weekday VARCHAR, 
                         lesson_time VARCHAR,
                         teacher VARCHAR,
-                        place VARCHAR,
                         team VARCHAR
                     );
                 """)
@@ -146,15 +145,15 @@ class ModeusPage(BaseClass):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
 
     def save_schedules_data_to_db(self, *data):
-        lesson_name, lesson_type, weekday, lesson_time, teacher, place, team = data
+        lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team = data
         try:
             with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
                 cursor = connection.cursor()
 
                 cursor.execute("""
-                    INSERT INTO schedules (lesson_name, lesson_type, weekday, lesson_time, teacher, place, team) 
+                    INSERT INTO schedules (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    """, (lesson_name, lesson_type, weekday, lesson_time, teacher,place,team)
+                    """, (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
                     )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
