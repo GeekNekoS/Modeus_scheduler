@@ -2,6 +2,7 @@ import psycopg2
 
 
 url = 'postgresql://postgres:1@localhost:5432/schedules'
+url2 = 'postgresql://postgres:1@localhost:5432/teachers'
 
 
 def create_modeus_db():
@@ -20,23 +21,6 @@ def create_modeus_db():
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def reg_user_in_modeus(user_id, user_login, user_password):
-    try:
-        with psycopg2.connect(url) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""
-            INSERT INTO users_modeus (
-            id,
-            login,
-            password
-            )
-            VALUES (%s, %s, %s);
-            """, (user_id, user_login, user_password))
-    except error:
-        pass
-        # print(f"Can`t establish connection to database: {ex}\n")
-
-
 def is_user_login_modeus(user_id):
     try:
         with psycopg2.connect(url) as connection:
@@ -53,12 +37,29 @@ def is_user_login_modeus(user_id):
         print(f"Can`t establish connection to database: {ex}\n")
 
 
+def reg_user_in_modeus(user_id, user_login, user_password):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+            INSERT INTO users_modeus (
+            id,
+            login,
+            password
+            )
+            VALUES (%s, %s, %s);
+            """, (user_id, user_login, user_password))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
 def create_text_reviews_db():
     try:
         with psycopg2.connect(url) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 CREATE TABLE reviews (
+                    id INTEGER,
                     teacher TEXT, 
                     opinions TEXT DEFAULT ''
                 );
@@ -67,17 +68,18 @@ def create_text_reviews_db():
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def review_creator(teacher, opinion):
+def review_creator(user_id, teacher, opinion):
     try:
         with psycopg2.connect(url) as connection:
             cursor = connection.cursor()
             cursor.execute("""
             INSERT INTO reviews (
+            id,
             teacher,
             opinions
             )
-            VALUES (%s, %s);
-            """, (teacher, opinion))
+            VALUES (%s, %s, %s);
+            """, (user_id, teacher, opinion))
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
 
@@ -107,18 +109,6 @@ def leave_modeus_account(user_id):
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-# def get_all():
-#     try:
-#         with psycopg2.connect(url) as connection:
-#             cursor = connection.cursor()
-#             cursor.execute("""
-#                 SELECT * FROM users_modeus;
-#             """)
-#             return cursor.fetchall()
-#     except Exception as ex:
-#         print(f"Can`t establish connection to database: {ex}\n")
-
-
 def update_user_modeus_preference(preference, user_id):
     try:
         with psycopg2.connect(url) as connection:
@@ -128,5 +118,76 @@ def update_user_modeus_preference(preference, user_id):
                 SET preference = %s
                 WHERE id = %s;
             """, (preference, user_id))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def find_teacher(name):
+    try:
+        with psycopg2.connect(url2) as connection:
+            cursor = connection.cursor()
+
+            cursor.execute("""
+                SELECT * FROM teachers_data
+                WHERE LOWER(teacher_name) = %s;
+            """, (name,))
+            if not cursor.fetchall():
+                return False
+            else:
+                return True
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def check_with_text_review(name, user_id):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                SELECT * FROM reviews
+                WHERE LOWER(teacher) = %s
+                AND id = %s;
+            """, (name, user_id))
+            if not cursor.fetchall():
+                return True
+            else:
+                return False
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def delete_text_review(user_id, teacher_name):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                DELETE FROM reviews
+                WHERE LOWER(teacher) = %s
+                AND id = %s;
+            """, (teacher_name, user_id))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def create_rating_reviews_db():
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                CREATE TABLE rating_reviews (
+                    id INTEGER,
+                    teacher TEXT,
+                    question_1 INTEGER,
+                    question_2 INTEGER,
+                    question_3 INTEGER,
+                    question_4 INTEGER,
+                    question_5 INTEGER,
+                    question_6 INTEGER,
+                    question_7 INTEGER,
+                    question_8 INTEGER,
+                    question_9 INTEGER,
+                    question_10 INTEGER
+                );
+            """)
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
