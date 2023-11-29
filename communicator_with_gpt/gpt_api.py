@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+
 with open("table_math_optimised.txt", "r", encoding="utf-8") as table:
     math = table.read()
 
