@@ -15,11 +15,11 @@ load_dotenv()
 def create_and_fill_schedules_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome()  # options=chrome_options
+    driver = webdriver.Chrome(options=chrome_options)  # options=chrome_options
     driver.maximize_window()
-    login_page = LoginPage(driver)
 
     # login
+    login_page = LoginPage(driver)
     login(login_page)
 
     # Create and fill lessons table
@@ -49,7 +49,7 @@ def create_and_fill_schedules_table():
                 lessons_of_this_direction = modeus_page.get_elems_by_custom_xpath(lessons_of_this_direction_xpath)
             except:
                 pass
-            print(lessons_of_this_direction)
+            # print(lessons_of_this_direction)
 
             for i in range(len(lessons_of_this_direction)):
                 next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]"

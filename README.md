@@ -64,13 +64,13 @@
 • Christmas Bass <br />
 |__ [Jingle Bells Trap Remix](https://www.youtube.com/watch?v=ARMrGvYjgSs&list=PLaDRVbwxGG59mdCRtUFBB4w-y_Uy1saSU&index=1)
 
-• Chill and relax <br />
-|__ [Сладкий рождественский джаз в уютной кофейне](https://www.youtube.com/watch?v=2hgmHmOS_HM)
-
 • For New Year's mood <br />
 |__ [Frank Sinatra - Jingle Bells](https://www.youtube.com/watch?v=hLf0-lro8X8) <br />
 |__ [Let It Snow! Let It Snow! Let It Snow!](https://www.youtube.com/watch?v=Rnil5LyK_B0) ♡ <br />
-
 |__ [Rockin' Around The Christmas Tree](https://www.youtube.com/watch?v=1qYz7rfgLWE) <br />
 |__ [Jingle Bell Rock](https://www.youtube.com/watch?v=Z0ajuTaHBtM) <br />
 |__ [All I Want For Christmas Is You](https://www.youtube.com/watch?v=yXQViqx6GMY)
+
+• Neko's local mood <br />
+|__ [Giga Chad Theme slowed + reverb](https://www.youtube.com/watch?v=SgjqghPET-U) <br />
+|__ [Full of Scorpions — Everyone Carries a Shadow](https://www.youtube.com/watch?v=80sSc-IwXoc) 
