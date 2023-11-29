@@ -2,12 +2,12 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 load_dotenv()
-# from table_processing import when_study
 
 with open("table_math_optimised.txt", "r", encoding="utf-8") as table:
     math = table.read()
-# with open("other_table.txt", "r") as o_table:
-#     physics = o_table.read()
+
+with open("table_phisyc_optimised.txt", "r") as o_table:
+     physics = o_table.read()
 
 client = OpenAI(
     api_key=os.getenv("KEY1"),
@@ -28,10 +28,12 @@ completion = client.chat.completions.create(
                         Строка информации о занятиях команды заканчивается точкой.
                         Ваша задача написать какая команда подходит пользователю, если подходящей команды нет, следует ответить, что подходящей команды нет.\n"""
                     + math
+                    + physics
                 },
                 {
                     "role": "user",
-                    "content": ""
+                    "content": "Скомбинируй две команды по физике и математике так, чтобы занятия не пересекались"
+                               "В ответе напиши только команды"
                 }
              ],
     n=1,
