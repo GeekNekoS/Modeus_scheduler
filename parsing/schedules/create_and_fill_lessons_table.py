@@ -16,12 +16,11 @@ load_dotenv()
 def create_and_fill_lessons_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome()  # options=chrome_options
-    # driver.maximize_window()
-
-    login_page = LoginPage(driver)
+    driver = webdriver.Chrome(options=chrome_options)  # options=chrome_options
+    driver.maximize_window()
 
     # login
+    login_page = LoginPage(driver)
     login(login_page)
 
     # Create and fill lessons table
@@ -37,9 +36,9 @@ def create_and_fill_lessons_table():
         link = modules[i]
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
-        # time.sleep(1)
+        time.sleep(1)
 
-        window_after = driver.window_handles[1]
+        window_after = driver.window_handles[-1]
         driver.switch_to.window(window_after)
         driver.close()
 
