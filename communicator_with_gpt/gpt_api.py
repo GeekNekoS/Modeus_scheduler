@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 # from table_processing import when_study
 
+
 with open("table_math_optimised.txt", "r", encoding="utf-8") as table:
     math = table.read()
 # with open("other_table.txt", "r") as o_table:
