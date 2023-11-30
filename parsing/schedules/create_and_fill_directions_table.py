@@ -53,18 +53,18 @@ def create_and_fill_directions_table():
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             pyautogui.hotkey('ctrl', 't')
-            time.sleep(1)
+            # time.sleep(1)
 
             go_to = driver.current_url
 
-            window_after = driver.window_handles[-1]
+            window_after = driver.window_handles[1]
             driver.switch_to.window(window_after)
 
             modeus_page.get_connect(go_to)
 
             direction_url = modeus_page.get_direction_url()
 
-            # driver.close()
+            driver.close()
 
             window_after = driver.window_handles[0]
             driver.switch_to.window(window_after)

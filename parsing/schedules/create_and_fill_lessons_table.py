@@ -36,9 +36,9 @@ def create_and_fill_lessons_table():
         link = modules[i]
         ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
-        time.sleep(1)
+        # time.sleep(1)
 
-        window_after = driver.window_handles[-1]
+        window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.close()
 

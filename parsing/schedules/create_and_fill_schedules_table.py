@@ -60,7 +60,7 @@ def create_and_fill_schedules_table():
                     popover = modeus_page.get_popover()
                 except:
                     popover = modeus_page.get_popover()
-                time.sleep(1)
+                # time.sleep(1)
 
                 lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-title']"
                 lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
