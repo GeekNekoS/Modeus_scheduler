@@ -1,8 +1,13 @@
 import psycopg2
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
-url = 'postgresql://postgres:1@localhost:5432/schedules'
-url2 = 'postgresql://postgres:1@localhost:5432/teachers'
+# url = 'postgresql://postgres:1@localhost:5432/schedules'
+# url2 = 'postgresql://postgres:1@localhost:5432/teachers'
+url = os.getenv('DATABASE_URL')
 
 
 def create_modeus_db():
@@ -124,7 +129,7 @@ def update_user_modeus_preference(preference, user_id):
 
 def find_teacher(name):
     try:
-        with psycopg2.connect(url2) as connection:
+        with psycopg2.connect(url) as connection:  # <== url2
             cursor = connection.cursor()
 
             cursor.execute("""
