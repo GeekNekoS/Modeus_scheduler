@@ -16,7 +16,7 @@ load_dotenv()
 def create_and_fill_lessons_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=chrome_options)  # options=chrome_options
+    driver = webdriver.Chrome()  # options=chrome_options
     driver.maximize_window()
 
     # login

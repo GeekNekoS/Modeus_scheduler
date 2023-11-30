@@ -16,7 +16,7 @@ load_dotenv()
 def create_and_fill_directions_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=chrome_options)  # options=chrome_options
+    driver = webdriver.Chrome()  # options=chrome_options
     driver.maximize_window()
 
     # login
@@ -53,7 +53,7 @@ def create_and_fill_directions_table():
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             pyautogui.hotkey('ctrl', 't')
-            # time.sleep(1)
+            time.sleep(1)
 
             go_to = driver.current_url
 

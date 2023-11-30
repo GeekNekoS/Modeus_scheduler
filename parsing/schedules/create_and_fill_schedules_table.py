@@ -15,7 +15,7 @@ load_dotenv()
 def create_and_fill_schedules_table():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=chrome_options)  # options=chrome_options
+    driver = webdriver.Chrome()  # options=chrome_options
     driver.maximize_window()
 
     # login
@@ -49,7 +49,6 @@ def create_and_fill_schedules_table():
                 lessons_of_this_direction = modeus_page.get_elems_by_custom_xpath(lessons_of_this_direction_xpath)
             except:
                 pass
-            # print(lessons_of_this_direction)
 
             for i in range(len(lessons_of_this_direction)):
                 next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]"
@@ -61,7 +60,7 @@ def create_and_fill_schedules_table():
                     popover = modeus_page.get_popover()
                 except:
                     popover = modeus_page.get_popover()
-                # time.sleep(1)
+                time.sleep(1)
 
                 lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i+1}]//div[@class='fc-title']"
                 lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
@@ -73,11 +72,6 @@ def create_and_fill_schedules_table():
                 lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
                 lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
                 teacher = modeus_page.get_teachers_name()
-                try:
-                    place_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/small"
-                    place = modeus_page.get_elem_by_custom_xpath(place_xpath).text.split(" / ")[1]
-                except:
-                    place = "Аудитория не определена"
                 team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
 
                 element_to_hover = modeus_page.get_h3_point()
