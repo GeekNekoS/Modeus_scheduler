@@ -1,1 +1,1 @@
-worker: python -m pip install --upgrade pip
+worker: telegram_bot/main_tgbot.py
