@@ -7,11 +7,11 @@ load_dotenv()
 with open("table_math_optimised.txt", "r", encoding="utf-8") as table:
     math = table.read()
 
-with open("table_phisyc_optimised.txt", "r") as o_table:
+with open("table_physic_optimised.txt", "r") as o_table:
      physics = o_table.read()
 
 client = OpenAI(
-    api_key=os.getenv("KEY1"),
+    api_key=os.getenv("KEY_OPENAI"),
 )
 
 completion = client.chat.completions.create(
