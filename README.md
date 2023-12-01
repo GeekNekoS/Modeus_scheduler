@@ -73,4 +73,5 @@
 
 • Neko's local mood <br />
 |__ [Giga Chad Theme slowed + reverb](https://www.youtube.com/watch?v=SgjqghPET-U) <br />
-|__ [Full of Scorpions — Everyone Carries a Shadow](https://www.youtube.com/watch?v=80sSc-IwXoc) 
+|__ [Full of Scorpions — Everyone Carries a Shadow](https://www.youtube.com/watch?v=80sSc-IwXoc) <br />
+|__ [COSMIC - i made this on an airplane](https://www.youtube.com/watch?v=S4av_0zwk5Q) 

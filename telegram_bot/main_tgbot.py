@@ -4,9 +4,13 @@ from telebot import types
 import handlers
 import markups
 import db_func
+import os
 
-TOKEN = "6417309065:AAFotgeFNidq8gg-T7fDxLfI3j91wXKM2FM"
-bot = telebot.TeleBot(TOKEN)
+from dotenv import load_dotenv
+load_dotenv()
+
+
+bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 
 @bot.message_handler(commands=['start'])

@@ -1,12 +1,19 @@
 import unittest
 import psycopg2
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
+
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class TestDataBase(unittest.TestCase):
     def test_directions_table_filling(self):
         lessons_info = None
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 query = """SELECT * FROM lessons"""
                 cursor.execute(query)
@@ -21,7 +28,7 @@ class TestDataBase(unittest.TestCase):
 
         directions_info = None
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 query = """SELECT * FROM directions"""
                 cursor.execute(query)

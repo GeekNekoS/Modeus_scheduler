@@ -1,13 +1,16 @@
 import psycopg2
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
-url = 'postgresql://postgres:1@localhost:5432/schedules'
-url2 = 'postgresql://postgres:1@localhost:5432/teachers'
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 def create_modeus_db():
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 CREATE TABLE users_modeus (
@@ -23,7 +26,7 @@ def create_modeus_db():
 
 def is_user_login_modeus(user_id):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 SELECT * FROM users_modeus
@@ -39,7 +42,7 @@ def is_user_login_modeus(user_id):
 
 def reg_user_in_modeus(user_id, user_login, user_password):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
             INSERT INTO users_modeus (
@@ -55,7 +58,7 @@ def reg_user_in_modeus(user_id, user_login, user_password):
 
 def create_text_reviews_db():
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 CREATE TABLE reviews (
@@ -70,7 +73,7 @@ def create_text_reviews_db():
 
 def text_review_creator(user_id, teacher, opinion):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
             INSERT INTO reviews (
@@ -86,7 +89,7 @@ def text_review_creator(user_id, teacher, opinion):
 
 def get_text_reviews_this_teacher(teacher_name):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 SELECT opinions FROM reviews
@@ -99,7 +102,7 @@ def get_text_reviews_this_teacher(teacher_name):
 
 def leave_modeus_account(user_id):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 DELETE FROM users_modeus
@@ -111,7 +114,7 @@ def leave_modeus_account(user_id):
 
 def update_user_modeus_preference(preference, user_id):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 UPDATE users_modeus
@@ -124,7 +127,7 @@ def update_user_modeus_preference(preference, user_id):
 
 def find_teacher(name):
     try:
-        with psycopg2.connect(url2) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
             cursor = connection.cursor()
 
             cursor.execute("""
@@ -141,7 +144,7 @@ def find_teacher(name):
 
 def check_with_text_review(name, user_id):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 SELECT * FROM reviews
@@ -158,7 +161,7 @@ def check_with_text_review(name, user_id):
 
 def delete_text_review(user_id, teacher_name):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 DELETE FROM reviews
@@ -171,7 +174,7 @@ def delete_text_review(user_id, teacher_name):
 
 def create_rating_reviews_db():
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 CREATE TABLE rating_reviews (
