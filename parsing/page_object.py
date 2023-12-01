@@ -4,8 +4,11 @@ import psycopg2
 from selenium.common.exceptions import TimeoutException as TE
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
