@@ -1,2 +1,1 @@
 bot_starter: python telegram_bot/main_tgbot.py
-creating_table_with_teachers: python tasks/create_and_fill_db.py
