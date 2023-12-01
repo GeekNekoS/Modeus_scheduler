@@ -7,7 +7,7 @@ load_dotenv()
 
 # url = 'postgresql://postgres:1@localhost:5432/schedules'
 # url2 = 'postgresql://postgres:1@localhost:5432/teachers'
-url = os.getenv('DATABASE_PRIVATE_URL')  # DATABASE_URL
+url = os.getenv('DATABASE_URL')
 
 
 def create_modeus_db():
@@ -24,6 +24,7 @@ def create_modeus_db():
             """)
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
+        print(url)
 
 
 def is_user_login_modeus(user_id):

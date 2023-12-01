@@ -2,6 +2,10 @@ from parsing.locators import *
 from parsing.base_page import BaseClass
 import psycopg2
 from selenium.common.exceptions import TimeoutException as TE
+import os
+
+
+# url = os.getenv('DATABASE_URL')
 
 
 class LoginPage(BaseClass):
