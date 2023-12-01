@@ -68,7 +68,7 @@ def create_text_reviews_db():
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def review_creator(user_id, teacher, opinion):
+def text_review_creator(user_id, teacher, opinion):
     try:
         with psycopg2.connect(url) as connection:
             cursor = connection.cursor()
@@ -84,7 +84,7 @@ def review_creator(user_id, teacher, opinion):
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def get_reviews_this_teacher(teacher_name):
+def get_text_reviews_this_teacher(teacher_name):
     try:
         with psycopg2.connect(url) as connection:
             cursor = connection.cursor()
@@ -189,5 +189,87 @@ def create_rating_reviews_db():
                     question_10 INTEGER
                 );
             """)
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def check_with_rating_review(name, user_id):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                SELECT * FROM rating_reviews
+                WHERE LOWER(teacher) = %s
+                AND id = %s;
+            """, (name, user_id))
+            if not cursor.fetchall():
+                return True
+            else:
+                return False
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def add_user_to_rating_db(user_id, teacher):
+    try:
+        with psycopg2.connect(url) as postgres:
+            cursor = postgres.cursor()
+            cursor.execute("""
+            INSERT INTO rating_reviews (
+            id,
+            teacher,
+            question_1,
+            question_2,
+            question_3,
+            question_4,
+            question_5,
+            question_6,
+            question_7,
+            question_8,
+            question_9,
+            question_10
+            )
+            VALUES (%s, %s, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            """, (user_id, teacher))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def rating_review_creator(user_id, teacher, number_question, rating):
+    try:
+        with psycopg2.connect(url) as connect:
+            cursor = connect.cursor()
+            cursor.execute(f"""
+                UPDATE rating_reviews
+                SET {number_question} = %s
+                WHERE LOWER(teacher) = %s
+                AND id = %s;
+            """, (rating, teacher, user_id))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def delete_rating_review(user_id, teacher_name):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                DELETE FROM rating_reviews
+                WHERE LOWER(teacher) = %s
+                AND id = %s;
+            """, (teacher_name, user_id))
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
+def get_rating_reviews_this_teacher(teacher):
+    try:
+        with psycopg2.connect(url) as connection:
+            cursor = connection.cursor()
+            cursor.execute("""
+                SELECT * FROM rating_reviews
+                WHERE teacher = %s;
+            """, (teacher,))
+            return cursor.fetchall()
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
