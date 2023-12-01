@@ -1,5 +1,5 @@
 from telebot import types
-
+import db_func
 
 def start_markup():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -48,7 +48,7 @@ def modeus_markup():
     return markup
 
 
-def delete_text_review_markup():
+def delete_review_markup():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
     btn1 = types.KeyboardButton('Удалить этот отзыв')
@@ -67,3 +67,17 @@ def back_to_start_markup():
     markup.add(btn1)
 
     return markup
+
+
+def rating_reviews_markup(teacher_name):
+    inline_markup = types.InlineKeyboardMarkup()
+
+    btn1 = types.InlineKeyboardButton(text='1', callback_data='1*'+teacher_name)
+    btn2 = types.InlineKeyboardButton(text='2', callback_data='2*'+teacher_name)
+    btn3 = types.InlineKeyboardButton(text='3', callback_data='3*'+teacher_name)
+    btn4 = types.InlineKeyboardButton(text='4', callback_data='4*'+teacher_name)
+    btn5 = types.InlineKeyboardButton(text='5', callback_data='5*'+teacher_name)
+
+    inline_markup.add(btn1, btn2, btn3, btn4, btn5)
+
+    return inline_markup
