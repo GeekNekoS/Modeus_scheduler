@@ -198,7 +198,7 @@ def create_rating_reviews_db():
 
 def check_with_rating_review(name, user_id):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 SELECT * FROM rating_reviews
@@ -215,7 +215,7 @@ def check_with_rating_review(name, user_id):
 
 def add_user_to_rating_db(user_id, teacher):
     try:
-        with psycopg2.connect(url) as postgres:
+        with psycopg2.connect(DATABASE_URL) as postgres:
             cursor = postgres.cursor()
             cursor.execute("""
             INSERT INTO rating_reviews (
@@ -240,7 +240,7 @@ def add_user_to_rating_db(user_id, teacher):
 
 def rating_review_creator(user_id, teacher, number_question, rating):
     try:
-        with psycopg2.connect(url) as connect:
+        with psycopg2.connect(DATABASE_URL) as connect:
             cursor = connect.cursor()
             cursor.execute(f"""
                 UPDATE rating_reviews
@@ -254,7 +254,7 @@ def rating_review_creator(user_id, teacher, number_question, rating):
 
 def delete_rating_review(user_id, teacher_name):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 DELETE FROM rating_reviews
@@ -267,7 +267,7 @@ def delete_rating_review(user_id, teacher_name):
 
 def get_rating_reviews_this_teacher(teacher):
     try:
-        with psycopg2.connect(url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
             cursor.execute("""
                 SELECT * FROM rating_reviews
