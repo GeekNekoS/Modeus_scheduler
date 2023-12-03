@@ -8,7 +8,6 @@
 - [Настройка готового проекта](#setting_up_project)
 - [Настройка PoastgreSQL](#setting_up_postgres)
 - [Музычка для разработки](#music)
-- [Почистить зависимости](#clean_up_dependencies)
 <br /> <br />
 
 
@@ -62,41 +61,17 @@
    
 <a name="music"></a>
 ## Музычка для разработки
-• Oliver Huntemann <br />
-|__ [Magnet](https://www.youtube.com/watch?v=jNOFwlYShnw&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=9) ♡ <br />
-|__ [Tranquilizer](https://www.youtube.com/watch?v=wtRPzzWjlUk&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=10) <br />
-|__ [They Are (Not) After You](https://www.youtube.com/watch?v=ZpZ2hfxK93o&list=OLAK5uy_kYFDjGM0qAA0Q2cSyuc1sl5pv2NERoVIU&index=7) <br />
-|__ [WatergateWorldWide #8 Oliver Huntemann](https://www.youtube.com/watch?v=vcBUb7fXNl0)
+• Christmas Bass <br />
+|__ [Jingle Bells Trap Remix](https://www.youtube.com/watch?v=ARMrGvYjgSs&list=PLaDRVbwxGG59mdCRtUFBB4w-y_Uy1saSU&index=1)
 
-• Enigma <br />
-|__ [Silence Must Be Heard](https://www.youtube.com/watch?v=tCUran3CDFg) <br />
-|__ [Callas Went Away](https://www.youtube.com/watch?v=gWkWxFdpFHE) <br />
-|__ [Smell Of Desire](https://www.youtube.com/watch?v=oVKit3pjc1g) <br />
-|__ [Morphing Thru Time](https://www.youtube.com/watch?v=ZntPhESIHf4) ♡ <br />
+• For New Year's mood <br />
+|__ [Frank Sinatra - Jingle Bells](https://www.youtube.com/watch?v=hLf0-lro8X8) <br />
+|__ [Let It Snow! Let It Snow! Let It Snow!](https://www.youtube.com/watch?v=Rnil5LyK_B0) ♡ <br />
+|__ [Rockin' Around The Christmas Tree](https://www.youtube.com/watch?v=1qYz7rfgLWE) <br />
+|__ [Jingle Bell Rock](https://www.youtube.com/watch?v=Z0ajuTaHBtM) <br />
+|__ [All I Want For Christmas Is You](https://www.youtube.com/watch?v=yXQViqx6GMY)
 
-• Relax & Chill <br />
-|__ [The Ultimate Skyrim Playlist](https://www.youtube.com/watch?v=JcwceBDUd68) <br />
-|__ [The Elder Scrolls | Summer Landscapes of Skyrim](https://www.youtube.com/watch?v=sOpmG_retJE) <br />
-|__ [Chill Drive ~ Stress Relief, Chill Music](https://www.youtube.com/watch?v=7MJBeAyU1As) <br />
-|__ [Chill Drive ~ Stress Relief, Relaxing Your Mind](https://www.youtube.com/watch?v=25BkVBgFD9Y) <br />
-|__ [Best of Joachim Heinrich | Beautiful Ambient Mix](https://www.youtube.com/watch?v=H5NZtbbiyKM) ♡ <br />
-|__ [PURE Ambient Cyberpunk Music [VERY Soothing]](https://www.youtube.com/watch?v=FULCBFlX3Eo) <br />
-|__ [ＣＹＢＥＲ　ＤＲＥＡＭ [Chillwave - Synthwave Mix])](https://www.youtube.com/watch?v=yhCuCqJbOVE) <br />
-|__ [Minecraft Lush Cave](https://www.youtube.com/watch?v=VqJ9yWNWZLI) <br />
-
-• Hideki Taniuchi <br />
-|__ [Death Note Music Compilation - The Best of Death Note OST's](https://youtu.be/hKfKYpba0dE) ♡
-
-• Jeremy Soule <br />
-|__ [Skyrim Atmospheres [10 Hrs.]](https://www.youtube.com/watch?v=iGUEHPkaE5o)<br />
-
-• A silly playlist for silly cat people <br />
-|__ [Чистый кайф](https://www.youtube.com/watch?v=f-gi8k4IRh8)<br />
-<br /> <br />
-
-
-<a name="clean_up_dependencies"></a>
-## Почистить зависимости
-• pyttsx3 <br />
-• pandas
-<br /> <br />
+• Neko's local mood <br />
+|__ [Giga Chad Theme slowed + reverb](https://www.youtube.com/watch?v=SgjqghPET-U) <br />
+|__ [Full of Scorpions — Everyone Carries a Shadow](https://www.youtube.com/watch?v=80sSc-IwXoc) <br />
+|__ [COSMIC - i made this on an airplane](https://www.youtube.com/watch?v=S4av_0zwk5Q) 

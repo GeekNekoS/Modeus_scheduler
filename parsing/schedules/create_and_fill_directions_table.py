@@ -7,16 +7,20 @@ from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
+from selenium.webdriver.chrome.options import Options
 
 from dotenv import load_dotenv
 load_dotenv()
 
 
 def create_and_fill_directions_table():
-    driver = webdriver.Chrome()
-    login_page = LoginPage(driver)
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+    driver = webdriver.Chrome()  # options=chrome_options
+    driver.maximize_window()
 
     # login
+    login_page = LoginPage(driver)
     login(login_page)
 
     # Create and fill directions table
@@ -49,7 +53,7 @@ def create_and_fill_directions_table():
 
             ActionChains(driver).key_down(Keys.CONTROL).click(direction_button).key_up(Keys.CONTROL).perform()
             pyautogui.hotkey('ctrl', 't')
-            time.sleep(1)
+            # time.sleep(1)
 
             go_to = driver.current_url
 

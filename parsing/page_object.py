@@ -2,6 +2,13 @@ from parsing.locators import *
 from parsing.base_page import BaseClass
 import psycopg2
 from selenium.common.exceptions import TimeoutException as TE
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
+
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
@@ -21,7 +28,7 @@ class LoginPage(BaseClass):
 class ModeusPage(BaseClass):
     def create_lessons_table(self):
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute("""
                     CREATE TABLE lessons (
@@ -42,7 +49,7 @@ class ModeusPage(BaseClass):
     def save_lesson_data_to_db(self, *data):
         lesson_name, module_url = data
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
                 cursor.execute("""
@@ -54,7 +61,7 @@ class ModeusPage(BaseClass):
 
     def create_directions_table(self):
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute("""
                     CREATE TABLE directions (
@@ -70,7 +77,7 @@ class ModeusPage(BaseClass):
     def get_lessons_data(self):
         lessons_info = None
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 query = """SELECT * FROM lessons"""
                 cursor.execute(query)
@@ -95,7 +102,7 @@ class ModeusPage(BaseClass):
     def save_directions_data_to_db(self, *data):
         direction_name, direction_url, lesson_id = data
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
                 cursor.execute("""
@@ -108,7 +115,7 @@ class ModeusPage(BaseClass):
     def get_directions_from_db(self):
         directions_info = None
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 query = """SELECT * FROM directions"""
                 cursor.execute(query)
@@ -119,17 +126,16 @@ class ModeusPage(BaseClass):
 
     def create_schedules_table(self):
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute("""
                     CREATE TABLE schedules (
-                        id SERIAL PRIMARY KEY,
                         lesson_name VARCHAR,
+                        direction_name VARCHAR,
                         lesson_type VARCHAR,
                         weekday VARCHAR, 
                         lesson_time VARCHAR,
                         teacher VARCHAR,
-                        place VARCHAR,
                         team VARCHAR
                     );
                 """)
@@ -146,15 +152,15 @@ class ModeusPage(BaseClass):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
 
     def save_schedules_data_to_db(self, *data):
-        lesson_name, lesson_type, weekday, lesson_time, teacher, place, team = data
+        lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team = data
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/schedules') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
                 cursor.execute("""
-                    INSERT INTO schedules (lesson_name, lesson_type, weekday, lesson_time, teacher, place, team) 
+                    INSERT INTO schedules (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    """, (lesson_name, lesson_type, weekday, lesson_time, teacher,place,team)
+                    """, (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
                     )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
@@ -163,7 +169,7 @@ class ModeusPage(BaseClass):
 class TeachersParsing(BaseClass):
     def create_teachers_table(self):
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/teachers') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute("""
                     CREATE TABLE teachers_data (
@@ -196,7 +202,7 @@ class TeachersParsing(BaseClass):
     def save_teacher_data(self, *data):
         teacher_name, teacher_phone, teacher_email = data
         try:
-            with psycopg2.connect('postgresql://postgres:1@localhost:5432/teachers') as connection:
+            with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
                 cursor.execute("""
