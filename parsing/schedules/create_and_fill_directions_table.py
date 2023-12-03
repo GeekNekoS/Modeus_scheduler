@@ -8,7 +8,7 @@ from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
 
 
-def create_and_fill_directions_table():
+def create_and_fill_directions_table(user_id):
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -16,7 +16,7 @@ def create_and_fill_directions_table():
 
     # login
     login_page = LoginPage(driver)
-    login(login_page)
+    login(login_page, user_id)
 
     # Create and fill directions table
     modeus_page = ModeusPage(driver)

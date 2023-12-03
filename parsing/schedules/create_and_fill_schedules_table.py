@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def create_and_fill_schedules_table():
+def create_and_fill_schedules_table(user_id):
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -20,7 +20,7 @@ def create_and_fill_schedules_table():
 
     # login
     login_page = LoginPage(driver)
-    login(login_page)
+    login(login_page, user_id)
 
     # Create and fill lessons table
     modeus_page = ModeusPage(driver)

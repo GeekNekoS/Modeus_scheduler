@@ -25,15 +25,12 @@ def start(message):
 @bot.callback_query_handler(func=lambda call: True)
 def sm_func(call):
     info_from_callback = call.data.split('*')
-    # print(info_from_callback)
     rating = info_from_callback[0]
     teacher_name = info_from_callback[1]
     number_question = 'question_'+info_from_callback[2]
     bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                           text=call.message.text + '\n\n\n' + 'Ваша оценка: ' + rating, reply_markup=None)
     db_func.rating_review_creator(call.from_user.id, teacher_name, number_question, rating)
-    # print(rating)
-    # print(teacher_name)
 
 
 @bot.message_handler(content_types=['text'])
