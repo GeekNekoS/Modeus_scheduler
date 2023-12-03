@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from parsing.page_object import LoginPage
@@ -8,9 +6,6 @@ from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
-
-from dotenv import load_dotenv
-load_dotenv()
 
 
 def create_and_fill_directions_table():

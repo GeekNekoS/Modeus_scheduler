@@ -39,6 +39,7 @@ class MyHandlers:
             db_func.reg_user_in_modeus(user_password.from_user.id, user_login, user_password.text)
             self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
                                   reply_markup=markups.modeus_markup())
+            # Проверка наличия такого аккаунта в Mpdeus
             self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
 
     def check_next_step_modeus(self, message):
