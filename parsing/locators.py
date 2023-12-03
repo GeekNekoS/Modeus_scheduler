@@ -6,6 +6,9 @@ class LoginLocators:
     PASSWORD_INPUT = (By.XPATH, "//input[@placeholder='Пароль']")
     LOGIN_BUTTON = (By.XPATH, "//span[@class='submit']")
 
+    ENG_WARNING = (By.XPATH, "//span[text()='Incorrect user ID or password. Type the correct user ID and password, and try again.']")
+    RUS_WARNING = (By.XPATH, "//span[text()='Неверный идентификатор пользователя или пароль. Введите верный идентификатор пользователя и пароль и повторите попытку.']")
+
 
 class ModeusLocators:
     MODULES = (By.XPATH, "//tbody/tr//span")
