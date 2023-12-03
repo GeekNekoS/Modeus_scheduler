@@ -1,4 +1,6 @@
+import logging
 import telebot
+from telebot import types
 import handlers
 import markups
 import db_func
