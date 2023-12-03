@@ -1,5 +1,4 @@
 import psycopg2
-import project_config
 import os
 
 from dotenv import load_dotenv
