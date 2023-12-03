@@ -38,9 +38,9 @@ def is_user_logedin_modeus(user_id):
 
             loged_in = login_page.check_logedin()
             if loged_in:
-                print("OK")
+                return True
             else:
-                print("NOPE")
+                return False
 
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
