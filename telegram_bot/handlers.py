@@ -1,7 +1,7 @@
 import main_tgbot
 import db_func
 import markups
-from parsing.schedules.login import is_user_logedin_modeus
+# from parsing.schedules.login import is_user_logedin_modeus
 
 
 class MyHandlers:
