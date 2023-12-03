@@ -1,8 +1,8 @@
 import psycopg2
-import config
+import project_config
 
 
-DATABASE_URL = config.DATABASE_URL
+DATABASE_URL = project_config.DATABASE_URL
 
 
 def create_modeus_db():
