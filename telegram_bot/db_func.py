@@ -1,8 +1,12 @@
 import psycopg2
 import project_config
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
-DATABASE_URL = project_config.DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 
 def create_modeus_db():

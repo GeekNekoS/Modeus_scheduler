@@ -1,8 +1,9 @@
 import psycopg2
-import project_config
+# import project_config
+import os
 
 
-DATABASE_URL = project_config.DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL')  # project_config.DATABASE_URL
 
 
 def drop_table(name):
