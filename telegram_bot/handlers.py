@@ -1,7 +1,11 @@
 import main_tgbot
 import db_func
 import markups
+
 from communicator_with_gpt.gpt_api import *
+from parsing.schedules.login import is_user_logedin_modeus
+from tasks.create_and_fill_db import main as create_and_fill_db
+
 
 
 class MyHandlers:
@@ -38,9 +42,15 @@ class MyHandlers:
             main_tgbot.start(user_password)
         else:
             db_func.reg_user_in_modeus(user_password.from_user.id, user_login, user_password.text)
-            self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
-                                  reply_markup=markups.modeus_markup())
-            self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
+            if is_user_logedin_modeus(user_password.from_user.id):
+                self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
+                                      reply_markup=markups.modeus_markup())
+                self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
+            else:
+                self.bot.send_message(user_password.chat.id, 'Неверные login или password',
+                                      reply_markup=markups.modeus_markup())
+                db_func.leave_modeus_account(user_password.from_user.id)
+                main_tgbot.start(user_password)
 
     def check_next_step_modeus(self, message):
         if not isinstance(message.text, str):
@@ -73,6 +83,7 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Начало парсинга...',
                                   reply_markup=markups.start_markup())
             db_func.update_user_modeus_preference(message.text, message.from_user.id)
+            create_and_fill_db(message.from_user.id)
             # запуск функции создания расписания
             create_personal_schedule(message.from_user.id)
 

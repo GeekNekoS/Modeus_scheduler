@@ -6,13 +6,11 @@ from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
+from work_with_db.drop_tables import drop_lessons_and_directions_tables
 import time
 
-from dotenv import load_dotenv
-load_dotenv()
 
-
-def create_and_fill_schedules_table():
+def create_and_fill_schedules_table(user_id):
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -20,13 +18,13 @@ def create_and_fill_schedules_table():
 
     # login
     login_page = LoginPage(driver)
-    login(login_page)
+    login(login_page, user_id)
 
     # Create and fill lessons table
     modeus_page = ModeusPage(driver)
 
-    directions_info = modeus_page.get_directions_from_db()
-    modeus_page.create_schedules_table()
+    directions_info = modeus_page.get_directions_from_db(user_id=user_id)
+    modeus_page.create_schedules_table(user_id=user_id)
 
     dates = [
         (2, "пн", "Понедельник"),
@@ -78,7 +76,9 @@ def create_and_fill_schedules_table():
                 hover = ActionChains(driver).move_to_element(element_to_hover)
                 hover.perform()
 
-                modeus_page.save_schedules_data_to_db(lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
+                modeus_page.save_schedules_data_to_db(lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
+
+    drop_lessons_and_directions_tables()
 
     driver.close()
     return driver

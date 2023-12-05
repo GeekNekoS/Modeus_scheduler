@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 
 class LoginPage(BaseClass):
@@ -22,16 +22,28 @@ class LoginPage(BaseClass):
     def click_on_the_login_button(self):
         return self.find_element(LoginLocators.LOGIN_BUTTON, time=self.time).click()
 
+    def check_logedin(self):
+        flag = False
+        try:
+            rus_warning = self.find_element(LoginLocators.RUS_WARNING, time=self.time)
+        except:
+            try:
+                eng_warning = self.find_element(LoginLocators.ENG_WARNING, time=self.time)
+            except:
+                flag = True
+
+        return flag
+
     # Log out
 
 
 class ModeusPage(BaseClass):
-    def create_lessons_table(self):
+    def create_lessons_table(self, user_id=None):
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                cursor.execute("""
-                    CREATE TABLE lessons (
+                cursor.execute(f"""
+                    CREATE TABLE lessons_{user_id} (
                         id SERIAL PRIMARY KEY,
                         lesson VARCHAR,
                         module_url VARCHAR
@@ -46,25 +58,25 @@ class ModeusPage(BaseClass):
     def get_lessons(self):
         return self.find_elements(ModeusLocators.LESSONS, time=self.time)
 
-    def save_lesson_data_to_db(self, *data):
+    def save_lesson_data_to_db(self, *data, user_id=None):
         lesson_name, module_url = data
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
-                cursor.execute("""
-                    INSERT INTO lessons (lesson, module_url) VALUES (%s, %s)
+                cursor.execute(f"""
+                    INSERT INTO lessons_{user_id} (lesson, module_url) VALUES (%s, %s)
                     """, (lesson_name, module_url)
                                )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def create_directions_table(self):
+    def create_directions_table(self, user_id=None):
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                cursor.execute("""
-                    CREATE TABLE directions (
+                cursor.execute(f"""
+                    CREATE TABLE directions_{user_id} (
                         id SERIAL PRIMARY KEY,
                         direction VARCHAR,
                         schedule_url VARCHAR,
@@ -74,12 +86,12 @@ class ModeusPage(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def get_lessons_data(self):
+    def get_lessons_data(self, user_id=None):
         lessons_info = None
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                query = """SELECT * FROM lessons"""
+                query = f"""SELECT * FROM lessons_{user_id}"""
                 cursor.execute(query)
                 lessons_info = cursor.fetchall()
         except Exception as ex:
@@ -99,37 +111,37 @@ class ModeusPage(BaseClass):
         direction_schedule_button = self.find_element(ModeusLocators.DIRECTION_SCHEDULE_BUTTON, time=self.time)
         return direction_schedule_button.get_attribute("href")
 
-    def save_directions_data_to_db(self, *data):
+    def save_directions_data_to_db(self, *data, user_id=None):
         direction_name, direction_url, lesson_id = data
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
-                cursor.execute("""
-                    INSERT INTO directions (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
+                cursor.execute(f"""
+                    INSERT INTO directions_{user_id} (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
                     """, (direction_name, direction_url, lesson_id)
                                )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def get_directions_from_db(self):
+    def get_directions_from_db(self, user_id=None):
         directions_info = None
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                query = """SELECT * FROM directions"""
+                query = f"""SELECT * FROM directions_{user_id}"""
                 cursor.execute(query)
                 directions_info = cursor.fetchall()
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
         return directions_info
 
-    def create_schedules_table(self):
+    def create_schedules_table(self, user_id=None):
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                cursor.execute("""
-                    CREATE TABLE schedules (
+                cursor.execute(f"""
+                    CREATE TABLE schedules_{user_id} (
                         lesson_name VARCHAR,
                         direction_name VARCHAR,
                         lesson_type VARCHAR,
@@ -151,14 +163,14 @@ class ModeusPage(BaseClass):
     def get_h3_point(self):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
 
-    def save_schedules_data_to_db(self, *data):
+    def save_schedules_data_to_db(self, *data, user_id=None):
         lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team = data
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
 
-                cursor.execute("""
-                    INSERT INTO schedules (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team) 
+                cursor.execute(f"""
+                    INSERT INTO schedules_{user_id} (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s)
                     """, (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
                     )

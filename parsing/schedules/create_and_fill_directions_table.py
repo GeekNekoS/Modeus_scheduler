@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from parsing.page_object import LoginPage
@@ -8,12 +6,10 @@ from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
-
-from dotenv import load_dotenv
-load_dotenv()
+import time
 
 
-def create_and_fill_directions_table():
+def create_and_fill_directions_table(user_id):
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -21,14 +17,14 @@ def create_and_fill_directions_table():
 
     # login
     login_page = LoginPage(driver)
-    login(login_page)
+    login(login_page, user_id)
 
     # Create and fill directions table
     modeus_page = ModeusPage(driver)
 
-    modeus_page.create_directions_table()
+    modeus_page.create_directions_table(user_id=user_id)
 
-    lessons_info = modeus_page.get_lessons_data()
+    lessons_info = modeus_page.get_lessons_data(user_id=user_id)
 
     remove_this = []
     for lesson in lessons_info:
@@ -69,7 +65,7 @@ def create_and_fill_directions_table():
             window_after = driver.window_handles[0]
             driver.switch_to.window(window_after)
 
-            modeus_page.save_directions_data_to_db(direction_name, direction_url, lesson_id)
+            modeus_page.save_directions_data_to_db(direction_name, direction_url, lesson_id, user_id=user_id)
 
     driver.close()
     return driver
