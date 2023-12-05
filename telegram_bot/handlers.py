@@ -80,11 +80,14 @@ class MyHandlers:
                                   reply_markup=markups.modeus_markup())
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
         else:
-            self.bot.send_message(message.chat.id, 'Начало парсинга...',
-                                  reply_markup=markups.start_markup())
+            if db_func.if_table_schedule_exists(message.from_user.id):
+                create_and_fill_db(message.from_user.id)
+
+                self.bot.send_message(message.chat.id, 'Начало парсинга...',
+                                      reply_markup=markups.start_markup())
             db_func.update_user_modeus_preference(message.text, message.from_user.id)
-            create_and_fill_db(message.from_user.id)
-            # запуск функции создания расписания
+            self.bot.send_message(message.chat.id, 'Начало составления расписания...',
+                                  reply_markup=markups.start_markup())
             create_personal_schedule(message.from_user.id)
 
 
