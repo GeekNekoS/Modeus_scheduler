@@ -88,7 +88,9 @@ class MyHandlers:
             db_func.update_user_modeus_preference(message.text, message.from_user.id)
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
-            create_personal_schedule(message.from_user.id, message.text)
+            answer = create_personal_schedule(message.from_user.id, message.text)
+            self.bot.send_message(message.chat.id, answer,
+                                  reply_markup=markups.start_markup())
 
 
 class Reviews:
