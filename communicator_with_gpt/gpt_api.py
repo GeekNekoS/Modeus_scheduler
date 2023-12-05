@@ -34,7 +34,7 @@ def create_personal_schedule(user_id):
                     },
                     {
                         "role": "user",
-                        "content": "Занятия по английскому в пятницу после 12:00"
+                        "content": "Занятия по Иностранный язык в пятницу после 12:00"
                                    "В ответе напиши только команду"
                     }
                  ],
@@ -43,4 +43,5 @@ def create_personal_schedule(user_id):
     )
 
     chat_response = completion.choices[0]
+    print(chat_response.message.content)
     return chat_response.message.content

@@ -8,6 +8,20 @@ load_dotenv()
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 
+def if_table_schedule_exists(user_id):
+    try:
+        with psycopg2.connect(DATABASE_URL) as connection:
+            cursor = connection.cursor()
+            query = f"SELECT * FROM schedules_{user_id}"
+            cursor.execute(query)
+            if not cursor.fetchall():
+                return True
+            else:
+                return False
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
 def create_modeus_db():
     try:
         with psycopg2.connect(DATABASE_URL) as connection:
