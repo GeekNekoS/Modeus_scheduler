@@ -1,13 +1,15 @@
 import psycopg2
-import  os
+
+import os
+
 from dotenv import load_dotenv
 load_dotenv()
 
+
 DATABASE_URL = os.getenv("database_url")
 
-def create_table_file(user_id):
 
-    # подключение к базе данных локально
+def create_table_file(user_id):
     users_lessons = None
     try:
         with psycopg2.connect(DATABASE_URL) as connection:
@@ -25,9 +27,11 @@ def create_table_file(user_id):
 
     # добавление к каждой команде соответствующие занятия
     for lesson in users_lessons:
-        teams[f"{lesson[-1]}/{lesson[1]}/"]+=f"({lesson[3]},{lesson[4]})/"
+        teams[f"{lesson[-1]}/{lesson[1]}/"] += f"({lesson[3]},{lesson[4]})/"
 
     # создание текстовой таблицы для отправки
-    with open("output_table.txt", "w", encoding="utf-8") as table:
+    with open(f"temp_files\\schedule_{user_id}.txt", "w", encoding="utf-8") as table:
         for i in teams:
             table.write(f"{i}{teams[i][:-1]}.\n")
+
+    print(f"temp_files\\schedule_{user_id}.txt")
