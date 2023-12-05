@@ -1,9 +1,6 @@
 from parsing.page_object import TeachersParsing
 from selenium import webdriver
 
-from dotenv import load_dotenv
-load_dotenv()
-
 
 def parse_teachers_data():
     driver = webdriver.Chrome()

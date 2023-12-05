@@ -1,12 +1,13 @@
 import psycopg2
 
+
 def create_table_file():
     # подключение к базе данных локально
     url = 'postgresql://postgres:1@localhost:5432/schedules'
     conn = psycopg2.connect(url)
 
     # получение 100 строк данных из базы
-    curs =  conn.cursor()
+    curs = conn.cursor()
     curs.execute('SELECT * FROM public.schedules')
     users_lessons = curs.fetchmany(size=100)
     curs.close()
