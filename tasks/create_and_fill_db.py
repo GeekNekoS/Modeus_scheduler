@@ -17,5 +17,5 @@ def main(user_id):
     print(f"Выполнено за {stop - start}")
 
 
-if __name__ == "__main__":
-    main(user_id)
+# if __name__ == "__main__":
+#     main(user_id)

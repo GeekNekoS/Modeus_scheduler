@@ -6,6 +6,7 @@ from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
+import time
 
 
 def create_and_fill_directions_table(user_id):
@@ -21,9 +22,9 @@ def create_and_fill_directions_table(user_id):
     # Create and fill directions table
     modeus_page = ModeusPage(driver)
 
-    modeus_page.create_directions_table()
+    modeus_page.create_directions_table(user_id=user_id)
 
-    lessons_info = modeus_page.get_lessons_data()
+    lessons_info = modeus_page.get_lessons_data(user_id=user_id)
 
     remove_this = []
     for lesson in lessons_info:
@@ -64,7 +65,7 @@ def create_and_fill_directions_table(user_id):
             window_after = driver.window_handles[0]
             driver.switch_to.window(window_after)
 
-            modeus_page.save_directions_data_to_db(direction_name, direction_url, lesson_id)
+            modeus_page.save_directions_data_to_db(direction_name, direction_url, lesson_id, user_id=user_id)
 
     driver.close()
     return driver
