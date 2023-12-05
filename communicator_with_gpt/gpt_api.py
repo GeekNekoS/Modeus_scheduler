@@ -5,7 +5,7 @@ load_dotenv()
 from communicator_with_gpt.table_from_database import create_table_file
 
 
-def create_personal_schedule(user_id):
+def create_personal_schedule(user_id, text):
     # Создание текстового файла по базе данных для запроса к GPT
     create_table_file(user_id)
 
@@ -34,8 +34,8 @@ def create_personal_schedule(user_id):
                     },
                     {
                         "role": "user",
-                        "content": "Занятия по Иностранный язык в пятницу после 12:00"
-                                   "В ответе напиши только команду"
+                        "content": text
+                                   + "В ответе напиши только команду"
                     }
                  ],
         n=1,
