@@ -1,16 +1,22 @@
 import psycopg2
+import  os
+from dotenv import load_dotenv
+load_dotenv()
 
-def create_table_file():
+DATABASE_URL = os.getenv("database_url")
+
+def create_table_file(user_id):
+
     # подключение к базе данных локально
-    url = 'postgresql://postgres:1@localhost:5432/schedules'
-    conn = psycopg2.connect(url)
-
-    # получение 100 строк данных из базы
-    curs =  conn.cursor()
-    curs.execute('SELECT * FROM public.schedules')
-    users_lessons = curs.fetchmany(size=100)
-    curs.close()
-    conn.close()
+    users_lessons = None
+    try:
+        with psycopg2.connect(DATABASE_URL) as connection:
+            cursor = connection.cursor()
+            query = f"SELECT * FROM schedules_{user_id}"
+            cursor.execute(query)
+            users_lessons = cursor.fetchall()
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
 
     # создание словаря с ключами в виде названия команд
     teams = {}
