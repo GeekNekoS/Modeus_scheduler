@@ -12,6 +12,23 @@ def if_table_schedule_exists(user_id):
     try:
         with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
+            cursor.execute(f"""
+                CREATE TABLE schedules_{user_id} (
+                    lesson_name VARCHAR,
+                    direction_name VARCHAR,
+                    lesson_type VARCHAR,
+                    weekday VARCHAR, 
+                    lesson_time VARCHAR,
+                    teacher VARCHAR,
+                    team VARCHAR
+                );
+            """)
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+    try:
+        with psycopg2.connect(DATABASE_URL) as connection:
+            cursor = connection.cursor()
             query = f"SELECT * FROM schedules_{user_id}"
             cursor.execute(query)
             if not cursor.fetchall():
