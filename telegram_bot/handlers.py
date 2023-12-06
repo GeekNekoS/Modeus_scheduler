@@ -6,6 +6,8 @@ from communicator_with_gpt.gpt_api import *
 from parsing.schedules.login import is_user_logedin_modeus
 from tasks.create_and_fill_db import main as create_and_fill_db
 
+# from parsing.page_object import ModeusPage.cre
+
 
 
 class MyHandlers:
@@ -81,10 +83,10 @@ class MyHandlers:
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
         else:
             if db_func.if_table_schedule_exists(message.from_user.id):
-                create_and_fill_db(message.from_user.id)
-
                 self.bot.send_message(message.chat.id, 'Начало парсинга...',
                                       reply_markup=markups.start_markup())
+                create_and_fill_db(message.from_user.id)
+
             db_func.update_user_modeus_preference(message.text, message.from_user.id)
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
