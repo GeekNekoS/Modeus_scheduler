@@ -34,7 +34,14 @@ def create_and_fill_lessons_table(user_id):
         pyautogui.hotkey('ctrl', 't')
         # time.sleep(1)
 
-        window_after = driver.window_handles[1]
+        window_after = None
+        while None == window_after:
+            try:
+                window_after = driver.window_handles[1]
+            except:
+                pass
+
+        # window_after = driver.window_handles[1]
         driver.switch_to.window(window_after)
         driver.close()
 
