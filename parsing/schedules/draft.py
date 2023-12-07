@@ -41,6 +41,9 @@ def create_and_fill_schedules_table():
 
     parsed_data = []
 
+    discipline_names = []  # remove_this
+    direction_names = []
+
     modules_links = []
     modules = modeus_page.get_modules()
     for i in range(len(modules)):
@@ -65,6 +68,7 @@ def create_and_fill_schedules_table():
         for i in range(len(disciplines)):
             disciplines = modeus_page.get_disciplines()
             discipline_name = disciplines[i].text  # <==
+            discipline_names.append(discipline_name)
             discipline_xpath = f"//div[@class='item-name' and text()=' {discipline_name} ']"
 
             discipline_link = modeus_page.find_element_by_xpath(discipline_xpath)
@@ -83,25 +87,40 @@ def create_and_fill_schedules_table():
             modules_links.append(module_url)
 
             # Начало парсинга направлений
-            direction_name = None
 
             directions = modeus_page.get_directions()
-
             for i in range(len(directions)):
                 directions = modeus_page.get_directions()
                 direction_name = directions[i].text  # <==
 
-                if discipline_name != direction_name:
-                    print("Название направления: " + direction_name)
-                print()
+                direction_names.append(direction_name)
 
-                # print("Название направления: " + direction_name)
-            #
-
-            # print(f"Go to: {disciplines_page_url}")
             modeus_page.go_to_disciplines_page(disciplines_page_url)
 
         modeus_page.go_to_modules_page()
+
+    # for discipline_name in discipline_names:
+    #     print(discipline_name)
+    # print()
+    #
+    # for direction_name in direction_names:
+    #     print(direction_name)
+    # print()
+
+    cleared_directions = []
+    for direction_name in direction_names:
+        ans_direction_name = None
+        if direction_name not in discipline_names:
+            ans_direction_name = direction_name
+            cleared_directions.append(direction_name)
+
+        # for discipline_name in discipline_names:
+        #     print(f"discipline_name -> {discipline_name}")
+        #     if discipline_name == ans_direction_name:
+        #         print(f"{discipline_name} == {ans_direction_name}")
+
+    for direction_name in cleared_directions:
+        print(direction_name)
 
     # -=-= Test saving =-=-
     # for direction_data in parsed_data:
