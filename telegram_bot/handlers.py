@@ -117,6 +117,7 @@ class MyHandlers:
     #             self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')
     #             self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
     #                                   reply_markup=markups.back_to_start_markup())
+    #
     #             self.bot.register_next_step_handler(message, self.enter_user_password_2)
 
     def add_user_preference(self, message):
