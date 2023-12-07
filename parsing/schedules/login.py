@@ -14,7 +14,7 @@ load_dotenv()
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 
-def is_user_logedin_modeus(user_id):
+def is_user_logedin_modeus(user_id, password):
     try:
         with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
@@ -33,7 +33,7 @@ def is_user_logedin_modeus(user_id):
             login_page = LoginPage(driver)
             login_page.go_to_modules_page()
             login_page.enter_login(users_data[1])
-            login_page.enter_password(users_data[2])
+            login_page.enter_password(password)
             login_page.click_on_the_login_button()
 
             loged_in = login_page.check_logedin()
