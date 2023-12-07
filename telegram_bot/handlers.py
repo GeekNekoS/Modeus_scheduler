@@ -76,7 +76,7 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Вы вышли из аккаунта',
                                   reply_markup=markups.start_markup())
         elif message.text.lower() == 'приступить к созданию':
-            self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
+            self.bot.send_message(message.chat.id, 'Введите пароль от Modeus для начала парсинга',
                                   reply_markup=markups.back_to_start_markup())
             self.bot.register_next_step_handler(message, self.enter_user_password_2)
         else:
@@ -94,9 +94,11 @@ class MyHandlers:
         else:
             encoded_password_text = message.text.encode('utf-8')
             new_password = hashlib.sha1(encoded_password_text).hexdigest()
+            print(type(new_password), new_password)
             old_password = db_func.take_user_password(message.from_user.id)
+            print(type(old_password), old_password)
             if new_password == old_password:
-                self.bot.send_message(message.chat.id, 'Отлично!Т\nТеперь введите ваши пожелания к расписанию')
+                self.bot.send_message(message.chat.id, 'Отлично!\nТеперь введите ваши пожелания к расписанию')
                 self.bot.register_next_step_handler(message, self.add_user_preference)
             else:
                 self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')

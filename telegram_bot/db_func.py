@@ -109,10 +109,7 @@ def take_user_password(user_id):
             cursor.execute("""SELECT password FROM users_modeus WHERE id = %s;""",
                            (user_id,)
                            )
-            if not cursor.fetchall():
-                return False
-            else:
-                return True
+            return cursor.fetchall()[0][0]
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
 
