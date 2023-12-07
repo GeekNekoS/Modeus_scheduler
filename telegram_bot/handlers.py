@@ -15,7 +15,7 @@ class MyHandlers:
         self.bot = bot
 
     def check_modeus_status(self, message):
-        if not db_func.is_user_login_modeus(message.from_user.id):
+        if db_func.if_table_schedule_exists(message.from_user.id):
             self.bot.send_message(message.chat.id, 'Необходимо войти в вашу учетную запись,'
                                                    ' для получения информации о доступных вам дисциплинах',
                                   reply_markup=markups.back_to_start_markup())
@@ -43,27 +43,42 @@ class MyHandlers:
         elif user_password.text.lower() == 'назад':
             main_tgbot.start(user_password)
         else:
+            if is_user_logedin_modeus(user_login, user_password.text):
+                self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!')
+                self.bot.send_message(user_password.chat.id, 'Начинаю парсинг доступных вам дисциплин...',
+                                      reply_markup=None)
+                # Тут старт парсера, при этом таблицы users_modeus не существует,
+                # т.е. логин и пароль передаются на этом моменте
+                create_and_fill_db(message.from_user.id)
+                self.bot.send_message(user_password.chat.id, 'Парсинг завершён успешно',
+                                      reply_markup=markups.modeus_markup())
+                self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
+            else:
+                self.bot.send_message(user_password.chat.id, 'Неверный логин или пароль',
+                                      reply_markup=markups.back_to_start_markup())
+                self.bot.register_next_step_handler(user_password, self.check_modeus_status)
+
             # if db_func.if_table_schedule_exists(message.from_user.id):
             #     self.bot.send_message(message.chat.id, 'Начало парсинга...',
             #                           reply_markup=markups.start_markup())
             #     create_and_fill_db(message.from_user.id)
-
-            encoded_password_text = user_password.text.encode('utf-8')
-            hashed_password = hashlib.sha1(encoded_password_text).hexdigest()
-
-            db_func.create_users_slot(user_password.from_user.id, user_login)
-            if is_user_logedin_modeus(user_password.from_user.id, user_password.text):
-                db_func.clear_users_data(user_password.from_user.id)
-                db_func.reg_user_in_modeus(user_password.from_user.id, user_login, hashed_password)
-                self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
-                                      reply_markup=markups.modeus_markup())
-                self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
-            else:
-                db_func.clear_users_data(user_password.from_user.id)
-                self.bot.send_message(user_password.chat.id, 'Неверные login или password',
-                                      reply_markup=markups.modeus_markup())
-                db_func.leave_modeus_account(user_password.from_user.id)
-                main_tgbot.start(user_password)
+            #
+            # encoded_password_text = user_password.text.encode('utf-8')
+            # hashed_password = hashlib.sha1(encoded_password_text).hexdigest()
+            #
+            # db_func.create_users_slot(user_password.from_user.id, user_login)
+            # if is_user_logedin_modeus(user_password.from_user.id, user_password.text):
+            #     db_func.clear_users_data(user_password.from_user.id)
+            #     db_func.reg_user_in_modeus(user_password.from_user.id, user_login, hashed_password)
+            #     self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
+            #                           reply_markup=markups.modeus_markup())
+            #     self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
+            # else:
+            #     db_func.clear_users_data(user_password.from_user.id)
+            #     self.bot.send_message(user_password.chat.id, 'Неверные login или password',
+            #                           reply_markup=markups.modeus_markup())
+            #     db_func.leave_modeus_account(user_password.from_user.id)
+            #     main_tgbot.start(user_password)
 
     def check_next_step_modeus(self, message):
         if not isinstance(message.text, str):
@@ -83,28 +98,27 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
 
-    def enter_user_password_2(self, message):
-        if not isinstance(message.text, str):
-            self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
-            self.bot.register_next_step_handler(message, self.enter_user_password_2)
-        elif message.text.lower() == 'назад':
-            self.bot.send_message(message.chat.id, 'В этом разделе вы можете составить расписание,'
-                                                   ' исходя из ваших пожеланий',
-                                  reply_markup=markups.modeus_markup())
-        else:
-            encoded_password_text = message.text.encode('utf-8')
-            new_password = hashlib.sha1(encoded_password_text).hexdigest()
-            print(type(new_password), new_password)
-            old_password = db_func.take_user_password(message.from_user.id)
-            print(type(old_password), old_password)
-            if new_password == old_password:
-                self.bot.send_message(message.chat.id, 'Отлично!\nТеперь введите ваши пожелания к расписанию')
-                self.bot.register_next_step_handler(message, self.add_user_preference)
-            else:
-                self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')
-                self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
-                                      reply_markup=markups.back_to_start_markup())
-                self.bot.register_next_step_handler(message, self.enter_user_password_2)
+    # def enter_user_password_2(self, message):
+    #     if not isinstance(message.text, str):
+    #         self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
+    #         self.bot.register_next_step_handler(message, self.enter_user_password_2)
+    #     elif message.text.lower() == 'назад':
+    #         self.bot.send_message(message.chat.id, 'В этом разделе вы можете составить расписание,'
+    #                                                ' исходя из ваших пожеланий',
+    #                               reply_markup=markups.modeus_markup())
+    #     else:
+    #         encoded_password_text = message.text.encode('utf-8')
+    #         new_password = hashlib.sha1(encoded_password_text).hexdigest()
+    #         old_password = db_func.take_user_password(message.from_user.id)
+    #         if new_password == old_password:
+    #         self.bot.send_message(message.chat.id, 'Введите ваши пожелания к расписанию')
+    #         self.bot.register_next_step_handler(message, self.add_user_preference)
+    #         else:
+    #             self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')
+    #             self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
+    #                                   reply_markup=markups.back_to_start_markup())
+    #
+    #             self.bot.register_next_step_handler(message, self.enter_user_password_2)
 
     def add_user_preference(self, message):
         if not isinstance(message.text, str):
@@ -116,14 +130,14 @@ class MyHandlers:
                                   reply_markup=markups.modeus_markup())
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
         else:
-            if db_func.if_table_schedule_exists(message.from_user.id):
-                self.bot.send_message(message.chat.id, 'Начало парсинга...',
-                                      reply_markup=markups.start_markup())
-                create_and_fill_db(message.from_user.id)  # <==
-
-            db_func.update_user_modeus_preference(message.text, message.from_user.id)
+            # if db_func.if_table_schedule_exists(message.from_user.id):
+            #     self.bot.send_message(message.chat.id, 'Начало парсинга...',
+            #                           reply_markup=markups.start_markup())
+            #     create_and_fill_db(message.from_user.id)
+            # db_func.update_user_modeus_preference(message.text, message.from_user.id)
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
+            # Тут Кеше передаются аргументы для создания расписания
             answer = create_personal_schedule(message.from_user.id, message.text)
             self.bot.send_message(message.chat.id, answer,
                                   reply_markup=markups.start_markup())
