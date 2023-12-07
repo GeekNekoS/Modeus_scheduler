@@ -76,12 +76,33 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Вы вышли из аккаунта',
                                   reply_markup=markups.start_markup())
         elif message.text.lower() == 'приступить к созданию':
-            self.bot.send_message(message.chat.id, 'Введите свои пожелания к расписанию',
+            self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
                                   reply_markup=markups.back_to_start_markup())
-            self.bot.register_next_step_handler(message, self.add_user_preference)
+            self.bot.register_next_step_handler(message, self.enter_user_password_2)
         else:
             self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
+
+    def enter_user_password_2(self, message):
+        if not isinstance(message.text, str):
+            self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
+            self.bot.register_next_step_handler(message, self.enter_user_password_2)
+        elif message.text.lower() == 'назад':
+            self.bot.send_message(message.chat.id, 'В этом разделе вы можете составить расписание,'
+                                                   ' исходя из ваших пожеланий',
+                                  reply_markup=markups.modeus_markup())
+        else:
+            encoded_password_text = message.text.encode('utf-8')
+            new_password = hashlib.sha1(encoded_password_text).hexdigest()
+            old_password = db_func.take_user_password(message.from_user.id)
+            if new_password == old_password:
+                self.bot.send_message(message.chat.id, 'Отлично!Т\nТеперь введите ваши пожелания к расписанию')
+                self.bot.register_next_step_handler(message, self.add_user_preference)
+            else:
+                self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')
+                self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
+                                      reply_markup=markups.back_to_start_markup())
+                self.bot.register_next_step_handler(message, self.enter_user_password_2)
 
     def add_user_preference(self, message):
         if not isinstance(message.text, str):
