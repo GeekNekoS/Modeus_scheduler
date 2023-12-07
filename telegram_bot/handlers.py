@@ -62,7 +62,7 @@ class MyHandlers:
             #     self.bot.send_message(message.chat.id, 'Начало парсинга...',
             #                           reply_markup=markups.start_markup())
             #     create_and_fill_db(message.from_user.id)
-
+            #
             # encoded_password_text = user_password.text.encode('utf-8')
             # hashed_password = hashlib.sha1(encoded_password_text).hexdigest()
             #
