@@ -12,8 +12,10 @@ class LoginLocators:
 
 class ModeusLocators:
     MODULES = (By.XPATH, "//tbody/tr//span")
-    LESSONS = (By.XPATH, "//div[@class='item-name']")
+    DISCIPLINES = (By.XPATH, "//div[@class='item-name']")
     DIRECTIONS = (By.XPATH, "//div[@class='item-name']")
+
+    LESSONS = (By.XPATH, "//div[@class='item-name']")
     DIRECTION_SCHEDULE_BUTTON = (By.XPATH, "//a[@class='no-wrap'][2]")
     POPOVER = (By.XPATH, "//ngb-popover-window")
     TEACHERS_NAME = (By.XPATH, "//div[@class='ng-star-inserted']")

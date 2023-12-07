@@ -178,6 +178,23 @@ class ModeusPage(BaseClass):
             print(f"Can`t establish connection to database: {ex}\n")
 
 
+class ModulesPages(BaseClass):
+    def get_modules(self):
+        return self.find_elements(ModeusLocators.MODULES, time=self.time)
+
+    def get_disciplines(self):
+        return self.find_elements(ModeusLocators.DISCIPLINES, time=self.time)
+
+    def get_directions(self):
+        return self.find_elements(ModeusLocators.DIRECTIONS, time=self.time)
+
+    def find_element_by_xpath(self, discipline_xpath):
+        return self.find_element((By.XPATH, discipline_xpath), time=self.time)
+
+    def go_to_disciplines_page(self, disciplines_page_url):
+        return self.get_connect(disciplines_page_url)
+
+
 class TeachersParsing(BaseClass):
     def create_teachers_table(self):
         try:
