@@ -8,6 +8,8 @@ from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
 import time
 
+from work_with_db.drop_tables import drop_lessons_table
+
 
 def create_and_fill_directions_table(user_id):
     chrome_options = Options()
@@ -73,6 +75,7 @@ def create_and_fill_directions_table(user_id):
             driver.switch_to.window(window_after)
 
             modeus_page.save_directions_data_to_db(direction_name, direction_url, lesson_id, user_id=user_id)
+            drop_lessons_table(user_id)
 
     driver.close()
     return driver

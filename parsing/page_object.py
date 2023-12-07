@@ -23,16 +23,12 @@ class LoginPage(BaseClass):
         return self.find_element(LoginLocators.LOGIN_BUTTON, time=self.time).click()
 
     def check_logedin(self):
-        flag = False
         try:
-            rus_warning = self.find_element(LoginLocators.RUS_WARNING, time=self.time)
-        except:
-            try:
-                eng_warning = self.find_element(LoginLocators.ENG_WARNING, time=self.time)
-            except:
-                flag = True
-
-        return flag
+            h4_choosing_modules = self.find_element(LoginLocators.H4_CHOOSING_MODULES, time=self.time)
+            return True
+        except Exception as ex:
+            print(ex)
+            return False
 
     # Log out
 
