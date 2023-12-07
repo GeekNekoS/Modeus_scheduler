@@ -117,6 +117,19 @@ def if_table_schedule_exists(user_id):
 #         print(f"Can`t establish connection to database: {ex}\n")
 
 
+def take_user_password(user_id):
+    try:
+        with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
+            cursor = connection.cursor()
+
+            cursor.execute("""SELECT password FROM users_modeus WHERE id = %s;""",
+                           (user_id,)
+                           )
+            return cursor.fetchall()[0][0]
+    except Exception as ex:
+        print(f"Can`t establish connection to database: {ex}\n")
+
+
 def create_text_reviews_db():
     try:
         with psycopg2.connect(DATABASE_URL) as connection:

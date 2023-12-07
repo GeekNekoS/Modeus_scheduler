@@ -91,9 +91,9 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Вы вышли из аккаунта',
                                   reply_markup=markups.start_markup())
         elif message.text.lower() == 'приступить к созданию':
-            self.bot.send_message(message.chat.id, 'Введите свои пожелания к расписанию',
+            self.bot.send_message(message.chat.id, 'Введите пароль от Modeus для начала парсинга',
                                   reply_markup=markups.back_to_start_markup())
-            self.bot.register_next_step_handler(message, self.add_user_preference)
+            self.bot.register_next_step_handler(message, self.enter_user_password_2)
         else:
             self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
