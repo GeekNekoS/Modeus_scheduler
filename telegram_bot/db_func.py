@@ -39,66 +39,82 @@ def if_table_schedule_exists(user_id):
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def create_modeus_db():
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""
-                CREATE TABLE users_modeus (
-                    id INTEGER,
-                    login VARCHAR,
-                    password VARCHAR,
-                    preference TEXT
-                );
-            """)
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def create_modeus_db():
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""
+#                 CREATE TABLE users_modeus (
+#                     id INTEGER,
+#                     login VARCHAR,
+#                     password VARCHAR,
+#                     preference TEXT
+#                 );
+#             """)
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def is_user_login_modeus(user_id):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""SELECT * FROM users_modeus WHERE id = %s;""",
-                           (user_id,)
-                           )
-            if not cursor.fetchall():
-                return False
-            else:
-                return True
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def is_user_login_modeus(user_id):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""SELECT * FROM users_modeus WHERE id = %s;""",
+#                            (user_id,)
+#                            )
+#             if not cursor.fetchall():
+#                 return False
+#             else:
+#                 return True
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def create_users_slot(user_id, user_login):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""INSERT INTO users_modeus (id, login, password) VALUES (%s, %s, %s); """,
-                           (user_id, user_login, "")
-                           )
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def create_users_slot(user_id, user_login):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""INSERT INTO users_modeus (id, login, password) VALUES (%s, %s, %s); """,
+#                            (user_id, user_login, "")
+#                            )
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def clear_users_data(user_id):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""DELETE FROM users_modeus WHERE id = %s;""", (user_id,))
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def clear_users_data(user_id):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""DELETE FROM users_modeus WHERE id = %s;""", (user_id,))
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def reg_user_in_modeus(user_id, user_login, user_password):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""INSERT INTO users_modeus (id, login, password) VALUES (%s, %s, %s);""",
-                           (user_id, user_login, user_password)
-                           )
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def reg_user_in_modeus(user_id, user_login, user_password):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""INSERT INTO users_modeus (id, login, password) VALUES (%s, %s, %s);""",
+#                            (user_id, user_login, user_password)
+#                            )
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
+
+
+# def take_user_password(user_id):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
+#             cursor = connection.cursor()
+#
+#             cursor.execute("""SELECT password FROM users_modeus WHERE id = %s;""",
+#                            (user_id,)
+#                            )
+#             if not cursor.fetchall():
+#                 return False
+#             else:
+#                 return True
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
 def create_text_reviews_db():
@@ -137,22 +153,20 @@ def leave_modeus_account(user_id):
     try:
         with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
-            cursor.execute("""DELETE FROM users_modeus WHERE id = %s;""",
-                           (user_id,)
-                           )
+            cursor.execute(f"""DROP TABLE schedules_{user_id}""")
     except Exception as ex:
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def update_user_modeus_preference(preference, user_id):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:
-            cursor = connection.cursor()
-            cursor.execute("""UPDATE users_modeus SET preference = %s WHERE id = %s;""",
-                           (preference, user_id)
-                           )
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def update_user_modeus_preference(preference, user_id):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:
+#             cursor = connection.cursor()
+#             cursor.execute("""UPDATE users_modeus SET preference = %s WHERE id = %s;""",
+#                            (preference, user_id)
+#                            )
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
 def find_teacher(name):
