@@ -3,21 +3,16 @@ from selenium.webdriver.common.keys import Keys
 
 from parsing.page_object import LoginPage
 from parsing.page_object import ModulesPages
-
 from parsing.page_object import ModeusPage
 
 from selenium import webdriver
 import pyautogui
-from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
 import time
 import os
 
 from dotenv import load_dotenv
 load_dotenv()
-
-
-# DATABASE_URL = os.getenv('DATABASE_URL')
 
 
 def create_and_fill_schedules_table(user_login, user_password, user_id):
@@ -112,7 +107,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 driver.switch_to.window(window_after)
 
                 direction_schedule_page = driver.current_url
-                print(direction_schedule_page)
 
                 direction_schedule_url = modeus_page.get_schedule_url()
                 modules_page.go_to(direction_schedule_url.get_attribute("href"))
