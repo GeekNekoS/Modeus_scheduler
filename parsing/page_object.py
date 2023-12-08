@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')
 
 
 class LoginPage(BaseClass):
@@ -188,11 +188,41 @@ class ModulesPages(BaseClass):
     def get_directions(self):
         return self.find_elements(ModeusLocators.DIRECTIONS, time=self.time)
 
-    def find_element_by_xpath(self, discipline_xpath):
-        return self.find_element((By.XPATH, discipline_xpath), time=self.time)
+    def find_element_by_xpath(self, xpath):
+        return self.find_element((By.XPATH, xpath), time=self.time)
+
+    def find_elements_by_xpath(self, xpath):
+        return self.find_elements((By.XPATH, xpath), time=self.time)
 
     def go_to_disciplines_page(self, disciplines_page_url):
         return self.get_connect(disciplines_page_url)
+
+    def create_schedules_table(self):
+        try:
+            with psycopg2.connect(DATABASE_URL) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""
+                    CREATE TABLE schedules_test (
+                        module_name VARCHAR, 
+                        discipline_name VARCHAR, 
+                        direction_name VARCHAR
+                    );
+                """)
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
+    def save_schadules_data_to_db(self, *data):
+        module_name, discipline_name, direction_name = data
+        try:
+            with psycopg2.connect(DATABASE_URL) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""
+                            INSERT INTO schedules_test (module_name, discipline_name, direction_name) 
+                            VALUES (%s, %s, %s)
+                            """, (module_name, discipline_name, direction_name)
+                               )
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
 
 
 class TeachersParsing(BaseClass):

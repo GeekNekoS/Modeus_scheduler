@@ -39,12 +39,15 @@ def create_and_fill_schedules_table():
 
     modeus_page = ModulesPages(driver)
 
+    modules_page.create_schedules_table()
+
     parsed_data = []
 
     discipline_names = []  # remove_this
     direction_names = []
+    disciplines_page_urls = []
 
-    modules_links = []
+    # Modules parsing
     modules = modeus_page.get_modules()
     for i in range(len(modules)):
         modules = modeus_page.get_modules()
@@ -60,10 +63,9 @@ def create_and_fill_schedules_table():
         window_after = driver.window_handles[0]
         driver.switch_to.window(window_after)
 
-        module_url = driver.current_url
-        modules_links.append(module_url)
-
+        # Disciplines parsing
         disciplines_page_url = driver.current_url
+        disciplines_page_urls.append(disciplines_page_url)
         disciplines = modeus_page.get_disciplines()
         for i in range(len(disciplines)):
             disciplines = modeus_page.get_disciplines()
@@ -83,44 +85,31 @@ def create_and_fill_schedules_table():
             window_after = driver.window_handles[0]
             driver.switch_to.window(window_after)
 
-            module_url = driver.current_url
-            modules_links.append(module_url)
-
-            # Начало парсинга направлений
-
+            # Directions parsing
             directions = modeus_page.get_directions()
             for i in range(len(directions)):
                 directions = modeus_page.get_directions()
                 direction_name = directions[i].text  # <==
-
                 direction_names.append(direction_name)
+
+            direction_buttons_xpath = ".//div[@class='item-name']/parent::div/parent::td/parent::tr[@class='item-row ng-star-inserted']"
+            direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
+
+            # Schedules parsing
+            for direction_button in direction_buttons:
+                direction_name = direction_button.text
+                print(direction_name)
+                modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name)
 
             modeus_page.go_to_disciplines_page(disciplines_page_url)
 
+            print()
+            print()
+            print()
+            print()
+            print()
+
         modeus_page.go_to_modules_page()
-
-    # for discipline_name in discipline_names:
-    #     print(discipline_name)
-    # print()
-    #
-    # for direction_name in direction_names:
-    #     print(direction_name)
-    # print()
-
-    cleared_directions = []
-    for direction_name in direction_names:
-        ans_direction_name = None
-        if direction_name not in discipline_names:
-            ans_direction_name = direction_name
-            cleared_directions.append(direction_name)
-
-        # for discipline_name in discipline_names:
-        #     print(f"discipline_name -> {discipline_name}")
-        #     if discipline_name == ans_direction_name:
-        #         print(f"{discipline_name} == {ans_direction_name}")
-
-    for direction_name in cleared_directions:
-        print(direction_name)
 
     # -=-= Test saving =-=-
     # for direction_data in parsed_data:
