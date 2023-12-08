@@ -6,6 +6,7 @@ import hashlib
 from communicator_with_gpt.gpt_api import *
 from parsing.schedules.login import is_user_logedin_modeus
 from tasks.create_and_fill_db import main as create_and_fill_db
+from parsing.schedules.draft import create_and_fill_schedules_table
 
 # from parsing.page_object import ModeusPage.cre
 
@@ -49,7 +50,8 @@ class MyHandlers:
                                       reply_markup=None)
                 # Тут старт парсера, при этом таблицы users_modeus не существует,
                 # т.е. логин и пароль передаются на этом моменте
-                create_and_fill_db(message.from_user.id)
+                # create_and_fill_db(message.from_user.id)
+                create_and_fill_schedules_table(user_login, user_password.text, user_password.chat.id)
                 self.bot.send_message(user_password.chat.id, 'Парсинг завершён успешно',
                                       reply_markup=markups.modeus_markup())
                 self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)

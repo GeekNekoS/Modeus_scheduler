@@ -20,7 +20,7 @@ load_dotenv()
 # DATABASE_URL = os.getenv('DATABASE_URL')
 
 
-def create_and_fill_schedules_table():
+def create_and_fill_schedules_table(user_login, user_password, user_id):
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -29,8 +29,8 @@ def create_and_fill_schedules_table():
     # login
     login_page = LoginPage(driver)
     login_page.go_to_modules_page()
-    login_page.enter_login(os.getenv('LOGIN'))
-    login_page.enter_password(os.getenv('PASSWORD'))
+    login_page.enter_login(user_login)
+    login_page.enter_password(user_password)
     login_page.click_on_the_login_button()
 
     # Create and fill lessons table
@@ -39,7 +39,7 @@ def create_and_fill_schedules_table():
 
     modeus_page = ModulesPages(driver)
 
-    modules_page.create_schedules_table()
+    modules_page.create_schedules_table(user_id=user_id)
 
     parsed_data = []
 
@@ -166,7 +166,7 @@ def create_and_fill_schedules_table():
                         hover.perform()
 
                         # -=-= Test saving =-=-
-                        modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+                        modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
                         # parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
                         # -=-=-=-=-=-=-=-=-=-=-
                 #
@@ -186,7 +186,7 @@ def create_and_fill_schedules_table():
     return driver
 
 
-start = time.perf_counter()
-create_and_fill_schedules_table()
-stop = time.perf_counter()
-print(f"Программа выполняется за {stop - start} секунд")
+# start = time.perf_counter()
+# create_and_fill_schedules_table()
+# stop = time.perf_counter()
+# print(f"Программа выполняется за {stop - start} секунд")

@@ -14,10 +14,12 @@ def if_table_schedule_exists(user_id):
             cursor = connection.cursor()
             cursor.execute(f"""
                 CREATE TABLE schedules_{user_id} (
-                    lesson_name VARCHAR,
+                    module_name VARCHAR,
+                    discipline_name VARCHAR,
                     direction_name VARCHAR,
+                    lesson_name VARCHAR,
                     lesson_type VARCHAR,
-                    weekday VARCHAR, 
+                    weekday VARCHAR,
                     lesson_time VARCHAR,
                     teacher VARCHAR,
                     team VARCHAR
@@ -117,17 +119,17 @@ def if_table_schedule_exists(user_id):
 #         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def take_user_password(user_id):
-    try:
-        with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
-            cursor = connection.cursor()
-
-            cursor.execute("""SELECT password FROM users_modeus WHERE id = %s;""",
-                           (user_id,)
-                           )
-            return cursor.fetchall()[0][0]
-    except Exception as ex:
-        print(f"Can`t establish connection to database: {ex}\n")
+# def take_user_password(user_id):
+#     try:
+#         with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
+#             cursor = connection.cursor()
+#
+#             cursor.execute("""SELECT password FROM users_modeus WHERE id = %s;""",
+#                            (user_id,)
+#                            )
+#             return cursor.fetchall()[0][0]
+#     except Exception as ex:
+#         print(f"Can`t establish connection to database: {ex}\n")
 
 
 def create_text_reviews_db():
@@ -184,7 +186,7 @@ def leave_modeus_account(user_id):
 
 def find_teacher(name):
     try:
-        with psycopg2.connect(DATABASE_URL) as connection:  # <== url2
+        with psycopg2.connect(DATABASE_URL) as connection:
             cursor = connection.cursor()
 
             cursor.execute("""SELECT * FROM teachers_data WHERE LOWER(teacher_name) = %s;""",

@@ -197,12 +197,12 @@ class ModulesPages(BaseClass):
     def go_to_disciplines_page(self, disciplines_page_url):
         return self.get_connect(disciplines_page_url)
 
-    def create_schedules_table(self):
+    def create_schedules_table(self, user_id=None):
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""
-                    CREATE TABLE schedules_test (
+                    CREATE TABLE schedules_{user_id} (
                         module_name VARCHAR, 
                         discipline_name VARCHAR, 
                         direction_name VARCHAR, 
@@ -217,13 +217,13 @@ class ModulesPages(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def save_schadules_data_to_db(self, *data):
+    def save_schadules_data_to_db(self, *data, user_id=None):
         module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""
-                            INSERT INTO schedules_test (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team) 
+                            INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team) 
                             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                             """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
                                )
