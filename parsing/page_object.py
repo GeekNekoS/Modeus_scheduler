@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
@@ -205,24 +205,47 @@ class ModulesPages(BaseClass):
                     CREATE TABLE schedules_test (
                         module_name VARCHAR, 
                         discipline_name VARCHAR, 
-                        direction_name VARCHAR
+                        direction_name VARCHAR, 
+                        lesson_name VARCHAR, 
+                        lesson_type VARCHAR, 
+                        weekday VARCHAR,
+                        lesson_time VARCHAR, 
+                        teacher VARCHAR, 
+                        team VARCHAR
                     );
                 """)
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
     def save_schadules_data_to_db(self, *data):
-        module_name, discipline_name, direction_name = data
+        module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
                 cursor.execute(f"""
-                            INSERT INTO schedules_test (module_name, discipline_name, direction_name) 
-                            VALUES (%s, %s, %s)
-                            """, (module_name, discipline_name, direction_name)
+                            INSERT INTO schedules_test (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team) 
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                            """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
                                )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
+
+    def get_schedule_url(self):
+        return self.find_element(ModeusLocators.SCHEDULE_URL, time=self.time)  # .get_attribute("href")
+
+    def go_to(self, url):
+        return self.get_connect(url)
+
+    #
+    def get_popover(self):
+        return self.find_element(ModeusLocators.POPOVER, time=self.time)
+
+    def get_teachers_name(self):
+        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text
+
+    def get_h3_point(self):
+        return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
+    #
 
 
 class TeachersParsing(BaseClass):
