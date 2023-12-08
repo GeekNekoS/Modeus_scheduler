@@ -53,7 +53,14 @@ def create_and_fill_directions_table(user_id):
 
             go_to = driver.current_url
 
-            window_after = driver.window_handles[1]
+            window_after = None
+            while None == window_after:
+                try:
+                    window_after = driver.window_handles[1]
+                except:
+                    pass
+
+            # window_after = driver.window_handles[1]
             driver.switch_to.window(window_after)
 
             modeus_page.get_connect(go_to)

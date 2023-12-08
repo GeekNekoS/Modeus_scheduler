@@ -38,7 +38,7 @@ def text_input(message):
     my_handlers = handlers.MyHandlers(bot)
     reviews = handlers.Reviews(bot)
     if message.text.lower() == 'составить расписание':
-        db_func.create_modeus_db()
+        # db_func.create_modeus_db()
         my_handlers.check_modeus_status(message)
     elif message.text.lower() == 'отзывы':
         bot.send_message(message.chat.id, 'В этом разделе вы можете взаимодействовать с отзывами',
