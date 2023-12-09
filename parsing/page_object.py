@@ -1,3 +1,5 @@
+import time
+
 from parsing.locators import *
 from parsing.base_page import BaseClass
 import psycopg2
@@ -8,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
@@ -23,16 +25,11 @@ class LoginPage(BaseClass):
         return self.find_element(LoginLocators.LOGIN_BUTTON, time=self.time).click()
 
     def check_logedin(self):
-        flag = False
         try:
-            rus_warning = self.find_element(LoginLocators.RUS_WARNING, time=self.time)
+            self.find_element(LoginLocators.H4_CHOOSING_MODULES, time=self.time)
+            return True
         except:
-            try:
-                eng_warning = self.find_element(LoginLocators.ENG_WARNING, time=self.time)
-            except:
-                flag = True
-
-        return flag
+            return False
 
     # Log out
 
@@ -176,6 +173,80 @@ class ModeusPage(BaseClass):
                     )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
+
+
+class ModulesPages(BaseClass):
+    def get_modules(self):
+        return self.find_elements(ModeusLocators.MODULES, time=self.time)
+
+    def get_disciplines(self):
+        return self.find_elements(ModeusLocators.DISCIPLINES, time=self.time)
+
+    def get_directions(self):
+        return self.find_elements(ModeusLocators.DIRECTIONS, time=self.time)
+
+    def find_element_by_xpath(self, xpath):
+        return self.find_element((By.XPATH, xpath), time=self.time)
+
+    def find_elements_by_xpath(self, xpath):
+        return self.find_elements((By.XPATH, xpath), time=self.time)
+
+    def go_to_disciplines_page(self, disciplines_page_url):
+        return self.get_connect(disciplines_page_url)
+
+    def create_schedules_table(self, user_id=None):
+        try:
+            with psycopg2.connect(DATABASE_URL) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""
+                    CREATE TABLE schedules_{user_id} (
+                        module_name VARCHAR, 
+                        discipline_name VARCHAR, 
+                        direction_name VARCHAR, 
+                        lesson_name VARCHAR, 
+                        lesson_type VARCHAR, 
+                        weekday VARCHAR,
+                        lesson_time VARCHAR, 
+                        teacher VARCHAR, 
+                        team VARCHAR
+                    );
+                """)
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
+
+    def save_schadules_data_to_db(self, data, user_id=None):
+        parsed_data = data
+        for data in parsed_data:
+            print(data)
+
+        # module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
+        # try:
+        #     with psycopg2.connect(DATABASE_URL) as connection:
+        #         cursor = connection.cursor()
+        #         cursor.execute(f"""
+        #                     INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+        #                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        #                     """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+        #                        )
+        # except Exception as ex:
+        #     print(f"Can`t establish connection to database: {ex}\n")
+
+    def get_schedule_url(self):
+        return self.find_element(ModeusLocators.SCHEDULE_URL, time=self.time)  # .get_attribute("href")
+
+    def go_to(self, url):
+        return self.get_connect(url)
+
+    #
+    def get_popover(self):
+        return self.find_element(ModeusLocators.POPOVER, time=self.time)
+
+    def get_teachers_name(self):
+        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text
+
+    def get_h3_point(self):
+        return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
+    #
 
 
 class TeachersParsing(BaseClass):
