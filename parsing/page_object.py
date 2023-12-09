@@ -1,3 +1,5 @@
+import time
+
 from parsing.locators import *
 from parsing.base_page import BaseClass
 import psycopg2
@@ -8,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL')  # DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
@@ -23,16 +25,11 @@ class LoginPage(BaseClass):
         return self.find_element(LoginLocators.LOGIN_BUTTON, time=self.time).click()
 
     def check_logedin(self):
-        flag = False
         try:
-            rus_warning = self.find_element(LoginLocators.RUS_WARNING, time=self.time)
+            self.find_element(LoginLocators.H4_CHOOSING_MODULES, time=self.time)
+            return True
         except:
-            try:
-                eng_warning = self.find_element(LoginLocators.ENG_WARNING, time=self.time)
-            except:
-                flag = True
-
-        return flag
+            return False
 
     # Log out
 
@@ -217,18 +214,22 @@ class ModulesPages(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def save_schadules_data_to_db(self, *data, user_id=None):
-        module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute(f"""
-                            INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team) 
-                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                            """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
-                               )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
+    def save_schadules_data_to_db(self, data, user_id=None):
+        parsed_data = data
+        for data in parsed_data:
+            print(data)
+
+        # module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
+        # try:
+        #     with psycopg2.connect(DATABASE_URL) as connection:
+        #         cursor = connection.cursor()
+        #         cursor.execute(f"""
+        #                     INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+        #                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        #                     """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+        #                        )
+        # except Exception as ex:
+        #     print(f"Can`t establish connection to database: {ex}\n")
 
     def get_schedule_url(self):
         return self.find_element(ModeusLocators.SCHEDULE_URL, time=self.time)  # .get_attribute("href")

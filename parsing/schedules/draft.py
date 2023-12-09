@@ -90,8 +90,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
             # Schedules parsing
             direction_buttons_xpath = ".//div[@class='item-name']/parent::div/parent::td/parent::tr[@class='item-row ng-star-inserted']"
             direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
-            # for direction_button in direction_buttons:
-            for i in range(len(direction_buttons)):  # for i in range(len(direction_buttons) - 1)
+            for i in range(len(direction_buttons)):
                 direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
                 direction_name = direction_buttons[i-1].text  # <==
                 direction_link = direction_buttons[i-1]
@@ -141,7 +140,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                             popover = modeus_page.get_popover()
                         except:
                             popover = modeus_page.get_popover()
-                        # time.sleep(1)
 
                         lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
                         lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
@@ -160,8 +158,8 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         hover.perform()
 
                         # -=-= Test saving =-=-
-                        modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
-                        # parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
+                        # modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
+                        parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
                         # -=-=-=-=-=-=-=-=-=-=-
                 #
 
@@ -171,9 +169,11 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
+    modules_page.save_schadules_data_to_db(parsed_data)
+
     # -=-= Test saving =-=-
-    # for direction_data in parsed_data:
-    #     print(f"{direction_data[0]}; {direction_data[1]}")
+    # for data in parsed_data:
+    #     print(data)
     # -=-=-=-=-=-=-=-=-=-=-
 
     driver.close()
@@ -181,6 +181,15 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
 
 # start = time.perf_counter()
-# create_and_fill_schedules_table()
+#
+# user_login = os.getenv('LOGIN')
+# user_password = os.getenv('PASSWORD')
+# user_id = "test"
+# create_and_fill_schedules_table(user_login, user_password, user_id)
+#
 # stop = time.perf_counter()
 # print(f"Программа выполняется за {stop - start} секунд")
+
+# С записью каждого направления по отдельности: 278
+# Отдельно парсинг: 262
+# С одноразовой поставкой данных в базу:
