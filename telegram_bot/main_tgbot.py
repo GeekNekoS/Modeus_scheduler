@@ -47,7 +47,8 @@ def text_input(message):
     elif message.text.lower() == 'назад':
         start(message)
     elif message.text.lower() == 'тест':
-        bot.send_message(message.chat.id, 'Вопрос 1', reply_markup=markups.rating_reviews_markup())
+        db_func.dima()
+        my_handlers.average_rating_reviews()
     else:
         bot.send_message(message.from_user.id, 'Не понимаю о чём вы')
 
