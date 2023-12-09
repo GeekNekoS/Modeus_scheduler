@@ -2,7 +2,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 from parsing.page_object import LoginPage
-from parsing.page_object import ModulesPages
 from parsing.page_object import ModeusPage
 
 from selenium import webdriver
@@ -29,12 +28,10 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     login_page.click_on_the_login_button()
 
     # Create and fill lessons table
-    modules_page = ModulesPages(driver)
-    modules_page.go_to_modules_page()
+    modeus_page = ModeusPage(driver)
+    modeus_page.go_to_modules_page()
 
-    modeus_page = ModulesPages(driver)
-
-    modules_page.create_schedules_table(user_id=user_id)
+    modeus_page.create_schedules_table(user_id=user_id)
 
     parsed_data = []
 
@@ -108,7 +105,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 direction_schedule_page = driver.current_url
 
                 direction_schedule_url = modeus_page.get_schedule_url()
-                modules_page.go_to(direction_schedule_url.get_attribute("href"))
+                modeus_page.go_to(direction_schedule_url.get_attribute("href"))
                 time.sleep(1)
 
                 #
@@ -158,37 +155,30 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         hover.perform()
 
                         # -=-= Test saving =-=-
-                        # modules_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
-                        parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
+                        modeus_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
+                        # parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
                         # -=-=-=-=-=-=-=-=-=-=-
                 #
 
-                modules_page.go_to(direction_schedule_page)
+                modeus_page.go_to(direction_schedule_page)
 
             modeus_page.go_to_disciplines_page(disciplines_page_url)
 
         modeus_page.go_to_modules_page()
 
-    modules_page.save_schadules_data_to_db(parsed_data)
-
-    # -=-= Test saving =-=-
-    # for data in parsed_data:
-    #     print(data)
-    # -=-=-=-=-=-=-=-=-=-=-
-
     driver.close()
     return driver
 
 
-# start = time.perf_counter()
-#
-# user_login = os.getenv('LOGIN')
-# user_password = os.getenv('PASSWORD')
-# user_id = "test"
-# create_and_fill_schedules_table(user_login, user_password, user_id)
-#
-# stop = time.perf_counter()
-# print(f"Программа выполняется за {stop - start} секунд")
+start = time.perf_counter()
+
+user_login = os.getenv('LOGIN')
+user_password = os.getenv('PASSWORD')
+user_id = "test"
+create_and_fill_schedules_table(user_login, user_password, user_id)
+
+stop = time.perf_counter()
+print(f"Программа выполняется за {stop - start} секунд")
 
 # С записью каждого направления по отдельности: 278
 # Отдельно парсинг: 262

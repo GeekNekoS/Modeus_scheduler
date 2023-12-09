@@ -35,147 +35,6 @@ class LoginPage(BaseClass):
 
 
 class ModeusPage(BaseClass):
-    def create_lessons_table(self, user_id=None):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute(f"""
-                    CREATE TABLE lessons_{user_id} (
-                        id SERIAL PRIMARY KEY,
-                        lesson VARCHAR,
-                        module_url VARCHAR
-                    );
-                """)
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def get_modules(self):
-        return self.find_elements(ModeusLocators.MODULES, time=self.time)
-
-    def get_lessons(self):
-        return self.find_elements(ModeusLocators.LESSONS, time=self.time)
-
-    def save_lesson_data_to_db(self, *data, user_id=None):
-        lesson_name, module_url = data
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-
-                cursor.execute(f"""
-                    INSERT INTO lessons_{user_id} (lesson, module_url) VALUES (%s, %s)
-                    """, (lesson_name, module_url)
-                               )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def create_directions_table(self, user_id=None):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute(f"""
-                    CREATE TABLE directions_{user_id} (
-                        id SERIAL PRIMARY KEY,
-                        direction VARCHAR,
-                        schedule_url VARCHAR,
-                        foreign_key INT
-                    );
-                """)
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def get_lessons_data(self, user_id=None):
-        lessons_info = None
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                query = f"""SELECT * FROM lessons_{user_id}"""
-                cursor.execute(query)
-                lessons_info = cursor.fetchall()
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-        return lessons_info
-
-    def click_on_direction_name(self, direction_name):
-        return self.find_element((By.XPATH, f"//div[@class='item-name' and text()=' {direction_name} ']"), time=self.time).click()
-
-    def get_directions(self):
-        return self.find_elements(ModeusLocators.DIRECTIONS, time=self.time)[1:]
-
-    def get_direction_button(self, direction_name):
-        return self.find_element((By.XPATH, f"//div[@class='item-name' and text()=' {direction_name} ']"), time=self.time)
-
-    def get_direction_url(self):
-        direction_schedule_button = self.find_element(ModeusLocators.DIRECTION_SCHEDULE_BUTTON, time=self.time)
-        return direction_schedule_button.get_attribute("href")
-
-    def save_directions_data_to_db(self, *data, user_id=None):
-        direction_name, direction_url, lesson_id = data
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-
-                cursor.execute(f"""
-                    INSERT INTO directions_{user_id} (direction, schedule_url, foreign_key) VALUES (%s, %s, %s)
-                    """, (direction_name, direction_url, lesson_id)
-                               )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def get_directions_from_db(self, user_id=None):
-        directions_info = None
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                query = f"""SELECT * FROM directions_{user_id}"""
-                cursor.execute(query)
-                directions_info = cursor.fetchall()
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-        return directions_info
-
-    def create_schedules_table(self, user_id=None):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute(f"""
-                    CREATE TABLE schedules_{user_id} (
-                        lesson_name VARCHAR,
-                        direction_name VARCHAR,
-                        lesson_type VARCHAR,
-                        weekday VARCHAR, 
-                        lesson_time VARCHAR,
-                        teacher VARCHAR,
-                        team VARCHAR
-                    );
-                """)
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def get_popover(self):
-        return self.find_element(ModeusLocators.POPOVER, time=self.time)
-
-    def get_teachers_name(self):
-        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text
-
-    def get_h3_point(self):
-        return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
-
-    def save_schedules_data_to_db(self, *data, user_id=None):
-        lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team = data
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-
-                cursor.execute(f"""
-                    INSERT INTO schedules_{user_id} (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    """, (lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team)
-                    )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-
-class ModulesPages(BaseClass):
     def get_modules(self):
         return self.find_elements(ModeusLocators.MODULES, time=self.time)
 
@@ -214,22 +73,18 @@ class ModulesPages(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def save_schadules_data_to_db(self, data, user_id=None):
-        parsed_data = data
-        for data in parsed_data:
-            print(data)
-
-        # module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
-        # try:
-        #     with psycopg2.connect(DATABASE_URL) as connection:
-        #         cursor = connection.cursor()
-        #         cursor.execute(f"""
-        #                     INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
-        #                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-        #                     """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
-        #                        )
-        # except Exception as ex:
-        #     print(f"Can`t establish connection to database: {ex}\n")
+    def save_schadules_data_to_db(self, *data, user_id=None):
+        module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
+        try:
+            with psycopg2.connect(DATABASE_URL) as connection:
+                cursor = connection.cursor()
+                cursor.execute(f"""
+                            INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                            """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
+                               )
+        except Exception as ex:
+            print(f"Can`t establish connection to database: {ex}\n")
 
     def get_schedule_url(self):
         return self.find_element(ModeusLocators.SCHEDULE_URL, time=self.time)  # .get_attribute("href")

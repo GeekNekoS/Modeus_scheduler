@@ -7,8 +7,7 @@ import hashlib
 
 from communicator_with_gpt.gpt_api import *
 from parsing.schedules.login import is_user_logedin_modeus
-from tasks.create_and_fill_db import main as create_and_fill_db
-from parsing.schedules.draft import create_and_fill_schedules_table
+from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table
 
 from work_with_db.drop_tables import drop_table
 
@@ -104,7 +103,7 @@ class MyHandlers:
         else:
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
-            average_rating_reviews()
+            # average_rating_reviews()
             # Тут Кеше передаются аргументы для создания расписания
             answer = create_personal_schedule(message.from_user.id, message.text)
             self.bot.send_message(message.chat.id, answer,
