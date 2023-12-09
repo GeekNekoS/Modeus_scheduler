@@ -71,28 +71,6 @@ class MyHandlers:
                                       reply_markup=markups.back_to_start_markup())
                 self.bot.register_next_step_handler(user_password, self.check_modeus_status)
 
-            # if db_func.if_table_schedule_exists(message.from_user.id):
-            #     self.bot.send_message(message.chat.id, 'Начало парсинга...',
-            #                           reply_markup=markups.start_markup())
-            #     create_and_fill_db(message.from_user.id)
-            #
-            # encoded_password_text = user_password.text.encode('utf-8')
-            # hashed_password = hashlib.sha1(encoded_password_text).hexdigest()
-            #
-            # db_func.create_users_slot(user_password.from_user.id, user_login)
-            # if is_user_logedin_modeus(user_password.from_user.id, user_password.text):
-            #     db_func.clear_users_data(user_password.from_user.id)
-            #     db_func.reg_user_in_modeus(user_password.from_user.id, user_login, hashed_password)
-            #     self.bot.send_message(user_password.chat.id, 'Вы успешно вошли в аккаунт!',
-            #                           reply_markup=markups.modeus_markup())
-            #     self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
-            # else:
-            #     db_func.clear_users_data(user_password.from_user.id)
-            #     self.bot.send_message(user_password.chat.id, 'Неверные login или password',
-            #                           reply_markup=markups.modeus_markup())
-            #     db_func.leave_modeus_account(user_password.from_user.id)
-            #     main_tgbot.start(user_password)
-
     def check_next_step_modeus(self, message):
         if not isinstance(message.text, str):
             self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
@@ -114,28 +92,6 @@ class MyHandlers:
             self.bot.send_message(message.chat.id, 'Не понимаю о чём вы')
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
 
-    # def enter_user_password_2(self, message):
-    #     if not isinstance(message.text, str):
-    #         self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
-    #         self.bot.register_next_step_handler(message, self.enter_user_password_2)
-    #     elif message.text.lower() == 'назад':
-    #         self.bot.send_message(message.chat.id, 'В этом разделе вы можете составить расписание,'
-    #                                                ' исходя из ваших пожеланий',
-    #                               reply_markup=markups.modeus_markup())
-    #     else:
-    #         encoded_password_text = message.text.encode('utf-8')
-    #         new_password = hashlib.sha1(encoded_password_text).hexdigest()
-    #         old_password = db_func.take_user_password(message.from_user.id)
-    #         if new_password == old_password:
-    #         self.bot.send_message(message.chat.id, 'Введите ваши пожелания к расписанию')
-    #         self.bot.register_next_step_handler(message, self.add_user_preference)
-    #         else:
-    #             self.bot.send_message(message.chat.id, 'Проверка выявила несовпадение паролей')
-    #             self.bot.send_message(message.chat.id, 'Повторите пароль от Modeus',
-    #                                   reply_markup=markups.back_to_start_markup())
-    #
-    #             self.bot.register_next_step_handler(message, self.enter_user_password_2)
-
     def add_user_preference(self, message):
         if not isinstance(message.text, str):
             self.bot.send_message(message.chat.id, 'Недоступный тип данных, введите текст')
@@ -146,17 +102,53 @@ class MyHandlers:
                                   reply_markup=markups.modeus_markup())
             self.bot.register_next_step_handler(message, self.check_next_step_modeus)
         else:
-            # if db_func.if_table_schedule_exists(message.from_user.id):
-            #     self.bot.send_message(message.chat.id, 'Начало парсинга...',
-            #                           reply_markup=markups.start_markup())
-            #     create_and_fill_db(message.from_user.id)
-            # db_func.update_user_modeus_preference(message.text, message.from_user.id)
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
+            average_rating_reviews()
             # Тут Кеше передаются аргументы для создания расписания
             answer = create_personal_schedule(message.from_user.id, message.text)
             self.bot.send_message(message.chat.id, answer,
                                   reply_markup=markups.start_markup())
+
+    def average_rating_reviews(self):
+        db_func.rating_review_table_helper_dropper_all()
+        db_func.rating_review_table_helper_creator()
+        review_info = db_func.get_all_rating_reviews()
+        # print(review_info)
+        for i in range(len(review_info)):
+            review_this_teacher = db_func.rating_review_table_helper_getter(review_info[i][1])
+            if len(review_this_teacher) == 0:
+                db_func.rating_review_table_helper_setter(review_info[i][1], review_info[i][2], review_info[i][3],
+                                                          review_info[i][4], review_info[i][5], review_info[i][6],
+                                                          review_info[i][7], review_info[i][8], review_info[i][9],
+                                                          review_info[i][10], review_info[i][11])
+            else:
+                new_average = [review_info[i][1]]
+                for j in range(2, 12):
+                    new_data = str(review_info[i][j])+str(review_this_teacher[0][j-1])
+                    new_average.append(new_data)
+                db_func.rating_review_table_helper_dropper(review_info[i][1])
+                db_func.rating_review_table_helper_setter(new_average[0], new_average[1], new_average[2],
+                                                          new_average[3], new_average[4], new_average[5],
+                                                          new_average[6], new_average[7], new_average[8],
+                                                          new_average[9], new_average[10])
+        db_func.average_rating_reviews_dropper()
+        all_helper = db_func.get_all_rating_reviews_helper()
+        for i in range(len(all_helper)):
+            new_average = [all_helper[i][0]]
+            for j in range(1, 11):
+                this_data = str(all_helper[i][j]).replace('0','')
+                if len(this_data) == 0:
+                    new_average.append(0)
+                else:
+                    summ = 0
+                    for el in this_data:
+                        summ += int(el)
+                    new_average.append(summ/len(this_data))
+            db_func.average_rating_reviews_creator()
+            db_func.average_rating_reviews_setter(new_average[0], new_average[1], new_average[2], new_average[3],
+                                                  new_average[4], new_average[5], new_average[6], new_average[7],
+                                                  new_average[8], new_average[9], new_average[10])
 
 
 class Reviews:
