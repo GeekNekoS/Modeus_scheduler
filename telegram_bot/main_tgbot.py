@@ -15,7 +15,7 @@ bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id,
+    bot.send_message(mebetassage.chat.id,
                      f'Приветствую тебя в нашем боте!\nНиже тебе доступны команды',
                      reply_markup=markups.start_markup())
     db_func.create_text_reviews_db()  # create table
@@ -38,7 +38,6 @@ def text_input(message):
     my_handlers = handlers.MyHandlers(bot)
     reviews = handlers.Reviews(bot)
     if message.text.lower() == 'составить расписание':
-        # db_func.create_modeus_db()
         my_handlers.check_modeus_status(message)
     elif message.text.lower() == 'отзывы':
         bot.send_message(message.chat.id, 'В этом разделе вы можете взаимодействовать с отзывами',
@@ -46,9 +45,6 @@ def text_input(message):
         bot.register_next_step_handler(message, reviews.check_first_step_all_reviews)
     elif message.text.lower() == 'назад':
         start(message)
-    elif message.text.lower() == 'тест':
-        db_func.dima()
-        my_handlers.average_rating_reviews()
     else:
         bot.send_message(message.from_user.id, 'Не понимаю о чём вы')
 
