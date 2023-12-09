@@ -1,3 +1,5 @@
+import time
+
 import main_tgbot
 import db_func
 import markups
@@ -8,7 +10,7 @@ from parsing.schedules.login import is_user_logedin_modeus
 from tasks.create_and_fill_db import main as create_and_fill_db
 from parsing.schedules.draft import create_and_fill_schedules_table
 
-# from parsing.page_object import ModeusPage.cre
+from work_with_db.drop_tables import drop_table
 
 
 class MyHandlers:
@@ -51,7 +53,16 @@ class MyHandlers:
                 # Тут старт парсера, при этом таблицы users_modeus не существует,
                 # т.е. логин и пароль передаются на этом моменте
                 # create_and_fill_db(message.from_user.id)
-                create_and_fill_schedules_table(user_login, user_password.text, user_password.chat.id)
+
+                try:
+                    start = time.perf_counter()
+                    create_and_fill_schedules_table(user_login, user_password.text, user_password.chat.id)
+                    stop = time.perf_counter()
+                    print(f"Программа выполняется за {stop - start} секунд")
+                except Exception as ex:
+                    print(ex)
+                    self.bot.send_message(user_password.chat.id, 'Парсер пока не переведён в режим headless. Сбор информации приостановлен')
+
                 self.bot.send_message(user_password.chat.id, 'Парсинг завершён успешно',
                                       reply_markup=markups.modeus_markup())
                 self.bot.register_next_step_handler(user_password, self.check_next_step_modeus)
@@ -92,6 +103,7 @@ class MyHandlers:
             db_func.leave_modeus_account(message.from_user.id)
             self.bot.send_message(message.chat.id, 'Вы вышли из аккаунта',
                                   reply_markup=markups.start_markup())
+            # drop_table(f"schedules_{message.chat.id}")  # <== Nekos
         elif message.text.lower() == 'приступить к созданию':
             self.bot.send_message(message.chat.id, 'Введите ваши пожелания к расписанию')
             self.bot.register_next_step_handler(message, self.add_user_preference)

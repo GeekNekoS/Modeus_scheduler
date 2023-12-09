@@ -6,7 +6,7 @@ from selenium import webdriver
 import pyautogui
 from parsing.schedules.login import login
 from selenium.webdriver.chrome.options import Options
-from work_with_db.drop_tables import drop_lessons_and_directions_tables
+# from work_with_db.drop_tables import drop_lessons_and_directions_tables
 import time
 
 
@@ -78,7 +78,7 @@ def create_and_fill_schedules_table(user_id):
 
                 modeus_page.save_schedules_data_to_db(lesson_name, direction_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
 
-    drop_lessons_and_directions_tables()
+    # drop_lessons_and_directions_tables()
 
     driver.close()
     return driver
