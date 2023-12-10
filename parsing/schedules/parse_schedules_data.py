@@ -7,11 +7,18 @@ from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
 from selenium.webdriver.chrome.options import Options
+from work_with_db.schedules_table import *
 import time
-import os
 
-from dotenv import load_dotenv
-load_dotenv()
+
+dates = [
+    (2, "пн", "Понедельник"),
+    (3, "вт", "Вторник"),
+    (4, "ср", "Среда"),
+    (5, "чт", "Четверг"),
+    (6, "пт", "Пятница"),
+    (7, "сб", "Суббота")
+]
 
 
 def create_and_fill_schedules_table(user_login, user_password, user_id):
@@ -31,7 +38,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     modeus_page = ModeusPage(driver)
     modeus_page.go_to_modules_page()
 
-    modeus_page.create_schedules_table(user_id=user_id)
+    create_schedules_table(user_id=user_id)
 
     parsed_data = []
 
@@ -109,15 +116,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 time.sleep(1)
 
                 #
-                dates = [
-                    (2, "пн", "Понедельник"),
-                    (3, "вт", "Вторник"),
-                    (4, "ср", "Среда"),
-                    (5, "чт", "Четверг"),
-                    (6, "пт", "Пятница"),
-                    (7, "сб", "Суббота")
-                ]
-
                 for date in dates:
                     lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
                     lessons_of_this_direction = []
@@ -166,7 +164,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
-    modeus_page.save_schadules_data_to_db(parsed_data, user_id=user_id)
+    save_schedules_data_to_db(parsed_data, user_id=user_id)
 
     driver.close()
     return driver

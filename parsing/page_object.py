@@ -2,15 +2,7 @@ import time
 
 from parsing.locators import *
 from parsing.base_page import BaseClass
-import psycopg2
 from selenium.common.exceptions import TimeoutException as TE
-import os
-
-from dotenv import load_dotenv
-load_dotenv()
-
-
-DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
 
 
 class LoginPage(BaseClass):
@@ -52,37 +44,6 @@ class ModeusPage(BaseClass):
 
     def go_to_disciplines_page(self, disciplines_page_url):
         return self.get_connect(disciplines_page_url)
-
-    def create_schedules_table(self, user_id=None):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute(f"""
-                    CREATE TABLE schedules_{user_id} (
-                        direction_name VARCHAR, 
-                        lesson_type VARCHAR, 
-                        weekday VARCHAR,
-                        lesson_time VARCHAR, 
-                        teacher VARCHAR, 
-                        team VARCHAR
-                    );
-                """)
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
-    def save_schadules_data_to_db(self, data, user_id=None):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                for row in data:
-                    direction_name, lesson_type, weekday, lesson_time, teacher, team = row
-                    cursor.execute(f"""
-                                INSERT INTO schedules_{user_id} (direction_name, lesson_type, weekday, lesson_time, teacher, team)
-                                VALUES (%s, %s, %s, %s, %s, %s)
-                                """, (direction_name, lesson_type, weekday, lesson_time, teacher, team)
-                                   )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
 
     def get_schedule_url(self):
         return self.find_element(ModeusLocators.SCHEDULE_URL, time=self.time)  # .get_attribute("href")
