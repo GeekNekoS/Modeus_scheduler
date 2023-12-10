@@ -54,47 +54,31 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
     parsed_data = []
 
-    discipline_names = []
-    direction_names = []
-    disciplines_page_urls = []
-
     # Modules parsing
     modules = modeus_page.get_modules()
-    for i in range(len(modules)):
+    for module_index in range(len(modules)):
         modules = modeus_page.get_modules()
-        # module_name = modules[i].text  # <==
-
-        module_link = modules[i]
+        module_link = modules[module_index]
         open_new_tab(driver, module_link)
 
         # Disciplines parsing
         disciplines_page_url = driver.current_url
-        disciplines_page_urls.append(disciplines_page_url)
         disciplines = modeus_page.get_disciplines()
-        for i in range(len(disciplines)):
+        for discipline_index in range(len(disciplines)):
             disciplines = modeus_page.get_disciplines()
-            discipline_name = disciplines[i].text  # <==
-            discipline_names.append(discipline_name)
+            discipline_name = disciplines[discipline_index].text  # <==
             discipline_xpath = f"//div[@class='item-name' and text()=' {discipline_name} ']"
-
             discipline_link = modeus_page.find_element_by_xpath(discipline_xpath)
             open_new_tab(driver, discipline_link)
 
-            # Directions parsing
-            directions = modeus_page.get_directions()
-            for i in range(len(directions)):
-                directions = modeus_page.get_directions()
-                direction_name = directions[i].text
-                direction_names.append(direction_name)
-
-            # Schedules parsing
+            # Directions (schedules) parsing
             direction_buttons_xpath = ".//div[@class='item-name']/parent::div/parent::td/parent::tr[@class='item-row ng-star-inserted']"
             direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
-            for i in range(len(direction_buttons)):
+            for direction_button_index in range(len(direction_buttons)):
                 direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
-                direction_name = direction_buttons[i-1].text  # <==
+                direction_name = direction_buttons[direction_button_index-1].text  # <==
 
-                direction_link = direction_buttons[i-1]
+                direction_link = direction_buttons[direction_button_index-1]
                 open_new_tab(driver, direction_link)
 
                 direction_schedule_page = driver.current_url
@@ -114,33 +98,70 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         pass
 
                     for i in range(len(lessons_of_this_direction)):
-                        next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]"
-                        info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
-                        info.click()
+                        # next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]"
+                        # info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
+                        # info.click()
 
-                        popover = None
-                        try:
-                            popover = modeus_page.get_popover()
-                        except:
-                            popover = modeus_page.get_popover()
+                        info_located = False
+                        while not info_located:
+                            try:
+                                next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]"
+                                info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
+                                info.click()
 
-                        lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
-                        lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
-                        try:
-                            lesson_name, lesson_type = lessons_data[0], lessons_data[1]
-                        except:
-                            lesson_name, lesson_type = lessons_data[0], "Не указано"
-                        weekday = date[2]
-                        lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
-                        lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
-                        teacher = modeus_page.get_teachers_name()
-                        team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
+                                popover = modeus_page.get_popover()
+                                info_located = True
 
-                        element_to_hover = modeus_page.get_h3_point()
-                        hover = ActionChains(driver).move_to_element(element_to_hover)
-                        hover.perform()
+                                lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
+                                lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
+                                try:
+                                    lesson_name, lesson_type = lessons_data[0], lessons_data[1]
+                                except:
+                                    lesson_name, lesson_type = lessons_data[0], "Не указано"
+                                weekday = date[2]
+                                lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
+                                lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
+                                teacher = modeus_page.get_teachers_name()
 
-                        parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
+                                team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
+
+                                element_to_hover = modeus_page.get_h3_point()
+                                hover = ActionChains(driver).move_to_element(element_to_hover)
+                                hover.perform()
+
+                                parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
+
+                            except Exception as ex:
+                                # element_to_hover = modeus_page.get_h3_point()
+                                # hover = ActionChains(driver).move_to_element(element_to_hover)
+                                # hover.perform()
+                                print(ex)
+
+                        # popover = None
+                        # try:
+                        #     popover = modeus_page.get_popover()
+                        # except:
+                        #     popover = modeus_page.get_popover()
+
+                        # lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
+                        # lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
+                        # try:
+                        #     lesson_name, lesson_type = lessons_data[0], lessons_data[1]
+                        # except:
+                        #     lesson_name, lesson_type = lessons_data[0], "Не указано"
+                        # weekday = date[2]
+                        # lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
+                        # lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
+                        # teacher = modeus_page.get_teachers_name()
+                        #
+                        # team = "Не найдено"
+                        # # team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
+                        #
+                        # element_to_hover = modeus_page.get_h3_point()
+                        # hover = ActionChains(driver).move_to_element(element_to_hover)
+                        # hover.perform()
+
+                        # parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
                 #
 
                 modeus_page.go_to(direction_schedule_page)
@@ -169,5 +190,7 @@ print(f"Программа выполняется за {stop - start} секун
 # Отдельно парсинг (без записи в базу): 262
 # С одноразовой поставкой данных в базу: 293
 # С одноразовой поставкой данных в базу (без парсинга module_name, discipline_name, lesson_name): 284
+
+# С устранением ошибки поиска //ngb-popover-window:
 
 # примерно 381 записей
