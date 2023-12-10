@@ -86,7 +86,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 modeus_page.go_to(direction_schedule_url.get_attribute("href"))
                 time.sleep(1)
 
-                #
                 for date in dates:
                     lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
                     lessons_of_this_direction = []
@@ -127,11 +126,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                 parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
 
                             except Exception as ex:
-                                # element_to_hover = modeus_page.get_h3_point()
-                                # hover = ActionChains(driver).move_to_element(element_to_hover)
-                                # hover.perform()
-                                print(ex)
-                #
+                                pass
 
                 modeus_page.go_to(direction_schedule_page)
 
