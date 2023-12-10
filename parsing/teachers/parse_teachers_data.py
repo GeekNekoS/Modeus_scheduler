@@ -1,3 +1,4 @@
+from work_with_db.teachers_table import *
 from parsing.page_object import TeachersParsing
 from selenium import webdriver
 
@@ -8,7 +9,7 @@ def parse_teachers_data():
     # Working with modeus personal pages
     modeus_page = TeachersParsing(driver)
 
-    modeus_page.create_teachers_table()
+    create_teachers_table()
     modeus_page.go_to_teachers_page()
 
     urls = modeus_page.get_pages()
@@ -26,7 +27,7 @@ def parse_teachers_data():
                 if "Электронная почта: " in item:
                     teacher_email = item.replace("Электронная почта: ", "")
 
-            modeus_page.save_teacher_data(teacher_name, teacher_phone, teacher_email)
+            save_teacher_data(teacher_name, teacher_phone, teacher_email)
 
             print(teacher_name, teacher_phone, teacher_email, "\n")
 

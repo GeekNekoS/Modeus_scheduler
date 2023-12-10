@@ -7,11 +7,30 @@ from parsing.page_object import ModeusPage
 from selenium import webdriver
 import pyautogui
 from selenium.webdriver.chrome.options import Options
+from work_with_db.schedules_table import *
 import time
-import os
 
-from dotenv import load_dotenv
-load_dotenv()
+
+dates = [
+    (2, "пн", "Понедельник"),
+    (3, "вт", "Вторник"),
+    (4, "ср", "Среда"),
+    (5, "чт", "Четверг"),
+    (6, "пт", "Пятница"),
+    (7, "сб", "Суббота")
+]
+
+
+def open_new_tab(driver, link):
+    ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+    pyautogui.hotkey('ctrl', 't')
+
+    window_after = driver.window_handles[1]
+    driver.switch_to.window(window_after)
+    driver.close()
+
+    window_after = driver.window_handles[0]
+    driver.switch_to.window(window_after)
 
 
 def create_and_fill_schedules_table(user_login, user_password, user_id):
@@ -31,7 +50,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     modeus_page = ModeusPage(driver)
     modeus_page.go_to_modules_page()
 
-    modeus_page.create_schedules_table(user_id=user_id)
+    create_schedules_table(user_id=user_id)
 
     parsed_data = []
 
@@ -44,16 +63,9 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     for i in range(len(modules)):
         modules = modeus_page.get_modules()
         # module_name = modules[i].text  # <==
+
         module_link = modules[i]
-        ActionChains(driver).key_down(Keys.CONTROL).click(module_link).key_up(Keys.CONTROL).perform()
-        pyautogui.hotkey('ctrl', 't')
-
-        window_after = driver.window_handles[1]
-        driver.switch_to.window(window_after)
-        driver.close()
-
-        window_after = driver.window_handles[0]
-        driver.switch_to.window(window_after)
+        open_new_tab(driver, module_link)
 
         # Disciplines parsing
         disciplines_page_url = driver.current_url
@@ -66,16 +78,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
             discipline_xpath = f"//div[@class='item-name' and text()=' {discipline_name} ']"
 
             discipline_link = modeus_page.find_element_by_xpath(discipline_xpath)
-
-            ActionChains(driver).key_down(Keys.CONTROL).click(discipline_link).key_up(Keys.CONTROL).perform()
-            pyautogui.hotkey('ctrl', 't')
-
-            window_after = driver.window_handles[1]
-            driver.switch_to.window(window_after)
-            driver.close()
-
-            window_after = driver.window_handles[0]
-            driver.switch_to.window(window_after)
+            open_new_tab(driver, discipline_link)
 
             # Directions parsing
             directions = modeus_page.get_directions()
@@ -90,17 +93,9 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
             for i in range(len(direction_buttons)):
                 direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
                 direction_name = direction_buttons[i-1].text  # <==
+
                 direction_link = direction_buttons[i-1]
-
-                ActionChains(driver).key_down(Keys.CONTROL).click(direction_link).key_up(Keys.CONTROL).perform()
-                pyautogui.hotkey('ctrl', 't')
-
-                window_after = driver.window_handles[1]
-                driver.switch_to.window(window_after)
-                driver.close()
-
-                window_after = driver.window_handles[0]
-                driver.switch_to.window(window_after)
+                open_new_tab(driver, direction_link)
 
                 direction_schedule_page = driver.current_url
 
@@ -109,15 +104,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 time.sleep(1)
 
                 #
-                dates = [
-                    (2, "пн", "Понедельник"),
-                    (3, "вт", "Вторник"),
-                    (4, "ср", "Среда"),
-                    (5, "чт", "Четверг"),
-                    (6, "пт", "Пятница"),
-                    (7, "сб", "Суббота")
-                ]
-
                 for date in dates:
                     lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
                     lessons_of_this_direction = []
@@ -154,10 +140,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         hover = ActionChains(driver).move_to_element(element_to_hover)
                         hover.perform()
 
-                        # -=-= Test saving =-=-
-                        # modeus_page.save_schadules_data_to_db(direction_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
                         parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
-                        # -=-=-=-=-=-=-=-=-=-=-
                 #
 
                 modeus_page.go_to(direction_schedule_page)
@@ -166,7 +149,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
-    modeus_page.save_schadules_data_to_db(parsed_data, user_id=user_id)
+    save_schedules_data_to_db(parsed_data, user_id=user_id)
 
     driver.close()
     return driver
@@ -186,3 +169,5 @@ print(f"Программа выполняется за {stop - start} секун
 # Отдельно парсинг (без записи в базу): 262
 # С одноразовой поставкой данных в базу: 293
 # С одноразовой поставкой данных в базу (без парсинга module_name, discipline_name, lesson_name): 284
+
+# примерно 381 записей
