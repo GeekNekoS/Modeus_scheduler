@@ -95,7 +95,7 @@ class ModeusPage(BaseClass):
         return self.find_element(ModeusLocators.POPOVER, time=self.time)
 
     def get_teachers_name(self):
-        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text
+        return self.find_element(ModeusLocators.TEACHERS_NAME, time=self.time).text.replace("\n", ", ")
 
     def get_h3_point(self):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
