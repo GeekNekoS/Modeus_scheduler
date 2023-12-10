@@ -29,10 +29,10 @@ class ModeusPage(BaseClass):
         return self.find_elements(ModeusLocators.MODULES, time=self.time)
 
     def get_disciplines(self):
-        return self.find_elements(ModeusLocators.DISCIPLINES, time=self.time)
+        return self.find_elements(ModeusLocators.DISCIPLINES_DIRECTIONS, time=self.time)
 
     def get_directions(self):
-        return self.find_elements(ModeusLocators.DIRECTIONS, time=self.time)
+        return self.find_elements(ModeusLocators.DISCIPLINES_DIRECTIONS, time=self.time)
 
     def find_element_by_xpath(self, xpath):
         return self.find_element((By.XPATH, xpath), time=self.time)
@@ -49,7 +49,6 @@ class ModeusPage(BaseClass):
     def go_to(self, url):
         return self.get_connect(url)
 
-    #
     def get_popover(self):
         return self.find_element(ModeusLocators.POPOVER, time=self.time)
 
@@ -58,7 +57,6 @@ class ModeusPage(BaseClass):
 
     def get_h3_point(self):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
-    #
 
 
 class TeachersParsing(BaseClass):
