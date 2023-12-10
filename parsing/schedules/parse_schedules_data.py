@@ -1,13 +1,12 @@
+from selenium.common import ElementClickInterceptedException, TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+from work_with_db.schedules_table import *
 from parsing.page_object import LoginPage
 from parsing.page_object import ModeusPage
-
-from selenium import webdriver
 import pyautogui
-from selenium.webdriver.chrome.options import Options
-from work_with_db.schedules_table import *
 import time
 
 
@@ -95,38 +94,37 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                     except:
                         pass
 
-                    for i in range(len(lessons_of_this_direction)):
-                        info_located = False
-                        while not info_located:
+                    for lesson_index in range(len(lessons_of_this_direction)):
+                        info_located = True
+                        while info_located:
                             try:
-                                next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]"
+                                next_direction_xpath = f"{lessons_of_this_direction_xpath}[{lesson_index + 1}]"
                                 info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
-                                info.click()
 
-                                popover = modeus_page.get_popover()
-                                info_located = True
-
-                                lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
-                                lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
                                 try:
-                                    lesson_name, lesson_type = lessons_data[0], lessons_data[1]
-                                except:
-                                    lesson_name, lesson_type = lessons_data[0], "Не указано"
-                                weekday = date[2]
-                                lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
-                                lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
-                                teacher = modeus_page.get_teachers_name()
+                                    info.click()
 
-                                team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
+                                    popover = modeus_page.get_popover()
+                                    info_located = False
 
-                                element_to_hover = modeus_page.get_h3_point()
-                                hover = ActionChains(driver).move_to_element(element_to_hover)
-                                hover.perform()
+                                    data_from_popover = popover.text.split('\n')
+                                    lesson_type = data_from_popover[2]
+                                    weekday = date[2]
+                                    lesson_time = data_from_popover[6][14:]
+                                    teacher = data_from_popover[4]
+                                    team = data_from_popover[3]
 
-                                parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
+                                    element_to_hover = modeus_page.get_h3_point()
+                                    hover = ActionChains(driver).move_to_element(element_to_hover)
+                                    hover.perform()
 
-                            except Exception as ex:
-                                pass
+                                    parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
+                                except ElementClickInterceptedException as ex:
+                                    info_located = False
+                                    print(f" -> ElementClickInterceptedException: {ex}")
+
+                            except TimeoutException as ex:
+                                print(f" -> TimeoutException: {ex}")
 
                 modeus_page.go_to(direction_schedule_page)
 
@@ -150,4 +148,6 @@ create_and_fill_schedules_table(user_login, user_password, user_id)
 stop = time.perf_counter()
 print(f"Программа выполняется за {stop - start} секунд")
 
-# Min: 262 сек
+# Min:
+# 1) 249 сек -> Neko's
+# 2) 290 сек -> Innocent
