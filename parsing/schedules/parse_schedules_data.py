@@ -43,7 +43,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     modules = modeus_page.get_modules()
     for i in range(len(modules)):
         modules = modeus_page.get_modules()
-        module_name = modules[i].text  # <==
+        # module_name = modules[i].text  # <==
         module_link = modules[i]
         ActionChains(driver).key_down(Keys.CONTROL).click(module_link).key_up(Keys.CONTROL).perform()
         pyautogui.hotkey('ctrl', 't')
@@ -155,8 +155,8 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         hover.perform()
 
                         # -=-= Test saving =-=-
-                        modeus_page.save_schadules_data_to_db(module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
-                        # parsed_data.append([module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team])
+                        # modeus_page.save_schadules_data_to_db(direction_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
+                        parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
                         # -=-=-=-=-=-=-=-=-=-=-
                 #
 
@@ -165,6 +165,8 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
             modeus_page.go_to_disciplines_page(disciplines_page_url)
 
         modeus_page.go_to_modules_page()
+
+    modeus_page.save_schadules_data_to_db(parsed_data, user_id=user_id)
 
     driver.close()
     return driver
@@ -182,4 +184,5 @@ print(f"Программа выполняется за {stop - start} секун
 
 # С записью каждого направления по отдельности: 278
 # Отдельно парсинг: 262
-# С одноразовой поставкой данных в базу:
+# С одноразовой поставкой данных в базу: 293
+# С одноразовой поставкой данных в базу (без парсинга module_name, discipline_name, lesson_name): 284

@@ -59,10 +59,7 @@ class ModeusPage(BaseClass):
                 cursor = connection.cursor()
                 cursor.execute(f"""
                     CREATE TABLE schedules_{user_id} (
-                        module_name VARCHAR, 
-                        discipline_name VARCHAR, 
                         direction_name VARCHAR, 
-                        lesson_name VARCHAR, 
                         lesson_type VARCHAR, 
                         weekday VARCHAR,
                         lesson_time VARCHAR, 
@@ -73,16 +70,17 @@ class ModeusPage(BaseClass):
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
-    def save_schadules_data_to_db(self, *data, user_id=None):
-        module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team = data
+    def save_schadules_data_to_db(self, data, user_id=None):
         try:
             with psycopg2.connect(DATABASE_URL) as connection:
                 cursor = connection.cursor()
-                cursor.execute(f"""
-                            INSERT INTO schedules_{user_id} (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
-                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                            """, (module_name, discipline_name, direction_name, lesson_name, lesson_type, weekday, lesson_time, teacher, team)
-                               )
+                for row in data:
+                    direction_name, lesson_type, weekday, lesson_time, teacher, team = row
+                    cursor.execute(f"""
+                                INSERT INTO schedules_{user_id} (direction_name, lesson_type, weekday, lesson_time, teacher, team)
+                                VALUES (%s, %s, %s, %s, %s, %s)
+                                """, (direction_name, lesson_type, weekday, lesson_time, teacher, team)
+                                   )
         except Exception as ex:
             print(f"Can`t establish connection to database: {ex}\n")
 
