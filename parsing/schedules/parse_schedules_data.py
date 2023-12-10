@@ -152,10 +152,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         hover = ActionChains(driver).move_to_element(element_to_hover)
                         hover.perform()
 
-                        # -=-= Test saving =-=-
-                        # modeus_page.save_schadules_data_to_db(direction_name, lesson_type, weekday, lesson_time, teacher, team, user_id=user_id)
                         parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
-                        # -=-=-=-=-=-=-=-=-=-=-
                 #
 
                 modeus_page.go_to(direction_schedule_page)

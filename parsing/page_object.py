@@ -1,5 +1,3 @@
-import time
-
 from parsing.locators import *
 from parsing.base_page import BaseClass
 from selenium.common.exceptions import TimeoutException as TE
@@ -64,21 +62,6 @@ class ModeusPage(BaseClass):
 
 
 class TeachersParsing(BaseClass):
-    def create_teachers_table(self):
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-                cursor.execute("""
-                    CREATE TABLE teachers_data (
-                        id SERIAL PRIMARY KEY,
-                        teacher_name VARCHAR,
-                        teacher_phone VARCHAR,
-                        teacher_email VARCHAR
-                    )
-                """)
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
-
     def get_pages(self):
         pages = self.find_elements(TeachersParsingLocators.PAGES_HREFS, time=self.time)
         urls = []
@@ -95,16 +78,3 @@ class TeachersParsing(BaseClass):
             return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
         except TE:
             return []
-
-    def save_teacher_data(self, *data):
-        teacher_name, teacher_phone, teacher_email = data
-        try:
-            with psycopg2.connect(DATABASE_URL) as connection:
-                cursor = connection.cursor()
-
-                cursor.execute("""
-                    INSERT INTO teachers_data (teacher_name, teacher_phone, teacher_email) VALUES (%s, %s, %s)
-                    """, (teacher_name, teacher_phone, teacher_email)
-                               )
-        except Exception as ex:
-            print(f"Can`t establish connection to database: {ex}\n")
