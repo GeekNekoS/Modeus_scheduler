@@ -77,7 +77,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
             for direction_button_index in range(len(direction_buttons)):
                 direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
                 direction_name = direction_buttons[direction_button_index-1].text  # <==
-
                 direction_link = direction_buttons[direction_button_index-1]
                 open_new_tab(driver, direction_link)
 
@@ -98,10 +97,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         pass
 
                     for i in range(len(lessons_of_this_direction)):
-                        # next_direction_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]"
-                        # info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
-                        # info.click()
-
                         info_located = False
                         while not info_located:
                             try:
@@ -136,32 +131,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                 # hover = ActionChains(driver).move_to_element(element_to_hover)
                                 # hover.perform()
                                 print(ex)
-
-                        # popover = None
-                        # try:
-                        #     popover = modeus_page.get_popover()
-                        # except:
-                        #     popover = modeus_page.get_popover()
-
-                        # lessons_data_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-title']"
-                        # lessons_data = modeus_page.get_elem_by_custom_xpath(lessons_data_xpath).text.split(" / ")
-                        # try:
-                        #     lesson_name, lesson_type = lessons_data[0], lessons_data[1]
-                        # except:
-                        #     lesson_name, lesson_type = lessons_data[0], "Не указано"
-                        # weekday = date[2]
-                        # lesson_time_xpath = f"{lessons_of_this_direction_xpath}[{i + 1}]//div[@class='fc-time']/span"
-                        # lesson_time = modeus_page.get_elem_by_custom_xpath(lesson_time_xpath).text
-                        # teacher = modeus_page.get_teachers_name()
-                        #
-                        # team = "Не найдено"
-                        # # team = popover.text.split("\n")[3].replace(f"{lesson_name} ", "")
-                        #
-                        # element_to_hover = modeus_page.get_h3_point()
-                        # hover = ActionChains(driver).move_to_element(element_to_hover)
-                        # hover.perform()
-
-                        # parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
                 #
 
                 modeus_page.go_to(direction_schedule_page)
@@ -186,11 +155,4 @@ create_and_fill_schedules_table(user_login, user_password, user_id)
 stop = time.perf_counter()
 print(f"Программа выполняется за {stop - start} секунд")
 
-# С записью каждого направления по отдельности: 278
-# Отдельно парсинг (без записи в базу): 262
-# С одноразовой поставкой данных в базу: 293
-# С одноразовой поставкой данных в базу (без парсинга module_name, discipline_name, lesson_name): 284
-
-# С устранением ошибки поиска //ngb-popover-window:
-
-# примерно 381 записей
+# Min: 262 сек
