@@ -85,6 +85,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 modeus_page.go_to(direction_schedule_url.get_attribute("href"))
                 time.sleep(1)
 
+                stop_if_data_more_then_170 = 0
                 for date in dates:
                     lessons_of_this_direction_xpath = f".//tbody//td[@class='fc-axis']/..//td[{date[0]}]//a"
                     lessons_of_this_direction = []
@@ -95,36 +96,38 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                         pass
 
                     for lesson_index in range(len(lessons_of_this_direction)):
-                        info_located = True
-                        while info_located:
-                            try:
-                                next_direction_xpath = f"{lessons_of_this_direction_xpath}[{lesson_index + 1}]"
-                                info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
-
+                        if stop_if_data_more_then_170 <= 170:
+                            info_located = True
+                            while info_located:
                                 try:
-                                    info.click()
+                                    next_direction_xpath = f"{lessons_of_this_direction_xpath}[{lesson_index + 1}]"
+                                    info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
 
-                                    popover = modeus_page.get_popover()
-                                    info_located = False
+                                    try:
+                                        info.click()
 
-                                    data_from_popover = popover.text.split('\n')
-                                    lesson_type = data_from_popover[2]
-                                    weekday = date[2]
-                                    lesson_time = data_from_popover[6][14:]
-                                    teacher = data_from_popover[4]
-                                    team = data_from_popover[3]
+                                        popover = modeus_page.get_popover()
+                                        info_located = False
 
-                                    element_to_hover = modeus_page.get_h3_point()
-                                    hover = ActionChains(driver).move_to_element(element_to_hover)
-                                    hover.perform()
+                                        data_from_popover = popover.text.split('\n')
+                                        lesson_type = data_from_popover[2]
+                                        weekday = date[2]
+                                        lesson_time = data_from_popover[6][14:]
+                                        teacher = data_from_popover[4].replace("\n", ", ")
+                                        team = data_from_popover[3]
 
-                                    parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
-                                except ElementClickInterceptedException as ex:
-                                    info_located = False
-                                    print(f" -> ElementClickInterceptedException: {ex}")
+                                        element_to_hover = modeus_page.get_h3_point()
+                                        hover = ActionChains(driver).move_to_element(element_to_hover)
+                                        hover.perform()
 
-                            except TimeoutException as ex:
-                                print(f" -> TimeoutException: {ex}")
+                                        parsed_data.append([direction_name, lesson_type, weekday, lesson_time, teacher, team])
+                                        stop_if_data_more_then_170 += 1
+                                    except ElementClickInterceptedException as ex:
+                                        info_located = False
+                                        print(f" -> ElementClickInterceptedException: {ex}")
+
+                                except TimeoutException as ex:
+                                    print(f" -> TimeoutException: {ex}")
 
                 modeus_page.go_to(direction_schedule_page)
 
