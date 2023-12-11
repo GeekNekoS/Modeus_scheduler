@@ -98,7 +98,7 @@ class MyHandlers:
         else:
             self.bot.send_message(message.chat.id, 'Начало составления расписания...',
                                   reply_markup=markups.start_markup())
-            # average_rating_reviews()
+            self.average_rating_reviews()
             # Тут Кеше передаются аргументы для создания расписания
             answer = create_personal_schedule(message.from_user.id, message.text)
             self.bot.send_message(message.chat.id, answer,
