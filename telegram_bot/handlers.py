@@ -1,15 +1,10 @@
 import time
-
-import main_tgbot
+import __main__
 import db_func
 import markups
-import hashlib
-
 from communicator_with_gpt.gpt_api import *
 from parsing.schedules.login import is_user_logedin_modeus
 from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table
-
-from work_with_db.drop_tables import drop_table
 
 
 class MyHandlers:
