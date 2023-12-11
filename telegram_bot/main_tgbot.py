@@ -15,7 +15,7 @@ bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(mebetassage.chat.id,
+    bot.send_message(message.chat.id,
                      f'Приветствую тебя в нашем боте!\nНиже тебе доступны команды',
                      reply_markup=markups.start_markup())
     db_func.create_text_reviews_db()  # create table
