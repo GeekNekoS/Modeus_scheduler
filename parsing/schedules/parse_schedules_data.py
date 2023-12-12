@@ -103,6 +103,10 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                     next_direction_xpath = f"{lessons_of_this_direction_xpath}[{lesson_index + 1}]"
                                     info = modeus_page.get_elem_by_custom_xpath(next_direction_xpath)
 
+                                    lesson_time = info.text.split("\n")[0]
+                                    if "https" in lesson_time:
+                                        lesson_time = "Не определено"
+
                                     try:
                                         info.click()
 
@@ -112,7 +116,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                         data_from_popover = popover.text.split('\n')
                                         lesson_type = data_from_popover[2]
                                         weekday = date[2]
-                                        lesson_time = data_from_popover[6][14:]
                                         teacher = data_from_popover[4].replace("\n", ", ")
                                         team = data_from_popover[3]
 

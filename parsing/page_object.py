@@ -58,6 +58,9 @@ class ModeusPage(BaseClass):
     def get_h3_point(self):
         return self.find_element(ModeusLocators.H3_MY_SCHEDULE, time=self.time)
 
+    def get_child_web_element(self, info):
+        return info.find_element(ModeusLocators.SPAN)
+
 
 class TeachersParsing(BaseClass):
     def get_pages(self):
