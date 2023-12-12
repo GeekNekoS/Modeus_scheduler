@@ -15,7 +15,6 @@ class ModeusLocators:
     POPOVER = (By.XPATH, "//ngb-popover-window")
     TEACHERS_NAME = (By.XPATH, "//div[@class='ng-star-inserted']")
     H3_MY_SCHEDULE = (By.XPATH, "//h3[text()='Мое расписание']")
-    SPAN = (By.XPATH, "//span")
 
 
 class TeachersParsingLocators:

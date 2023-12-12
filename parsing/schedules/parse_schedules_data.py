@@ -106,6 +106,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                     lesson_time = info.text.split("\n")[0]
                                     if "https" in lesson_time:
                                         lesson_time = "Не определено"
+                                    discipline_name = discipline_name.split("\n")[0]
 
                                     try:
                                         info.click()
@@ -144,15 +145,15 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     return driver
 
 
-start = time.perf_counter()
-
-user_login = os.getenv('LOGIN')
-user_password = os.getenv('PASSWORD')
-user_id = "test"
-create_and_fill_schedules_table(user_login, user_password, user_id)
-
-stop = time.perf_counter()
-print(f"Программа выполняется за {stop - start} секунд")
+# start = time.perf_counter()
+#
+# user_login = os.getenv('LOGIN')
+# user_password = os.getenv('PASSWORD')
+# user_id = "test"
+# create_and_fill_schedules_table(user_login, user_password, user_id)
+#
+# stop = time.perf_counter()
+# print(f"Программа выполняется за {stop - start} секунд")
 
 # Min:
 # 1) 249 сек -> Neko's
