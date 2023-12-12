@@ -6,7 +6,6 @@ load_dotenv()
 
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-# DATABASE_URL = 'postgresql://postgres:1@localhost:5432/schedules'
 
 
 def if_table_schedule_exists(user_id):

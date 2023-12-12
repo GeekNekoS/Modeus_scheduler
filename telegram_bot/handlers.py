@@ -1,5 +1,5 @@
 import time
-import __main__
+import main_tgbot
 import db_func
 import markups
 from communicator_with_gpt.gpt_api import *
@@ -112,26 +112,23 @@ class MyHandlers:
         for i in range(len(review_info)):
             review_this_teacher = db_func.rating_review_table_helper_getter(review_info[i][1])
             if len(review_this_teacher) == 0:
-                db_func.rating_review_table_helper_setter(review_info[i][1], review_info[i][2], review_info[i][3],
-                                                          review_info[i][4], review_info[i][5], review_info[i][6],
-                                                          review_info[i][7], review_info[i][8], review_info[i][9],
-                                                          review_info[i][10], review_info[i][11])
+                db_func.rating_review_table_helper_setter(*[review_info[i][j] for j in range(1, 12)])
+                # review_info[i][1], review_info[i][2], review_info[i][3], review_info[i][4], review_info[i][5], review_info[i][6], review_info[i][7], review_info[i][8], review_info[i][9], review_info[i][10], review_info[i][11]
             else:
                 new_average = [review_info[i][1]]
                 for j in range(2, 12):
                     new_data = str(review_info[i][j])+str(review_this_teacher[0][j-1])
                     new_average.append(new_data)
                 db_func.rating_review_table_helper_dropper(review_info[i][1])
-                db_func.rating_review_table_helper_setter(new_average[0], new_average[1], new_average[2],
-                                                          new_average[3], new_average[4], new_average[5],
-                                                          new_average[6], new_average[7], new_average[8],
-                                                          new_average[9], new_average[10])
+                db_func.rating_review_table_helper_setter(*[new_average[i] for i in range(11)])
+                # new_average[0], new_average[1], new_average[2], new_average[3], new_average[4], new_average[5], new_average[6], new_average[7], new_average[8], new_average[9], new_average[10]
+
         db_func.average_rating_reviews_dropper()
         all_helper = db_func.get_all_rating_reviews_helper()
         for i in range(len(all_helper)):
             new_average = [all_helper[i][0]]
             for j in range(1, 11):
-                this_data = str(all_helper[i][j]).replace('0','')
+                this_data = str(all_helper[i][j]).replace('0', '')
                 if len(this_data) == 0:
                     new_average.append(0)
                 else:
@@ -140,9 +137,8 @@ class MyHandlers:
                         summ += int(el)
                     new_average.append(summ/len(this_data))
             db_func.average_rating_reviews_creator()
-            db_func.average_rating_reviews_setter(new_average[0], new_average[1], new_average[2], new_average[3],
-                                                  new_average[4], new_average[5], new_average[6], new_average[7],
-                                                  new_average[8], new_average[9], new_average[10])
+            db_func.average_rating_reviews_setter(*[new_average[i] for i in range(11)])
+            # new_average[0], new_average[1], new_average[2], new_average[3], new_average[4], new_average[5], new_average[6], new_average[7], new_average[8], new_average[9], new_average[10]
 
 
 class Reviews:
