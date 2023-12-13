@@ -106,7 +106,6 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                     lesson_time = info.text.split("\n")[0]
                                     if "https" in lesson_time:
                                         lesson_time = "Не определено"
-                                    discipline_name = discipline_name.split("\n")[0]
 
                                     try:
                                         info.click()
@@ -115,6 +114,8 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                         info_located = False
 
                                         data_from_popover = popover.text.split('\n')
+
+                                        direction_name = data_from_popover[1]
                                         lesson_type = data_from_popover[2]
                                         weekday = date[2]
                                         teacher = data_from_popover[4].replace("\n", ", ")
@@ -139,10 +140,9 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
-    driver.close()
-
     save_schedules_data_to_db(parsed_data, user_id=user_id)
 
+    driver.close()
     return driver
 
 

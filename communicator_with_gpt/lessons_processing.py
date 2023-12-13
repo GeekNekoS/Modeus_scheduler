@@ -6,7 +6,7 @@ load_dotenv()
 
 
 def table_from_db(user_id) -> list:
-    db_url = os.getenv("DATABASE_URL")
+    db_url = os.getenv("DATABASE_URL_LOCAL")
     try:
         with psycopg2.connect(db_url) as connection:
             table = []

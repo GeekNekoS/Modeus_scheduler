@@ -1,14 +1,16 @@
-import os
 import psycopg2
-from dotenv import load_dotenv
+import os
 
+from dotenv import load_dotenv
 load_dotenv()
 
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
 def get_reviews_table() -> list:
-    db_url = os.getenv("DATABASE_URL")
     try:
-        with psycopg2.connect(db_url) as connection:
+        with psycopg2.connect(DATABASE_URL) as connection:
             table = []
             cursor = connection.cursor()
             query = "SELECT * FROM average_rating_reviews"
