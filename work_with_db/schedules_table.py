@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-DATABASE_URL = os.getenv('DATABASE_URL_LOCAL')  # DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL')  # DATABASE_URL
 
 
 def create_schedules_table(user_id=None):
