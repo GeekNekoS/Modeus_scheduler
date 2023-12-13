@@ -1,7 +1,7 @@
 import logging
 import telebot
 from telebot import types
-import handlers
+import telegram_bot.handlers as handlers
 import markups
 import db_func
 import os
