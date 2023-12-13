@@ -2,8 +2,7 @@ import time
 import main_tgbot
 import db_func
 import markups
-import communicator_with_gpt
-# from communicator_with_gpt.gpt_api import *
+from communicator_with_gpt.gpt_api import create_personal_schedule
 from parsing.schedules.login import is_user_logedin_modeus
 from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table
 
