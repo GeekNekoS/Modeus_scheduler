@@ -14,10 +14,7 @@ def if_table_schedule_exists(user_id):
             cursor = connection.cursor()
             cursor.execute(f"""
                 CREATE TABLE schedules_{user_id} (
-                    module_name VARCHAR,
-                    discipline_name VARCHAR,
                     direction_name VARCHAR,
-                    lesson_name VARCHAR,
                     lesson_type VARCHAR,
                     weekday VARCHAR,
                     lesson_time VARCHAR,
