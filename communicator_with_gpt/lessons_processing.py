@@ -59,6 +59,7 @@ def link_teams_and_lessons(table, teams) -> dict:
         lessons_for_teams[lesson_data[-1]] += f"({lesson_data[2]},{lesson_data[3]},{lesson_data[4]})/"
     return lessons_for_teams
 
+
 def get_user_lessons_table(user_id):
     db_table = table_from_db(user_id)
     uniq_teams = get_uniq_teams(db_table)

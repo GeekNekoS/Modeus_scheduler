@@ -1,6 +1,7 @@
 from openai import OpenAI
-from communicator_with_gpt.teachers_processing import get_avg_teacher_grades
-from communicator_with_gpt.lessons_processing import get_user_lessons_table
+import communicator_with_gpt
+# from communicator_with_gpt.teachers_processing import get_avg_teacher_grades
+# from communicator_with_gpt.lessons_processing import get_user_lessons_table
 import os
 
 from dotenv import load_dotenv
