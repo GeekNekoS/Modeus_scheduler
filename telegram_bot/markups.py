@@ -1,5 +1,5 @@
 from telebot import types
-import db_func
+
 
 def start_markup():
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
