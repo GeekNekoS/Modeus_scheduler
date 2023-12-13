@@ -1,11 +1,10 @@
 import time
-# import telegram_bot.main_tgbot as main_tgbot
 import main as main_tgbot
 import telegram_bot.db_func as db_func
 import telegram_bot.markups as markups
 from communicator_with_gpt.gpt_api import create_personal_schedule
 from parsing.schedules.login import is_user_logedin_modeus
-from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table
+# from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table
 
 
 class MyHandlers:
@@ -49,14 +48,14 @@ class MyHandlers:
                 # т.е. логин и пароль передаются на этом моменте
                 # create_and_fill_db(message.from_user.id)
 
-                try:
-                    start = time.perf_counter()
-                    create_and_fill_schedules_table(user_login, user_password.text, user_password.chat.id)
-                    stop = time.perf_counter()
-                    print(f"Программа выполняется за {stop - start} секунд")
-                except Exception as ex:
-                    print(ex)
-                    self.bot.send_message(user_password.chat.id, 'Парсер пока не переведён в режим headless. Сбор информации приостановлен')
+                # try:
+                #     start = time.perf_counter()
+                #     create_and_fill_schedules_table(user_login, user_password.text, user_password.chat.id)
+                #     stop = time.perf_counter()
+                #     print(f"Программа выполняется за {stop - start} секунд")
+                # except Exception as ex:
+                #     print(ex)
+                self.bot.send_message(user_password.chat.id, 'Парсер пока не переведён в режим headless. Сбор информации приостановлен')
 
                 self.bot.send_message(user_password.chat.id, 'Парсинг завершён успешно',
                                       reply_markup=markups.modeus_markup())
