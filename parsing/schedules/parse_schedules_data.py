@@ -106,6 +106,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                                     lesson_time = info.text.split("\n")[0]
                                     if "https" in lesson_time:
                                         lesson_time = "Не определено"
+                                    discipline_name = discipline_name.split("\n")[0]
 
                                     try:
                                         info.click()
@@ -138,9 +139,10 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
+    driver.close()
+
     save_schedules_data_to_db(parsed_data, user_id=user_id)
 
-    driver.close()
     return driver
 
 
