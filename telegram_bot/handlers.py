@@ -1,7 +1,8 @@
 import time
-import main_tgbot
-import db_func
-import markups
+# import telegram_bot.main_tgbot as main_tgbot
+import main as main_tgbot
+import telegram_bot.db_func as db_func
+import telegram_bot.markups as markups
 from communicator_with_gpt.gpt_api import create_personal_schedule
 from parsing.schedules.login import is_user_logedin_modeus
 from parsing.schedules.parse_schedules_data import create_and_fill_schedules_table

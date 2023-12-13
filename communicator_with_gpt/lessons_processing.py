@@ -68,3 +68,5 @@ def get_user_lessons_table(user_id):
     with open(f"temp_files\\schedule_{user_id}.txt", "w", encoding="utf-8") as f:
         for team, data in teams_and_lessons.items():
             f.write(f"{team}/{data[:-1]}.\n")
+
+    print()
