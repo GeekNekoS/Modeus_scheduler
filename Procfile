@@ -1,1 +1,1 @@
-bot_starter: main.py
+bot_starter: python main.py
