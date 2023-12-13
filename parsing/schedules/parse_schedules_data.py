@@ -139,9 +139,10 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
 
         modeus_page.go_to_modules_page()
 
+    driver.close()
+
     save_schedules_data_to_db(parsed_data, user_id=user_id)
 
-    driver.close()
     return driver
 
 
