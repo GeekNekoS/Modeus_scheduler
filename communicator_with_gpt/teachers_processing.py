@@ -20,7 +20,7 @@ def get_reviews_table() -> list:
         print(f"Can`t establish connection to database: {ex}\n")
 
 
-def get_avg_teacher_grades():
+def get_avg_teacher_grades() -> str:
     teachers_table = get_reviews_table()
     teachers_avg_grades = ""
     for teacher_data in teachers_table:

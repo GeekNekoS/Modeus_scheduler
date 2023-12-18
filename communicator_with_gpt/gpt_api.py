@@ -3,10 +3,11 @@ import os
 from dotenv import load_dotenv
 from teachers_processing import get_avg_teacher_grades
 from lessons_processing import get_user_lessons_table
+
 load_dotenv()
 
-def create_personal_schedule(user_id, query):
 
+def create_personal_schedule(user_id, query) -> str:
     get_user_lessons_table(user_id)
 
     with open(f"temp_files\\schedule_{user_id}.txt", "r", encoding="utf-8") as o_table:
