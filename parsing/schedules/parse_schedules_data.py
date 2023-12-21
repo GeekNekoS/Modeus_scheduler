@@ -20,7 +20,7 @@ dates = [
 ]
 
 
-def open_new_tab(driver, link):
+def open_new_tab(driver: webdriver, link: webdriver) -> webdriver:
     ActionChains(driver).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
     pyautogui.hotkey('ctrl', 't')
 
@@ -32,7 +32,7 @@ def open_new_tab(driver, link):
     driver.switch_to.window(window_after)
 
 
-def create_and_fill_schedules_table(user_login, user_password, user_id):
+def create_and_fill_schedules_table(user_login: str, user_password: str, user_id: str) -> webdriver:
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     driver = webdriver.Chrome()  # options=chrome_options
@@ -76,7 +76,7 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
                 direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
                 for direction_button_index in range(len(direction_buttons)):
                     direction_buttons = modeus_page.find_elements_by_xpath(direction_buttons_xpath)
-                    direction_name = direction_buttons[direction_button_index-1].text  # <==
+                    # direction_name = direction_buttons[direction_button_index-1].text  # <==
                     direction_link = direction_buttons[direction_button_index-1]
                     open_new_tab(driver, direction_link)
 
@@ -150,15 +150,15 @@ def create_and_fill_schedules_table(user_login, user_password, user_id):
     return driver
 
 
-# start = time.perf_counter()
-#
-# user_login = os.getenv('LOGIN')
-# user_password = os.getenv('PASSWORD')
-# user_id = "test"
-# create_and_fill_schedules_table(user_login, user_password, user_id)
-#
-# stop = time.perf_counter()
-# print(f"Программа выполняется за {stop - start} секунд")
+start = time.perf_counter()
+
+user_login = os.getenv('LOGIN')
+user_password = os.getenv('PASSWORD')
+user_id = "test"
+create_and_fill_schedules_table(user_login, user_password, user_id)
+
+stop = time.perf_counter()
+print(f"Программа выполняется за {stop - start} секунд")
 
 # Min:
 # 1) 249 сек -> Neko's
