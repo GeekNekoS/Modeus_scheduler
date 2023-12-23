@@ -61,7 +61,7 @@ class ModeusPage(BaseClass):
 
 
 class TeachersParsing(BaseClass):
-    def get_pages(self):
+    def get_pages(self) -> list[str]:
         pages = self.find_elements(TeachersParsingLocators.PAGES_HREFS, time=self.time)
         urls = []
         for page in pages:
@@ -72,7 +72,7 @@ class TeachersParsing(BaseClass):
         url = 'https://urfu.ru/ru/about/personal-pages'
         return self.get_connect(url)
 
-    def get_teachers_cards(self):
+    def get_teachers_cards(self) -> list:
         try:
             return self.find_elements(TeachersParsingLocators.TEACHERS_CARDS, time=self.time)
         except TE:
