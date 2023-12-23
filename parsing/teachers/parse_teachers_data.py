@@ -6,16 +6,16 @@ from selenium import webdriver
 def parse_teachers_data():
     driver = webdriver.Chrome()
 
-    # Working with modeus personal pages
-    modeus_page = TeachersParsing(driver)
+    # Working with personal pages
+    teachers_pages = TeachersParsing(driver)
 
     create_teachers_table()
-    modeus_page.go_to_teachers_page()
+    teachers_pages.go_to_teachers_page()
 
-    urls = modeus_page.get_pages()
+    urls = teachers_pages.get_pages()
     for url in urls:
-        modeus_page.get_connect(url)
-        teachers_cards = modeus_page.get_teachers_cards()
+        teachers_page.get_connect(url)
+        teachers_cards = teachers_pages.get_teachers_cards()
         for teacher_card in teachers_cards:
             teacher_data = teacher_card.text.split("\n")
             teacher_name = teacher_data[0]
