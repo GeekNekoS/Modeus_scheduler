@@ -14,7 +14,7 @@ def parse_teachers_data():
 
     urls = teachers_pages.get_pages()
     for url in urls:
-        teachers_page.get_connect(url)
+        teachers_pages.get_connect(url)
         teachers_cards = teachers_pages.get_teachers_cards()
         for teacher_card in teachers_cards:
             teacher_data = teacher_card.text.split("\n")
